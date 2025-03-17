@@ -2,8 +2,8 @@
 title: Lincoln Lopes - GitHub Pages
 tagline: The renowned dark theme for ...
 description: Base de conhecimento sobre tecnologia, programação e desenvolvimento de software.
-url: https://dracula.github.io/gh-pages/
-twitter: https://twitter.com/zenorocha
+url: https://lincolnlopes.github.io
+twitter: https://twitter.com/lincolngyn
 logo: https://draculatheme.com/static/icons/pack-1/045-dracula.svg
 
 mermaid: true
@@ -15,7 +15,7 @@ google_analytics:
 github:
   owner_name: Dracula
   owner_url: https://github.com/dracula
-  repository_url: https://github.com/dracula/gh-pages
+  repository_url: https://github.com/lincolnlopes/lincolnlopes.github.io
 
 show_downloads: true
 show_header: true
