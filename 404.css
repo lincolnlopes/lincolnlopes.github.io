@@ -17,7 +17,7 @@
 
 <div style="display: none" >
 
-Content not found<br > <a href="/" > Visit main page</a > <br > <br > Contenido no encontrado<br > <a href="/" > Visite la página web principal</a > <br > <br >
+Content not found<br > <a href="/" > Visit main page</a > <br > <br > Contenido no encontrado<br > <a href="/" > Visite la pï¿½gina web principal</a > <br > <br >
 </div >
 </div >
 
@@ -26,9 +26,10 @@ Content not found<br > <a href="/" > Visit main page</a > <br > <br > Contenido 
 
 
 @import url(https://fonts.googleapis.com/css?family=opensans:500);
+
 body {
-    background: #ffffff;
-    color: #cccccc;
+    background: #282a36;
+    color: #f8f8f2;
     font-family: 'Open Sans', sans-serif;
     max-height: 700px;
     overflow: hidden;
@@ -49,6 +50,7 @@ body {
     z-index: 2;
     height: 250px;
     letter-spacing: 15px;
+    color: #ff79c6;
 }
 
 ._1 {
@@ -58,6 +60,7 @@ body {
     letter-spacing: 12px;
     font-size: 4em;
     line-height: 80%;
+    color: #bd93f9;
 }
 
 ._2 {
@@ -65,6 +68,7 @@ body {
     display: block;
     position: relative;
     font-size: 20px;
+    color: #8be9fd;
 }
 
 .text {
@@ -73,16 +77,14 @@ body {
     position: relative;
     display: inline-block;
     margin: 19px 0px 0px 0px;
-    /* top: 256.301px; */
     z-index: 3;
     width: 100%;
     line-height: 1.2em;
-    display: inline-block;
+    color: #50fa7b;
 }
 
-
 .btn {
-    background-color: #cccccc;
+    background-color: #6272a4;
     position: relative;
     display: inline-block;
     width: 358px;
@@ -90,9 +92,9 @@ body {
     z-index: 5;
     font-size: 25px;
     margin: 0 auto;
-    color: #ffffff;
+    color: #f8f8f2;
     text-decoration: none;
-    margin-right: 10px
+    margin-right: 10px;
 }
 
 .right {
@@ -103,8 +105,8 @@ body {
 hr {
     padding: 0;
     border: none;
-    border-top: 5px solid #cccccc;
-    color: #cccccc;
+    border-top: 5px solid #6272a4;
+    color: #6272a4;
     text-align: center;
     margin: 0px auto;
     width: 420px;
@@ -119,18 +121,18 @@ hr {
         top: -0.75em;
         font-size: 2em;
         padding: 0 0.2em;
-        background: #ffffff;
+    background: #282a36;
     }
 
 .cloud {
     width: 350px;
     height: 120px;
     background: #eeeeee;
-    background: linear-gradient(top, #cccccc 100%);
-    background: -webkit-linear-gradient(top, #cccccc 100%);
-    background: -moz-linear-gradient(top, #cccccc 100%);
-    background: -ms-linear-gradient(top, #cccccc 100%);
-    background: -o-linear-gradient(top, #cccccc 100%);
+    background: linear-gradient(top, #44475a 100%);
+    background: -webkit-linear-gradient(top, #44475a 100%);
+    background: -moz-linear-gradient(top, #44475a 100%);
+    background: -ms-linear-gradient(top, #44475a 100%);
+    background: -o-linear-gradient(top, #44475a 100%);
     border-radius: 100px;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
