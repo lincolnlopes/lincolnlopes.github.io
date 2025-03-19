@@ -6,17 +6,17 @@ url: https://lincolnlopes.github.io
 twitter: https://twitter.com/lincolngyn
 logo: https://draculatheme.com/static/icons/pack-1/045-dracula.svg
 
-mermaid: true
-
 # Google Analytics ID
 google_analytics:
 
 # GitHub Values
 github:
-  owner_name: Dracula
-  owner_url: https://github.com/dracula
+  public: true
+  owner_name: Lincoln Lopes
+  owner_url: https://github.com/lincolnlopes
   repository_url: https://github.com/lincolnlopes/lincolnlopes.github.io
 
+mermaid: true
 show_downloads: true
 show_header: true
 remote_theme: "dracula/gh-pages"
