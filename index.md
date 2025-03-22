@@ -1,3 +1,7 @@
+---
+layout: default
+title: Bem-vindo ao Nosso Projeto
+---
 # Bem-vindo ao Nosso Projeto 🚀
 
 ## Sua Jornada Começa Aqui

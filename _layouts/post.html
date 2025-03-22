@@ -1,0 +1,21 @@
+<!-- _layouts/post.html -->
+---
+layout: default
+---
+
+<article>
+    <header>
+        <h1>{{ page.title }}</h1>
+        <div class="metadata">
+            {{ page.date | date_to_string }}
+            {% assign author = site.data.authors[page.author] %}
+            por {{ author.name }}
+        </div>
+    </header>
+
+    <div class="content">
+        {{ content }}
+    </div>
+
+    {% include comments.html %}
+</article>
