@@ -89,75 +89,91 @@ $letter-spacing-wide: 0.025em;
 $letter-spacing-wider: 0.05em;
 $letter-spacing-widest: 0.1em;
 
-// Cores
+// Temas
+$themes: (
+  light: (
+    // Cores base
+    white: #ffffff,
+    black: #000000,
+
+    // Cores primárias
+    primary: #2563eb,
+    primary-light: rgba(37, 99, 235, 0.1),
+    primary-dark: #1d4ed8,
+
+    // Cores de estado
+    success: #22c55e,
+    success-light: rgba(34, 197, 94, 0.1),
+    success-dark: #16a34a,
+
+    error: #ef4444,
+    error-light: rgba(239, 68, 68, 0.1),
+    error-dark: #dc2626,
+
+    warning: #f59e0b,
+    warning-light: rgba(245, 158, 11, 0.1),
+    warning-dark: #d97706,
+
+    info: #3b82f6,
+    info-light: rgba(59, 130, 246, 0.1),
+    info-dark: #2563eb,
+
+    // Cores de fundo
+    bg-primary: #ffffff,
+    bg-secondary: #f8fafc,
+    bg-tertiary: #f1f5f9,
+
+    // Cores de texto
+    text-primary: #1e293b,
+    text-secondary: #64748b,
+    text-tertiary: #94a3b8,
+
+    // Cores de borda
+    border: #e2e8f0,
+    border-hover: #cbd5e1,
+
+    // Cores de sombra
+    shadow: rgba(0, 0, 0, 0.1),
+    shadow-hover: rgba(0, 0, 0, 0.2)
+  ),
+  dark: (
+    bg-primary: #0f172a,
+    bg-secondary: #1e293b,
+    bg-tertiary: #334155,
+
+    text-primary: #f8fafc,
+    text-secondary: #cbd5e1,
+    text-tertiary: #94a3b8,
+
+    border: #334155,
+    border-hover: #475569,
+
+    shadow: rgba(0, 0, 0, 0.3),
+    shadow-hover: rgba(0, 0, 0, 0.4)
+  )
+);
+
+// Aplicar tema claro por padrão
 :root {
-  // Cores base
-  --white: #ffffff;
-  --black: #000000;
-
-  // Cores primárias
-  --primary-color: #2563eb;
-  --primary-color-light: rgba(37, 99, 235, 0.1);
-  --primary-color-dark: #1d4ed8;
-
-  // Cores de estado
-  --success-color: #22c55e;
-  --success-color-light: rgba(34, 197, 94, 0.1);
-  --success-color-dark: #16a34a;
-
-  --error-color: #ef4444;
-  --error-color-light: rgba(239, 68, 68, 0.1);
-  --error-color-dark: #dc2626;
-
-  --warning-color: #f59e0b;
-  --warning-color-light: rgba(245, 158, 11, 0.1);
-  --warning-color-dark: #d97706;
-
-  --info-color: #3b82f6;
-  --info-color-light: rgba(59, 130, 246, 0.1);
-  --info-color-dark: #2563eb;
-
-  // Cores de fundo
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-
-  // Cores de texto
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --text-tertiary: #94a3b8;
-
-  // Cores de borda
-  --border-color: #e2e8f0;
-  --border-color-hover: #cbd5e1;
-
-  // Cores de sombra
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --shadow-color-hover: rgba(0, 0, 0, 0.2);
-
-  // Gradientes
-  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-dark) 100%);
-  --gradient-success: linear-gradient(135deg, var(--success-color) 0%, var(--success-color-dark) 100%);
-  --gradient-error: linear-gradient(135deg, var(--error-color) 0%, var(--error-color-dark) 100%);
-  --gradient-warning: linear-gradient(135deg, var(--warning-color) 0%, var(--warning-color-dark) 100%);
-  --gradient-info: linear-gradient(135deg, var(--info-color) 0%, var(--info-color-dark) 100%);
+  @each $property, $value in map-get($themes, light) {
+    --#{$property}: #{$value};
+  }
 }
 
-// Tema escuro
+// Aplicar tema escuro quando selecionado
 [data-theme="dark"] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-tertiary: #334155;
+  @each $property, $value in map-get($themes, dark) {
+    --#{$property}: #{$value};
+  }
+}
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-tertiary: #94a3b8;
-
-  --border-color: #334155;
-  --border-color-hover: #475569;
-
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --shadow-color-hover: rgba(0, 0, 0, 0.4);
+// Gradientes
+:root {
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+  --gradient-error: linear-gradient(135deg, var(--error) 0%, var(--error-dark) 100%);
+  --gradient-warning: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
+  --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-dark) 100%);
 }
 
 // Transições
@@ -165,22 +181,49 @@ $transition-base: all 0.2s ease-in-out;
 $transition-slow: all 0.3s ease-in-out;
 $transition-fast: all 0.15s ease-in-out;
 
-// Typography
-$mono-fonts: "JetBrains Mono", "Fira Code", "Source Code Pro", "Monaco", "Consolas", "Courier New", monospace;
+// Dracula Theme
+$dracula: (
+  // Cores base
+  background: #282a36,
+  current: #44475a,
+  foreground: #f8f8f2,
+  comment: #6272a4,
+  
+  // Cores de destaque
+  cyan: #8be9fd,
+  green: #50fa7b,
+  orange: #ffb86c,
+  pink: #ff79c6,
+  purple: #bd93f9,
+  red: #ff5555,
+  yellow: #f1fa8c,
+  
+  // Variações
+  background-light: lighten(#282a36, 5%),
+  background-dark: darken(#282a36, 5%),
+  selection: rgba(#44475a, 0.75)
+);
 
-// Dracula Theme Colors
-$background: #282a36;
-$current: #44475a;
-$foreground: #f8f8f2;
-$comment: #6272a4;
-$cyan: #8be9fd;
-$green: #50fa7b;
-$orange: #ffb86c;
-$pink: #ff79c6;
-$purple: #bd93f9;
-$red: #ff5555;
-$yellow: #f1fa8c;
+// Mapeamento das variáveis do Dracula
+$background: map-get($dracula, background);
+$current: map-get($dracula, current);
+$foreground: map-get($dracula, foreground);
+$comment: map-get($dracula, comment);
+$cyan: map-get($dracula, cyan);
+$green: map-get($dracula, green);
+$orange: map-get($dracula, orange);
+$pink: map-get($dracula, pink);
+$purple: map-get($dracula, purple);
+$red: map-get($dracula, red);
+$yellow: map-get($dracula, yellow);
 
-// Dracula Theme Fonts
-$body-fonts: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$heading-fonts: "Copse", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+// Fontes do tema
+$font-stack: (
+  body: ("Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif),
+  heading: ("Copse", "Helvetica Neue", Helvetica, Arial, sans-serif),
+  mono: ("JetBrains Mono", "Fira Code", "Source Code Pro", Monaco, Consolas, "Courier New", monospace)
+);
+
+$body-fonts: map-get($font-stack, body);
+$heading-fonts: map-get($font-stack, heading);
+$mono-fonts: map-get($font-stack, mono); 
