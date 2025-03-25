@@ -1,4 +1,16 @@
 ---
 ---
 
-@import "main";
+@import "normalize";
+@import "variables";
+@import "base";
+@import "utilities";
+@import "animations";
+@import "header";
+@import "footer";
+@import "search";
+@import "categories";
+@import "responsive";
+@import "themes/dark";
+@import "layouts/article";
+@import "layouts/tutorial";
