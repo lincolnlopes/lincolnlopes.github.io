@@ -281,4 +281,21 @@
   .tutorials-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.technologies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin: 1rem 0;
+
+  img {
+    vertical-align: middle;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 } 
