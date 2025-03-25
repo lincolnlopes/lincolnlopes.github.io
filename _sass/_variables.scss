@@ -91,6 +91,51 @@ $letter-spacing-widest: 0.1em;
 
 // Temas
 $themes: (
+  dark: (
+    // Cores base
+    white: #f8fafc,
+    black: #000000,
+
+    // Cores primárias
+    primary: #60a5fa,
+    primary-light: rgba(96, 165, 250, 0.1),
+    primary-dark: #3b82f6,
+
+    // Cores de estado
+    success: #4ade80,
+    success-light: rgba(74, 222, 128, 0.1),
+    success-dark: #22c55e,
+
+    error: #f87171,
+    error-light: rgba(248, 113, 113, 0.1),
+    error-dark: #ef4444,
+
+    warning: #fbbf24,
+    warning-light: rgba(251, 191, 36, 0.1),
+    warning-dark: #f59e0b,
+
+    info: #93c5fd,
+    info-light: rgba(147, 197, 253, 0.1),
+    info-dark: #60a5fa,
+
+    // Cores de fundo
+    bg-primary: #0f172a,
+    bg-secondary: #1e293b,
+    bg-tertiary: #334155,
+
+    // Cores de texto
+    text-primary: #f8fafc,
+    text-secondary: #cbd5e1,
+    text-tertiary: #94a3b8,
+
+    // Cores de borda
+    border: #334155,
+    border-hover: #475569,
+
+    // Cores de sombra
+    shadow: rgba(0, 0, 0, 0.3),
+    shadow-hover: rgba(0, 0, 0, 0.4)
+  ),
   light: (
     // Cores base
     white: #ffffff,
@@ -135,34 +180,19 @@ $themes: (
     // Cores de sombra
     shadow: rgba(0, 0, 0, 0.1),
     shadow-hover: rgba(0, 0, 0, 0.2)
-  ),
-  dark: (
-    bg-primary: #0f172a,
-    bg-secondary: #1e293b,
-    bg-tertiary: #334155,
-
-    text-primary: #f8fafc,
-    text-secondary: #cbd5e1,
-    text-tertiary: #94a3b8,
-
-    border: #334155,
-    border-hover: #475569,
-
-    shadow: rgba(0, 0, 0, 0.3),
-    shadow-hover: rgba(0, 0, 0, 0.4)
   )
 );
 
-// Aplicar tema claro por padrão
+// Aplicar tema escuro por padrão
 :root {
-  @each $property, $value in map-get($themes, light) {
+  @each $property, $value in map-get($themes, dark) {
     --#{$property}: #{$value};
   }
 }
 
-// Aplicar tema escuro quando selecionado
-[data-theme="dark"] {
-  @each $property, $value in map-get($themes, dark) {
+// Aplicar tema claro quando selecionado
+[data-theme="light"] {
+  @each $property, $value in map-get($themes, light) {
     --#{$property}: #{$value};
   }
 }
