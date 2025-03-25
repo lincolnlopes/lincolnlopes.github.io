@@ -1,9 +1,12 @@
 source "https://rubygems.org"
+ruby "3.2.2"
 
 gem "jekyll", "~> 4.3.2"
 gem "webrick"
 gem "jekyll-sass-converter", "~> 2.0"
 gem "faraday-retry", "~> 2.2"
+gem "ffi", "~> 1.15.5"
+gem "sassc", "~> 2.4.0"
 
 # Plugins
 gem "jekyll-feed", "~> 0.17.0"
