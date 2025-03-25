@@ -1,49 +1,87 @@
 ---
-layout: default
-title: Bem-vindo ao Nosso Projeto
----
-# Bem-vindo ao Nosso Projeto 🚀
-
-## Sua Jornada Começa Aqui
-
-Olá! Estamos felizes em recebê-lo(a) aqui. Nossa missão é ajudar você a [descrição breve do objetivo].
-
----
-
-## Por Que Estamos Aqui?
-
-*   Oferecemos soluções inovadoras para [seu nicho]
-*   Nosso foco é [princípio fundamental]
-*   Queremos ajudar você a [resultado esperado]
-
----
-
-## Como Funciona?
-
-1.  **Primeiro Passo**
-    *   Descrição do processo inicial
-    *   Benefícios do primeiro contato
-    
-2.  **Próximos Passos**
-    *   Caminho recomendado
-    *   Recursos disponíveis
-
+marp: true
+theme: default
+style: |
+  .social-links {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+  }
+  
+  .social-links a {
+    color: #333;
+    text-decoration: none;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .social-links a:hover {
+    background-color: #ddd;
+  }
 ---
 
-## Pronto para Começar?
+# Lincoln Lopes
 
-[Botão CTA](#cta)
+## Sobre Mim
 
-### Recursos Adicionais
+Sou um profissional dedicado e apaixonado pela tecnologia, com experiência em desenvolvimento de software e projetos open source. Meu trabalho está disponível no GitHub, onde compartilho minhas contribuições para a comunidade de desenvolvimento.
 
-*   [Guia Rápido](guia-rapido.md)
-*   [FAQ](faq.md)
-*   [Contato](contato.md)
 
 ---
 
-## Quer Ficar Por Dentro?
+<div class="social-links">
+  <a href="https://github.com/lincolnlopes">GitHub</a>
+  <a href="https://www.linkedin.com/in/lincoln-lopes">LinkedIn</a>
+  <a href="https://www.fb.com/lincolngyn">Facebook</a>
+</div>
 
-*   Assine nossa newsletter
-*   Siga nossas redes sociais
-*   Participe da nossa comunidade
+---
+
+## Habilidades
+
+• Desenvolvimento Web
+• Programação
+• Open Source
+• Tecnologias Emergentes
+
+---
+## Tecnologias
+
+<img height="20" src="https://cdn.simpleicons.org/javascript?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/typescript?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/dotnet?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/jest?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/solidity?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/git?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/supabase?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/gitlab?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/airflow?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="20" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+
+---
+
+## Experiência Profissional
+
+Coloque aqui sua experiência profissional, dividindo por empresas e períodos.
+
+---
+
+## Formação Acadêmica
+
+• Adicione sua formação acadêmica aqui
+• Inclua cursos relevantes
+• Certificações importantes
+
+---
+
+## Projetos Destaque
+
+• Liste seus principais projetos
+• Descreva brevemente cada projeto
+• Inclua links relevantes

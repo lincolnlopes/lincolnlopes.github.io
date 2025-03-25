@@ -1,3 +1,19 @@
+---
+layout: tutorial
+title: Instalação do OpenJDK 21 no Debian
+description: Guia completo para instalação e configuração do OpenJDK 21 em sistemas Debian Linux
+date: 2024-03-08
+author: Lincoln Lopes
+tags: 
+  - java
+  - debian
+  - linux
+  - openjdk
+difficulty: intermediário
+time_to_read: 10
+toc: true
+---
+
 # Instalação do OpenJDK 21 no Debian
 
 ## Pré-requisitos

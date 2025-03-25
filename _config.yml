@@ -28,11 +28,44 @@ plugins:
   - jekyll-seo-tag
   - faraday-retry
 
+# Collections
+collections:
+  tutorials:
+    output: true
+    permalink: /tutorials/:path/
+  devops:
+    output: true
+    permalink: /devops/:path/
+  articles:
+    output: true
+    permalink: /articles/:path/
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# Collection Defaults
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: "posts"
+      type: "tutorials"
     values:
-      layout: "post"
+      layout: "tutorial"
+      author: "Lincoln Lopes"
+  - scope:
+      path: ""
+      type: "devops"
+    values:
+      layout: "article"
+      author: "Lincoln Lopes"
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"
+      author: "Lincoln Lopes"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "project"
       author: "Lincoln Lopes"
