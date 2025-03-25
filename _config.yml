@@ -79,7 +79,7 @@ comments:
     repository: lincolnlopes/lincolnlopes.github.io
     issue_term: pathname
     label: 💬 Comentários
-    theme: dracula
+    theme: github-dark
 
 # Build
 markdown: kramdown
