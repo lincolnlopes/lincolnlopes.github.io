@@ -51,19 +51,19 @@ Sou um profissional dedicado e apaixonado pela tecnologia, com experiência em d
 ## Tecnologias
 
 <div class="technologies">
-<img height="16" src="https://cdn.simpleicons.org/javascript?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/typescript?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/dotnet?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/jest?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/solidity?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/git?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/supabase?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/gitlab?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/airflow?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
-<img height="16" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/javascript?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/typescript?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/dotnet?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/jest?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/solidity?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/git?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/supabase?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/gitlab?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/airflow?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
+<img height="16px" src="https://cdn.simpleicons.org/gitea?viewbox=auto" />
 </div>
 
 ---
