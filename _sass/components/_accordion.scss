@@ -1,97 +1,115 @@
 .accordion {
-  position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  border-radius: $border-radius;
 
   // Item
   .item {
-    border: 1px solid var(--border-color);
-    border-radius: $border-radius;
-    margin-bottom: 0.5rem;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
+    border-bottom: 1px solid var(--border-color);
 
     &:last-child {
-      margin-bottom: 0;
+      border-bottom: none;
     }
 
-    // Cabeçalho
+    // Header
     .header {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 1rem;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+      color: var(--text-primary);
+      font-size: 0.875rem;
+      font-weight: 500;
       background: var(--bg-primary);
       cursor: pointer;
-      user-select: none;
+      transition: all 0.2s ease-in-out;
 
-      // Título
-      .title {
-        font-weight: 500;
-        color: var(--text-primary);
-        margin: 0;
+      &:hover {
+        background: var(--bg-secondary);
       }
 
-      // Ícone
       .icon {
         width: 1.25rem;
         height: 1.25rem;
         color: var(--text-secondary);
+        flex-shrink: 0;
+      }
+
+      .title {
+        flex: 1;
+        min-width: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .badge {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+        border-radius: $border-radius;
+      }
+
+      .arrow {
+        width: 1rem;
+        height: 1rem;
+        color: var(--text-secondary);
+        transform: rotate(0deg);
         transition: transform 0.2s ease-in-out;
       }
     }
 
-    // Conteúdo
+    // Content
     .content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--bg-secondary);
-      transition: all 0.2s ease-in-out;
+      display: none;
+      padding: 1rem 1.5rem;
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      background: var(--bg-primary);
     }
 
-    // Estado ativo
+    // Active
     &.active {
       .header {
+        color: var(--primary-color);
         background: var(--primary-color-light);
-        border-bottom: 1px solid var(--primary-color);
-
-        .title {
-          color: var(--primary-color);
-        }
 
         .icon {
           color: var(--primary-color);
-          transform: rotate(180deg);
+        }
+
+        .badge {
+          background: var(--primary-color);
+          color: var(--white);
+        }
+
+        .arrow {
+          transform: rotate(90deg);
+          color: var(--primary-color);
         }
       }
 
       .content {
-        max-height: 1000px;
-        padding: 1rem;
+        display: block;
+        animation: slideDown 0.2s ease-in-out;
       }
     }
 
-    // Ícone
-    .icon {
-      width: 1.25rem;
-      height: 1.25rem;
-      margin-right: 0.5rem;
-      color: var(--text-secondary);
-    }
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
 
-    // Badge
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 1.5rem;
-      height: 1.5rem;
-      padding: 0 0.5rem;
-      margin-left: 0.5rem;
-      border-radius: $border-radius-full;
-      background: var(--bg-tertiary);
-      color: var(--text-secondary);
-      font-size: 0.75rem;
-      font-weight: 600;
+      .header {
+        cursor: not-allowed;
+
+        &:hover {
+          background: var(--bg-primary);
+        }
+      }
     }
   }
 
@@ -99,31 +117,29 @@
   &-sm {
     .item {
       .header {
-        padding: 0.75rem;
-      }
+        padding: 0.75rem 1rem;
+        font-size: 0.75rem;
+        gap: 0.75rem;
 
-      .title {
-        font-size: 0.875rem;
-      }
-
-      .icon {
-        width: 1rem;
-        height: 1rem;
-        margin-right: 0.375rem;
-      }
-
-      .badge {
-        min-width: 1.25rem;
-        height: 1.25rem;
-        padding: 0 0.375rem;
-        margin-left: 0.375rem;
-        font-size: 0.625rem;
-      }
-
-      &.active {
-        .content {
-          padding: 0.75rem;
+        .icon {
+          width: 1rem;
+          height: 1rem;
         }
+
+        .badge {
+          padding: 0.125rem 0.375rem;
+          font-size: 0.625rem;
+        }
+
+        .arrow {
+          width: 0.875rem;
+          height: 0.875rem;
+        }
+      }
+
+      .content {
+        padding: 0.75rem 1rem;
+        font-size: 0.75rem;
       }
     }
   }
@@ -131,160 +147,116 @@
   &-lg {
     .item {
       .header {
-        padding: 1.25rem;
-      }
+        padding: 1.25rem 2rem;
+        font-size: 1rem;
+        gap: 1.25rem;
 
-      .title {
-        font-size: 1.125rem;
-      }
-
-      .icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        margin-right: 0.75rem;
-      }
-
-      .badge {
-        min-width: 1.75rem;
-        height: 1.75rem;
-        padding: 0 0.75rem;
-        margin-left: 0.75rem;
-        font-size: 0.875rem;
-      }
-
-      &.active {
-        .content {
-          padding: 1.25rem;
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
         }
+
+        .badge {
+          padding: 0.375rem 0.75rem;
+          font-size: 0.875rem;
+        }
+
+        .arrow {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+      }
+
+      .content {
+        padding: 1.25rem 2rem;
+        font-size: 1rem;
       }
     }
   }
 
   // Estilos
   &-bordered {
-    .item {
-      border: none;
-      border-radius: 0;
-      border-bottom: 1px solid var(--border-color);
+    border: 1px solid var(--border-color);
 
-      &:last-child {
-        border-bottom: none;
+    .item {
+      &:first-child {
+        .header {
+          border-radius: $border-radius $border-radius 0 0;
+        }
       }
 
-      &.active {
+      &:last-child {
         .header {
-          border-bottom: 1px solid var(--primary-color);
+          border-radius: 0 0 $border-radius $border-radius;
+        }
+
+        .content {
+          border-radius: 0 0 $border-radius $border-radius;
+        }
+
+        &.active {
+          .header {
+            border-radius: 0;
+          }
         }
       }
     }
   }
 
   &-shadow {
-    .item {
-      box-shadow: $shadow-sm;
-      border: none;
-
-      &:hover {
-        box-shadow: $shadow-md;
-      }
-
-      &.active {
-        box-shadow: $shadow-lg;
-      }
-    }
-  }
-
-  &-flush {
-    .item {
-      border: none;
-      border-radius: 0;
-      margin-bottom: 0;
-
-      .header {
-        border-radius: 0;
-      }
-
-      .content {
-        border-radius: 0;
-      }
-    }
+    box-shadow: $shadow-sm;
   }
 
   // Variantes
   &-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+
     .item {
+      border-color: rgba(255, 255, 255, 0.1);
+
+      .header {
+        color: var(--white);
+        background: transparent;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        .icon {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        .arrow {
+          color: rgba(255, 255, 255, 0.7);
+        }
+      }
+
+      .content {
+        color: rgba(255, 255, 255, 0.7);
+        background: transparent;
+      }
+
       &.active {
         .header {
-          background: var(--primary-color-light);
-          border-bottom-color: var(--primary-color);
+          background: rgba(255, 255, 255, 0.2);
 
-          .title,
           .icon {
+            color: var(--white);
+          }
+
+          .badge {
+            background: var(--white);
             color: var(--primary-color);
           }
-        }
-      }
-    }
-  }
 
-  &-success {
-    .item {
-      &.active {
-        .header {
-          background: var(--success-color-light);
-          border-bottom-color: var(--success-color);
-
-          .title,
-          .icon {
-            color: var(--success-color);
-          }
-        }
-      }
-    }
-  }
-
-  &-error {
-    .item {
-      &.active {
-        .header {
-          background: var(--error-color-light);
-          border-bottom-color: var(--error-color);
-
-          .title,
-          .icon {
-            color: var(--error-color);
-          }
-        }
-      }
-    }
-  }
-
-  &-warning {
-    .item {
-      &.active {
-        .header {
-          background: var(--warning-color-light);
-          border-bottom-color: var(--warning-color);
-
-          .title,
-          .icon {
-            color: var(--warning-color);
-          }
-        }
-      }
-    }
-  }
-
-  &-info {
-    .item {
-      &.active {
-        .header {
-          background: var(--info-color-light);
-          border-bottom-color: var(--info-color);
-
-          .title,
-          .icon {
-            color: var(--info-color);
+          .arrow {
+            color: var(--white);
           }
         }
       }
@@ -295,14 +267,42 @@
   @media (max-width: $breakpoint-sm) {
     .item {
       .header {
-        padding: 0.75rem;
-      }
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+        gap: 0.75rem;
 
-      &.active {
-        .content {
-          padding: 0.75rem;
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        .badge {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+        }
+
+        .arrow {
+          width: 0.875rem;
+          height: 0.875rem;
         }
       }
+
+      .content {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+      }
     }
+  }
+}
+
+// Animações
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 } 
