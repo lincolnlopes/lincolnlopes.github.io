@@ -27,6 +27,14 @@ $breakpoints: (
   xxl: 1536px
 );
 
+// Variáveis de breakpoint para compatibilidade
+$breakpoint-xs: map-get($breakpoints, xs);
+$breakpoint-sm: map-get($breakpoints, sm);
+$breakpoint-md: map-get($breakpoints, md);
+$breakpoint-lg: map-get($breakpoints, lg);
+$breakpoint-xl: map-get($breakpoints, xl);
+$breakpoint-xxl: map-get($breakpoints, xxl);
+
 // Container
 $container-max-widths: (
   sm: 640px,
@@ -99,9 +107,9 @@ $container-padding-lg: 1.5rem;
 
 // Tipografia
 $font-families: (
-  sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif,
-  mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace,
-  heading: "Copse", "Helvetica Neue", Helvetica, Arial, sans-serif
+  sans: -apple-system BlinkMacSystemFont "Segoe UI" Roboto "Helvetica Neue" Arial sans-serif,
+  mono: ui-monospace SFMono-Regular Menlo Monaco Consolas "Liberation Mono" "Courier New" monospace,
+  heading: "Copse" "Helvetica Neue" Helvetica Arial sans-serif
 );
 
 $font-family-base: map-get($font-families, sans);
@@ -354,9 +362,9 @@ $yellow: map-get($dracula, yellow);
 
 // Fontes do tema
 $font-stack: (
-  body: ("Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif),
-  heading: ("Copse", "Helvetica Neue", Helvetica, Arial, sans-serif),
-  mono: ("JetBrains Mono", "Fira Code", "Source Code Pro", Monaco, Consolas, "Courier New", monospace)
+  body: "Open Sans" "Helvetica Neue" Helvetica Arial sans-serif,
+  heading: "Copse" "Helvetica Neue" Helvetica Arial sans-serif,
+  mono: "JetBrains Mono" "Fira Code" "Source Code Pro" Monaco Consolas "Courier New" monospace
 );
 
 $body-fonts: map-get($font-stack, body);
