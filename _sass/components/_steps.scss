@@ -1,0 +1,261 @@
+.steps {
+  display: flex;
+  gap: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  // Item do passo
+  .step {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    // Número
+    .step-number {
+      width: 3rem;
+      height: 3rem;
+      border-radius: $border-radius-full;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 1.25rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    // Ícone
+    .step-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: $border-radius-full;
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      transition: all 0.2s ease-in-out;
+    }
+
+    // Conteúdo
+    .step-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    // Título
+    .step-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    // Descrição
+    .step-description {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    // Conectores
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      left: calc(100% + 1rem);
+      width: 1rem;
+      height: 2px;
+      background: var(--border-color);
+
+      @media (max-width: $breakpoint-md) {
+        top: auto;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 1rem;
+      }
+    }
+
+    // Estado ativo
+    &.active {
+      .step-number,
+      .step-icon {
+        background: var(--primary-color);
+        color: var(--text-light);
+      }
+
+      .step-title {
+        color: var(--primary-color);
+      }
+    }
+
+    // Estado completo
+    &.completed {
+      .step-number,
+      .step-icon {
+        background: var(--success-color);
+        color: var(--text-light);
+      }
+
+      &::after {
+        background: var(--success-color);
+      }
+    }
+
+    // Estado de erro
+    &.error {
+      .step-number,
+      .step-icon {
+        background: var(--error-color);
+        color: var(--text-light);
+      }
+
+      .step-title {
+        color: var(--error-color);
+      }
+    }
+  }
+
+  // Variantes
+  &-vertical {
+    flex-direction: column;
+    gap: 2rem;
+
+    .step {
+      flex-direction: row;
+      text-align: left;
+      gap: 1.5rem;
+
+      .step-number,
+      .step-icon {
+        margin-bottom: 0;
+      }
+
+      &:not(:last-child)::after {
+        top: calc(100% + 1rem);
+        left: 1.5rem;
+        width: 2px;
+        height: 1rem;
+      }
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    gap: 1.5rem;
+
+    .step {
+      .step-number,
+      .step-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-title {
+        font-size: 1rem;
+      }
+
+      .step-description {
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  &-lg {
+    gap: 2.5rem;
+
+    .step {
+      .step-number,
+      .step-icon {
+        width: 4rem;
+        height: 4rem;
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .step-title {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  // Com hover
+  &-hover {
+    .step {
+      .step-number,
+      .step-icon {
+        transition: transform 0.2s ease-in-out;
+      }
+
+      &:hover {
+        .step-number,
+        .step-icon {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  // Com animação
+  &-animated {
+    .step {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease-in-out;
+
+      &.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .steps {
+    gap: 1rem;
+
+    .step {
+      .step-number,
+      .step-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .step-title {
+        font-size: 1rem;
+      }
+
+      .step-description {
+        font-size: 0.875rem;
+      }
+
+      &:not(:last-child)::after {
+        height: 0.75rem;
+      }
+    }
+
+    &-vertical {
+      .step {
+        gap: 1rem;
+      }
+    }
+  }
+} 

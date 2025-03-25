@@ -1,0 +1,258 @@
+.comments {
+  margin: 2rem 0;
+
+  // Título da seção
+  .comments-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  // Lista de comentários
+  .comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  // Item do comentário
+  .comment {
+    display: flex;
+    gap: 1rem;
+
+    // Avatar
+    .comment-avatar {
+      flex-shrink: 0;
+      width: 3rem;
+      height: 3rem;
+      border-radius: $border-radius-full;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    // Conteúdo
+    .comment-content {
+      flex: 1;
+
+      // Cabeçalho
+      .comment-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        .comment-author {
+          font-weight: 600;
+          color: var(--text-primary);
+          text-decoration: none;
+
+          &:hover {
+            color: var(--primary-color);
+          }
+        }
+
+        .comment-meta {
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+        }
+
+        .comment-badge {
+          padding: 0.25rem 0.5rem;
+          border-radius: $border-radius;
+          font-size: 0.75rem;
+          font-weight: 600;
+          background: var(--bg-secondary);
+          color: var(--text-secondary);
+
+          &-author {
+            background: var(--primary-color);
+            color: var(--text-light);
+          }
+
+          &-moderator {
+            background: var(--info-color);
+            color: var(--text-light);
+          }
+        }
+      }
+
+      // Texto
+      .comment-text {
+        margin-bottom: 0.75rem;
+        color: var(--text-primary);
+        line-height: 1.5;
+
+        p {
+          margin: 0 0 0.75rem;
+
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      // Ações
+      .comment-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .comment-action {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.875rem;
+          color: var(--text-secondary);
+          text-decoration: none;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: var(--primary-color);
+          }
+
+          .comment-action-icon {
+            font-size: 1rem;
+          }
+
+          .comment-action-count {
+            font-weight: 600;
+          }
+        }
+      }
+
+      // Respostas
+      .comment-replies {
+        margin-top: 1rem;
+        padding-left: 1.5rem;
+        border-left: 2px solid var(--border-color);
+      }
+    }
+  }
+
+  // Formulário de comentário
+  .comment-form {
+    margin-top: 2rem;
+
+    .comment-form-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .comment-form-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      textarea {
+        width: 100%;
+        min-height: 100px;
+        padding: 0.75rem;
+        border: 1px solid var(--border-color);
+        border-radius: $border-radius;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        resize: vertical;
+        transition: all 0.2s ease-in-out;
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px var(--primary-color-light);
+        }
+      }
+
+      .comment-form-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        button {
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: $border-radius;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &.comment-submit {
+            background: var(--primary-color);
+            color: var(--text-light);
+
+            &:hover {
+              background: var(--primary-color-dark);
+            }
+          }
+
+          &.comment-cancel {
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+
+            &:hover {
+              background: var(--bg-tertiary);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .comments {
+    margin: 1.5rem 0;
+
+    .comments-title {
+      font-size: 1.125rem;
+      margin-bottom: 1rem;
+    }
+
+    .comment {
+      .comment-avatar {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+
+      .comment-content {
+        .comment-header {
+          flex-wrap: wrap;
+        }
+
+        .comment-actions {
+          flex-wrap: wrap;
+        }
+
+        .comment-replies {
+          padding-left: 1rem;
+        }
+      }
+    }
+
+    .comment-form {
+      margin-top: 1.5rem;
+
+      .comment-form-title {
+        font-size: 1rem;
+      }
+
+      .comment-form-content {
+        .comment-form-actions {
+          flex-direction: column;
+          align-items: stretch;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+} 

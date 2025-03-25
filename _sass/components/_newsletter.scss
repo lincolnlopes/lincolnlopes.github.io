@@ -1,0 +1,201 @@
+.newsletter {
+  position: relative;
+  padding: 4rem 2rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+
+  // Fundo decorativo
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, var(--primary-color-light) 0%, transparent 100%);
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  // Container
+  .newsletter-container {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+
+    // Título
+    .newsletter-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    // Descrição
+    .newsletter-description {
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    // Formulário
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+
+      // Input
+      .form-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: $border-radius;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.2s ease-in-out;
+
+        &::placeholder {
+          color: var(--text-tertiary);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px var(--primary-color-light);
+        }
+      }
+
+      // Botão
+      .form-button {
+        padding: 0.75rem 1.5rem;
+        background: var(--primary-color);
+        border: none;
+        border-radius: $border-radius;
+        color: var(--text-light);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background: var(--primary-color-dark);
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    // Mensagem de sucesso
+    .newsletter-success {
+      display: none;
+      padding: 1rem;
+      background: var(--success-color-light);
+      border-radius: $border-radius;
+      color: var(--success-color);
+      font-size: 0.875rem;
+      font-weight: 600;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    // Mensagem de erro
+    .newsletter-error {
+      display: none;
+      padding: 1rem;
+      background: var(--error-color-light);
+      border-radius: $border-radius;
+      color: var(--error-color);
+      font-size: 0.875rem;
+      font-weight: 600;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    // Termos
+    .newsletter-terms {
+      font-size: 0.75rem;
+      color: var(--text-tertiary);
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Variantes
+  &-compact {
+    padding: 2rem;
+
+    .newsletter-container {
+      .newsletter-title {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  &-dark {
+    background: var(--bg-secondary);
+
+    &::before {
+      background: linear-gradient(45deg, var(--primary-color) 0%, transparent 100%);
+    }
+  }
+
+  &-bordered {
+    border-width: 2px;
+  }
+
+  &-shadow {
+    border: none;
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .newsletter {
+    padding: 2rem 1.5rem;
+
+    .newsletter-container {
+      .newsletter-title {
+        font-size: 1.5rem;
+      }
+
+      .newsletter-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+
+        .form-button {
+          width: 100%;
+        }
+      }
+    }
+  }
+} 

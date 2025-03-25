@@ -1,0 +1,102 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+
+  // Cabeçalho
+  thead {
+    background: var(--bg-secondary);
+    border-bottom: 2px solid var(--border-color);
+
+    th {
+      padding: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
+      white-space: nowrap;
+    }
+  }
+
+  // Corpo
+  tbody {
+    tr {
+      border-bottom: 1px solid var(--border-color);
+      transition: $transition-base;
+
+      &:hover {
+        background: var(--bg-secondary);
+      }
+
+      td {
+        padding: 1rem;
+        color: var(--text-secondary);
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // Variantes
+  &-striped {
+    tbody {
+      tr:nth-child(even) {
+        background: var(--bg-secondary);
+      }
+    }
+  }
+
+  &-bordered {
+    border: 1px solid var(--border-color);
+
+    th, td {
+      border: 1px solid var(--border-color);
+    }
+  }
+
+  &-hover {
+    tbody tr:hover {
+      background: var(--bg-secondary);
+    }
+  }
+
+  // Responsiva
+  &-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  // Compacta
+  &-compact {
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+
+  // Com ações
+  &-actions {
+    .action-buttons {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-end;
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-md) {
+  .table {
+    th, td {
+      padding: 0.75rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .table {
+    th, td {
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+} 

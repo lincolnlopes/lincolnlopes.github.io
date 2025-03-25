@@ -1,34 +1,25 @@
-// Reset
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+// Reset e estilos base
+* {
   margin: 0;
   padding: 0;
-}
-
-// Estilos base
-html {
-  font-size: $font-size-base;
-  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 body {
   font-family: $font-family-base;
+  font-size: $font-size-base;
   line-height: $line-height-base;
-  color: var(--text-color);
-  background: var(--bg-primary);
-  transition: background-color var(--transition-speed) var(--transition-timing),
-              color var(--transition-speed) var(--transition-timing);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: $transition-base;
 }
 
 // Tipografia
 h1, h2, h3, h4, h5, h6 {
-  font-family: $font-family-base;
-  font-weight: 600;
+  font-family: $font-family-heading;
+  font-weight: 700;
   line-height: 1.2;
-  margin-bottom: $spacing-md;
-  color: var(--text-color);
+  margin-bottom: 1rem;
 }
 
 h1 { font-size: 2.5rem; }
@@ -38,31 +29,29 @@ h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
 
+p {
+  margin-bottom: 1.5rem;
+}
+
 // Links
 a {
   color: var(--primary-color);
   text-decoration: none;
-  transition: color var(--transition-speed) var(--transition-timing);
-  
-  &:hover {
-    color: var(--secondary-color);
-  }
-}
+  transition: $transition-base;
 
-// Parágrafos
-p {
-  margin-bottom: $spacing-md;
-  line-height: 1.6;
+  &:hover {
+    color: darken(var(--primary-color), 10%);
+  }
 }
 
 // Listas
 ul, ol {
-  margin-bottom: $spacing-md;
-  padding-left: $spacing-lg;
-  
-  li {
-    margin-bottom: $spacing-xs;
-  }
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
 }
 
 // Imagens
@@ -70,134 +59,139 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
-  margin-bottom: $spacing-md;
+  margin-bottom: 1.5rem;
 }
 
 // Código
 code {
-  font-family: $mono-fonts;
-  font-size: 0.9em;
-  padding: 0.2em 0.4em;
-  background: var(--bg-secondary);
+  background-color: var(--code-bg);
+  padding: 0.2rem 0.4rem;
   border-radius: $border-radius-sm;
+  font-size: 0.9em;
 }
 
 pre {
-  background: var(--bg-secondary);
-  padding: $spacing-md;
+  background-color: var(--code-bg);
+  padding: 1rem;
   border-radius: $border-radius-md;
   overflow-x: auto;
-  margin-bottom: $spacing-md;
-  
+  margin-bottom: 1.5rem;
+
   code {
-    background: none;
+    background-color: transparent;
     padding: 0;
   }
 }
 
 // Citações
 blockquote {
-  border-left: 4px solid var(--primary-color);
-  padding-left: $spacing-md;
-  margin-bottom: $spacing-md;
+  border-left: 4px solid var(--blockquote-border);
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: var(--blockquote-bg);
+  border-radius: $border-radius-md;
   font-style: italic;
-  color: var(--text-muted);
 }
 
 // Tabelas
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: $spacing-md;
-  
-  th, td {
-    padding: $spacing-sm;
-    border: 1px solid var(--border-color);
-    text-align: left;
-  }
-  
-  th {
-    background: var(--bg-secondary);
-    font-weight: 600;
-  }
-  
-  tr:nth-child(even) {
-    background: var(--bg-secondary);
-  }
+  margin-bottom: 1.5rem;
 }
 
-// Formulários
-input, textarea, select {
-  font-family: $font-family-base;
-  font-size: 1rem;
-  padding: $spacing-sm;
+th, td {
+  padding: 0.75rem;
   border: 1px solid var(--border-color);
-  border-radius: $border-radius-sm;
-  background: var(--bg-primary);
-  color: var(--text-color);
-  width: 100%;
-  margin-bottom: $spacing-md;
-  
-  &:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
-  }
+  text-align: left;
 }
 
-button {
-  font-family: $font-family-base;
-  font-size: 1rem;
-  padding: $spacing-sm $spacing-md;
-  border: none;
-  border-radius: $border-radius-sm;
-  background: var(--primary-color);
-  color: white;
+th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+// Botões
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: $border-radius-full;
+  font-weight: 500;
+  text-align: center;
+  transition: $transition-base;
   cursor: pointer;
-  transition: background-color var(--transition-speed) var(--transition-timing);
-  
-  &:hover {
-    background: var(--secondary-color);
+
+  &.primary {
+    background-color: var(--primary-color);
+    color: white;
+
+    &:hover {
+      background-color: darken(var(--primary-color), 10%);
+    }
   }
-  
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+
+  &.secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+
+    &:hover {
+      background-color: var(--bg-tertiary);
+    }
   }
 }
 
-// Container principal
-.main-content {
+// Container
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: $spacing-lg $spacing-md;
+  padding: 0 $container-padding;
 }
 
-// Utilitários de texto
+// Seções
+section {
+  padding: 4rem 0;
+}
+
+// Utilitários
 .text-center { text-align: center; }
-.text-left { text-align: left; }
 .text-right { text-align: right; }
+.text-left { text-align: left; }
 
-.text-primary { color: var(--primary-color); }
-.text-secondary { color: var(--secondary-color); }
-.text-muted { color: var(--text-muted); }
+.mt-1 { margin-top: $spacing-unit; }
+.mt-2 { margin-top: $spacing-unit * 2; }
+.mt-3 { margin-top: $spacing-unit * 3; }
+.mt-4 { margin-top: $spacing-unit * 4; }
+.mt-5 { margin-top: $spacing-unit * 5; }
 
-// Utilitários de margem
-.mt-1 { margin-top: $spacing-xs; }
-.mt-2 { margin-top: $spacing-sm; }
-.mt-3 { margin-top: $spacing-md; }
-.mt-4 { margin-top: $spacing-lg; }
-.mt-5 { margin-top: $spacing-xl; }
+.mb-1 { margin-bottom: $spacing-unit; }
+.mb-2 { margin-bottom: $spacing-unit * 2; }
+.mb-3 { margin-bottom: $spacing-unit * 3; }
+.mb-4 { margin-bottom: $spacing-unit * 4; }
+.mb-5 { margin-bottom: $spacing-unit * 5; }
 
-.mb-1 { margin-bottom: $spacing-xs; }
-.mb-2 { margin-bottom: $spacing-sm; }
-.mb-3 { margin-bottom: $spacing-md; }
-.mb-4 { margin-bottom: $spacing-lg; }
-.mb-5 { margin-bottom: $spacing-xl; }
+// Responsividade
+@media (max-width: $breakpoint-md) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  h4 { font-size: 1.25rem; }
+  h5 { font-size: 1.1rem; }
+  h6 { font-size: 1rem; }
 
-// Utilitários de padding
-.p-1 { padding: $spacing-xs; }
-.p-2 { padding: $spacing-sm; }
-.p-3 { padding: $spacing-md; }
-.p-4 { padding: $spacing-lg; }
-.p-5 { padding: $spacing-xl; } 
+  section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  h4 { font-size: 1.1rem; }
+  h5 { font-size: 1rem; }
+  h6 { font-size: 0.9rem; }
+
+  section {
+    padding: 2rem 0;
+  }
+} 

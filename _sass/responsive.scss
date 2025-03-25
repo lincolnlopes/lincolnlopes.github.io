@@ -219,4 +219,264 @@
     box-shadow: none !important;
     text-shadow: none !important;
   }
+}
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Container
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-lg) {
+    max-width: 960px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    max-width: 720px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    max-width: 540px;
+  }
+}
+
+// Grid
+.grid {
+  display: grid;
+  gap: 2rem;
+
+  &.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  &.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: $breakpoint-lg) {
+    &.grid-4 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    &.grid-3,
+    &.grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &.grid-2,
+    &.grid-3,
+    &.grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Flexbox
+.flex {
+  display: flex;
+  gap: 1rem;
+
+  &.flex-col {
+    flex-direction: column;
+  }
+
+  &.items-center {
+    align-items: center;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
+
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    &.flex-col-sm {
+      flex-direction: column;
+    }
+  }
+}
+
+// Espaçamento responsivo
+.section {
+  padding: 4rem 0;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 3rem 0;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
+}
+
+// Tipografia responsiva
+h1 {
+  font-size: 3rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-size: 2.5rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1.75rem;
+  }
+}
+
+h3 {
+  font-size: 2rem;
+
+  @media (max-width: $breakpoint-md) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    font-size: 1.5rem;
+  }
+}
+
+// Cards
+.card {
+  padding: 1.5rem;
+  border-radius: $border-radius-lg;
+  background: var(--bg-secondary);
+  box-shadow: $shadow-md;
+  transition: $transition-base;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-lg;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 1rem;
+  }
+}
+
+// Formulários
+.form-group {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-md;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: $transition-base;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    margin-bottom: 1rem;
+  }
+}
+
+// Botões
+.button {
+  padding: 0.75rem 1.5rem;
+  border-radius: $border-radius-full;
+  font-weight: 500;
+  transition: $transition-base;
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+// Navegação
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  @media (max-width: $breakpoint-md) {
+    display: none; // Para menu mobile
+  }
+}
+
+// Menu mobile
+.mobile-menu {
+  display: none;
+
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
+}
+
+// Utilitários responsivos
+.hide-sm {
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.hide-md {
+  @media (max-width: $breakpoint-md) {
+    display: none;
+  }
+}
+
+.show-sm {
+  display: none;
+
+  @media (max-width: $breakpoint-sm) {
+    display: block;
+  }
+}
+
+.show-md {
+  display: none;
+
+  @media (max-width: $breakpoint-md) {
+    display: block;
+  }
 } 

@@ -1,8 +1,58 @@
 # Configurações básicas
 title: Lincoln Lopes
-description: Blog pessoal sobre desenvolvimento, tecnologia e mais
+description: Blog pessoal sobre desenvolvimento web, tecnologia e programação
 baseurl: ""
 url: "https://lincolnlopes.github.io"
+
+# Autor
+author:
+  name: Lincoln Lopes
+  bio: Desenvolvedor Full Stack & Entusiasta de Tecnologia
+  location: Brasil
+  avatar: /assets/images/avatar.jpg
+  social:
+    github: lincolnlopes
+    linkedin: lincolnlopes
+    twitter: lincolnlopes
+
+# Configurações do Jekyll
+markdown: kramdown
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: /artigos/page:num/
+
+# Coleções
+collections:
+  articles:
+    output: true
+    permalink: /artigos/:title/
+  tutorials:
+    output: true
+    permalink: /tutoriais/:title/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
+
+# Excluir arquivos
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git/
+
+# Variáveis personalizadas
+variables:
+  primary_color: "#2563eb"
+  success_color: "#22c55e"
+  warning_color: "#f59e0b"
+  danger_color: "#ef4444"
+  border_color: "#e5e7eb"
 
 # SEO
 seo:

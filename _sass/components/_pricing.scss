@@ -1,0 +1,297 @@
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+
+  // Plano
+  .pricing-plan {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-lg;
+    transition: all 0.2s ease-in-out;
+
+    // Cabeçalho
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      .pricing-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .pricing-subtitle {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+      }
+    }
+
+    // Preço
+    .pricing-price {
+      text-align: center;
+      margin-bottom: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+
+      .price-amount {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1;
+
+        .price-currency {
+          font-size: 1.5rem;
+          font-weight: 600;
+          vertical-align: super;
+        }
+      }
+
+      .price-period {
+        color: var(--text-secondary);
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+      }
+    }
+
+    // Recursos
+    .pricing-features {
+      flex: 1;
+      margin-bottom: 2rem;
+
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .feature-item {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          padding: 0.75rem 0;
+          color: var(--text-secondary);
+
+          .feature-icon {
+            color: var(--success-color);
+            font-size: 1.25rem;
+          }
+
+          &.unavailable {
+            color: var(--text-tertiary);
+
+            .feature-icon {
+              color: var(--text-tertiary);
+            }
+          }
+        }
+      }
+    }
+
+    // Botão
+    .pricing-action {
+      .pricing-button {
+        width: 100%;
+        padding: 1rem;
+        border: none;
+        border-radius: $border-radius;
+        background: var(--primary-color);
+        color: var(--text-light);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          background: var(--primary-color-dark);
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    // Plano em destaque
+    &.featured {
+      border-color: var(--primary-color);
+      box-shadow: $shadow-lg;
+      transform: scale(1.05);
+
+      .pricing-header {
+        .pricing-title {
+          color: var(--primary-color);
+        }
+      }
+
+      .pricing-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.25rem 0.75rem;
+        background: var(--primary-color);
+        color: var(--text-light);
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: $border-radius-full;
+      }
+    }
+  }
+
+  // Variantes
+  &-horizontal {
+    .pricing-plan {
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+
+      .pricing-header,
+      .pricing-price {
+        text-align: left;
+        margin-bottom: 0;
+        padding: 0;
+        border: none;
+      }
+
+      .pricing-features {
+        margin-bottom: 0;
+      }
+
+      .pricing-action {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  // Com hover
+  &-hover {
+    .pricing-plan {
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: $shadow-lg;
+      }
+
+      &.featured:hover {
+        transform: scale(1.05) translateY(-10px);
+      }
+    }
+  }
+
+  // Com toggle anual/mensal
+  &-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .toggle-option {
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: color 0.2s ease-in-out;
+
+      &.active {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 3rem;
+      height: 1.5rem;
+      background: var(--bg-secondary);
+      border-radius: $border-radius-full;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+        background: var(--text-primary);
+        border-radius: $border-radius-full;
+        transition: all 0.2s ease-in-out;
+      }
+
+      &.active {
+        background: var(--primary-color);
+
+        &::before {
+          left: 1.75rem;
+          background: var(--text-light);
+        }
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .pricing {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+
+    .pricing-plan {
+      padding: 1.5rem;
+
+      &.featured {
+        transform: scale(1);
+      }
+
+      .pricing-header {
+        .pricing-title {
+          font-size: 1.25rem;
+        }
+      }
+
+      .pricing-price {
+        .price-amount {
+          font-size: 2.5rem;
+
+          .price-currency {
+            font-size: 1.25rem;
+          }
+        }
+      }
+
+      .pricing-features {
+        .feature-item {
+          padding: 0.5rem 0;
+        }
+      }
+    }
+
+    &-horizontal {
+      .pricing-plan {
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .pricing-header,
+        .pricing-price {
+          text-align: center;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+
+    &-hover {
+      .pricing-plan {
+        &:hover {
+          transform: translateY(-5px);
+        }
+
+        &.featured:hover {
+          transform: scale(1) translateY(-5px);
+        }
+      }
+    }
+  }
+} 

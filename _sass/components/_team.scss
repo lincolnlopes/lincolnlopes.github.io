@@ -1,0 +1,251 @@
+.team {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+
+  // Card de membro
+  .team-member {
+    position: relative;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    transition: all 0.2s ease-in-out;
+
+    // Imagem
+    .member-image {
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.3s ease-in-out;
+      }
+
+      // Overlay
+      .member-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        // Redes sociais
+        .member-social {
+          position: absolute;
+          bottom: 1.5rem;
+          left: 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          transform: translateY(1rem);
+          transition: all 0.3s ease-in-out;
+
+          .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: var(--bg-primary);
+            border-radius: $border-radius-full;
+            color: var(--text-primary);
+            font-size: 1.25rem;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+              background: var(--primary-color);
+              color: var(--text-light);
+              transform: translateY(-3px);
+            }
+          }
+        }
+      }
+    }
+
+    // Info
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+
+      .member-name {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .member-role {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+      }
+
+      .member-bio {
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+    }
+
+    // Hover
+    &:hover {
+      .member-image {
+        img {
+          transform: scale(1.1);
+        }
+
+        .member-overlay {
+          opacity: 1;
+
+          .member-social {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+
+  // Variantes
+  &-bordered {
+    .team-member {
+      border-width: 2px;
+    }
+  }
+
+  &-shadow {
+    .team-member {
+      border: none;
+      box-shadow: $shadow-md;
+    }
+  }
+
+  &-hover {
+    .team-member {
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-lg;
+      }
+    }
+  }
+
+  // Layout
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  &-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .team-member {
+      flex: 1 1 250px;
+    }
+  }
+
+  &-compact {
+    .team-member {
+      .member-info {
+        padding: 1rem;
+
+        .member-name {
+          font-size: 1.125rem;
+        }
+
+        .member-role {
+          font-size: 0.75rem;
+        }
+
+        .member-bio {
+          font-size: 0.75rem;
+        }
+      }
+
+      .member-social {
+        .social-link {
+          width: 2rem;
+          height: 2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Animação
+  &-animated {
+    .team-member {
+      opacity: 0;
+      transform: translateY(1rem);
+      animation: fadeInUp 0.5s ease-out forwards;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.1}s;
+        }
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .team {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+
+    .team-member {
+      .member-info {
+        padding: 1rem;
+
+        .member-name {
+          font-size: 1.125rem;
+        }
+
+        .member-role {
+          font-size: 0.75rem;
+          margin-bottom: 0.75rem;
+        }
+
+        .member-bio {
+          font-size: 0.75rem;
+        }
+      }
+
+      .member-social {
+        .social-link {
+          width: 2rem;
+          height: 2rem;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Animação de entrada
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

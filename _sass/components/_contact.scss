@@ -1,0 +1,251 @@
+.contact {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  // Formulário
+  .contact-form {
+    display: grid;
+    gap: 1.5rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-lg;
+    padding: 2rem;
+
+    // Campo do formulário
+    .form-field {
+      display: grid;
+      gap: 0.5rem;
+
+      // Label
+      .field-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text-primary);
+
+        // Indicador de campo obrigatório
+        .required {
+          color: var(--error-color);
+          margin-left: 0.25rem;
+        }
+      }
+
+      // Input
+      .field-input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: $border-radius;
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.2s ease-in-out;
+
+        &::placeholder {
+          color: var(--text-tertiary);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: var(--primary-color);
+          box-shadow: 0 0 0 2px var(--primary-color-light);
+        }
+
+        &.error {
+          border-color: var(--error-color);
+          
+          &:focus {
+            box-shadow: 0 0 0 2px var(--error-color-light);
+          }
+        }
+      }
+
+      // Textarea
+      textarea.field-input {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      // Mensagem de erro
+      .field-error {
+        font-size: 0.75rem;
+        color: var(--error-color);
+      }
+    }
+
+    // Grupo de campos
+    .form-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    // Botões
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .form-button {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: $border-radius;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        // Botão primário
+        &-primary {
+          background: var(--primary-color);
+          color: var(--text-light);
+
+          &:hover {
+            background: var(--primary-color-dark);
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+          }
+        }
+
+        // Botão secundário
+        &-secondary {
+          background: var(--bg-secondary);
+          color: var(--text-primary);
+          border: 1px solid var(--border-color);
+
+          &:hover {
+            background: var(--bg-tertiary);
+          }
+        }
+      }
+    }
+  }
+
+  // Informações de contato
+  .contact-info {
+    margin-top: 3rem;
+
+    .info-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 1rem;
+
+      .info-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .item-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 2.5rem;
+          height: 2.5rem;
+          background: var(--bg-secondary);
+          border-radius: $border-radius-full;
+          color: var(--primary-color);
+          font-size: 1.25rem;
+        }
+
+        .item-content {
+          .content-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+          }
+
+          .content-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+          }
+        }
+      }
+    }
+  }
+
+  // Mapa
+  .contact-map {
+    margin-top: 3rem;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .contact {
+    padding: 1.5rem;
+
+    .contact-form {
+      padding: 1.5rem;
+
+      .form-group {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .form-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .form-button {
+          width: 100%;
+        }
+      }
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+
+      .info-title {
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
+
+      .info-list {
+        .info-item {
+          .item-icon {
+            width: 2rem;
+            height: 2rem;
+            font-size: 1rem;
+          }
+
+          .item-content {
+            .content-title {
+              font-size: 0.875rem;
+            }
+
+            .content-text {
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+    }
+
+    .contact-map {
+      margin-top: 2rem;
+
+      iframe {
+        height: 300px;
+      }
+    }
+  }
+} 

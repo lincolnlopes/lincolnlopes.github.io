@@ -1,0 +1,213 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  // Botão do dropdown
+  .dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-md;
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: $transition-base;
+
+    &:hover {
+      background: var(--bg-secondary);
+    }
+
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      transition: transform 0.2s ease;
+    }
+
+    &.active .icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Menu do dropdown
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-lg;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
+
+  // Itens do menu
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: $transition-base;
+
+    &:hover {
+      background: var(--bg-secondary);
+      color: var(--primary-color);
+    }
+
+    &.active {
+      background: var(--bg-secondary);
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      color: var(--text-secondary);
+    }
+  }
+
+  // Divisor
+  .dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.5rem 0;
+  }
+
+  // Posições
+  &-right {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &-center {
+    .dropdown-menu {
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+
+      &.active {
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    .dropdown-toggle {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .dropdown-menu {
+      min-width: 160px;
+    }
+
+    .dropdown-item {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  &-lg {
+    .dropdown-toggle {
+      padding: 1rem 2rem;
+      font-size: 1.125rem;
+    }
+
+    .dropdown-menu {
+      min-width: 240px;
+    }
+
+    .dropdown-item {
+      padding: 1rem 1.25rem;
+      font-size: 1.125rem;
+    }
+  }
+
+  // Variantes
+  &-primary {
+    .dropdown-toggle {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+
+      &:hover {
+        background: var(--primary-color-dark);
+      }
+    }
+  }
+
+  &-secondary {
+    .dropdown-toggle {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+
+      &:hover {
+        background: var(--bg-tertiary);
+      }
+    }
+  }
+
+  &-outline {
+    .dropdown-toggle {
+      background: transparent;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
+
+      &:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .dropdown {
+    .dropdown-menu {
+      position: fixed;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      border-radius: $border-radius-lg $border-radius-lg 0 0;
+      transform: translateY(100%);
+      max-height: 80vh;
+      overflow-y: auto;
+
+      &.active {
+        transform: translateY(0);
+      }
+    }
+
+    &-right .dropdown-menu,
+    &-center .dropdown-menu {
+      left: 0;
+      right: 0;
+      transform: translateY(100%);
+
+      &.active {
+        transform: translateY(0);
+      }
+    }
+  }
+} 

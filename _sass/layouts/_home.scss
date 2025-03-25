@@ -1,0 +1,284 @@
+// Hero Section
+.hero {
+  background: var(--bg-gradient);
+  padding: 6rem 2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    .button {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &.primary {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      &.secondary {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+    }
+  }
+}
+
+// Posts Grid
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.post-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .post-card-content {
+    padding: 1.5rem;
+  }
+
+  .post-category {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+}
+
+// Tutorials Grid
+.tutorials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.tutorial-card {
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .tutorial-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    .difficulty {
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+
+      &.iniciante { background: var(--success-color); }
+      &.intermediario { background: var(--warning-color); }
+      &.avancado { background: var(--danger-color); }
+    }
+
+    .duration {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+  }
+
+  .tutorial-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+
+    .tag {
+      background: var(--bg-tertiary);
+      color: var(--text-secondary);
+      padding: 0.2rem 0.6rem;
+      border-radius: 15px;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Topics Grid
+.topics {
+  margin: 4rem 0;
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .topic-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Newsletter
+.newsletter {
+  background: var(--bg-secondary);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-radius: 12px;
+  margin: 4rem 0;
+
+  .newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+    input[type="email"] {
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-width: 300px;
+
+      &:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+    }
+
+    button {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// Responsive Adjustments
+@media (max-width: 768px) {
+  .hero {
+    padding: 4rem 1rem;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
+  .newsletter .newsletter-form {
+    flex-direction: column;
+    
+    input[type="email"] {
+      min-width: auto;
+      width: 100%;
+    }
+  }
+
+  .posts-grid,
+  .tutorials-grid {
+    grid-template-columns: 1fr;
+  }
+} 

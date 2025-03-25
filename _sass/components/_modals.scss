@@ -1,0 +1,165 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  // Conteúdo do modal
+  .modal-content {
+    background: var(--bg-primary);
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-xl;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+
+    .modal.active & {
+      transform: translateY(0);
+    }
+  }
+
+  // Cabeçalho do modal
+  .modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: $border-radius-full;
+      transition: $transition-base;
+
+      &:hover {
+        color: var(--text-primary);
+        background: var(--bg-secondary);
+      }
+    }
+  }
+
+  // Corpo do modal
+  .modal-body {
+    padding: 1.5rem;
+  }
+
+  // Rodapé do modal
+  .modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+
+  // Tamanhos
+  &-sm {
+    .modal-content {
+      max-width: 400px;
+    }
+  }
+
+  &-lg {
+    .modal-content {
+      max-width: 800px;
+    }
+  }
+
+  &-xl {
+    .modal-content {
+      max-width: 1140px;
+    }
+  }
+
+  // Com animação de slide
+  &-slide {
+    .modal-content {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    &.active .modal-content {
+      transform: translateX(0);
+    }
+  }
+
+  // Com animação de fade
+  &-fade {
+    .modal-content {
+      transform: scale(0.95);
+      transition: transform 0.3s ease;
+    }
+
+    &.active .modal-content {
+      transform: scale(1);
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-md) {
+  .modal {
+    .modal-content {
+      max-width: 90%;
+      margin: 1rem;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 1.25rem;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-sm) {
+  .modal {
+    .modal-content {
+      max-width: 100%;
+      margin: 0;
+      border-radius: 0;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      padding: 1rem;
+    }
+
+    .modal-footer {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+} 

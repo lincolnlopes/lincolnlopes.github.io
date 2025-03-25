@@ -1,0 +1,248 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: $border-radius-full;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  // Ícone
+  .chip-icon {
+    font-size: 1rem;
+  }
+
+  // Botão de fechar
+  .chip-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Hover
+  &:hover {
+    background: var(--bg-tertiary);
+  }
+
+  // Variantes
+  &-primary {
+    color: var(--text-light);
+    background: var(--primary-color);
+
+    &:hover {
+      background: var(--primary-color-dark);
+    }
+  }
+
+  &-success {
+    color: var(--text-light);
+    background: var(--success-color);
+
+    &:hover {
+      background: var(--success-color-dark);
+    }
+  }
+
+  &-error {
+    color: var(--text-light);
+    background: var(--error-color);
+
+    &:hover {
+      background: var(--error-color-dark);
+    }
+  }
+
+  &-warning {
+    color: var(--text-dark);
+    background: var(--warning-color);
+
+    &:hover {
+      background: var(--warning-color-dark);
+    }
+  }
+
+  &-info {
+    color: var(--text-light);
+    background: var(--info-color);
+
+    &:hover {
+      background: var(--info-color-dark);
+    }
+  }
+
+  // Variantes de estilo
+  &-outlined {
+    background: transparent;
+    border: 1px solid var(--border-color);
+
+    &:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      background: transparent;
+    }
+
+    &.chip-primary {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+
+      &:hover {
+        background: var(--primary-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.chip-success {
+      border-color: var(--success-color);
+      color: var(--success-color);
+
+      &:hover {
+        background: var(--success-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.chip-error {
+      border-color: var(--error-color);
+      color: var(--error-color);
+
+      &:hover {
+        background: var(--error-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.chip-warning {
+      border-color: var(--warning-color);
+      color: var(--warning-color);
+
+      &:hover {
+        background: var(--warning-color);
+        color: var(--text-dark);
+      }
+    }
+
+    &.chip-info {
+      border-color: var(--info-color);
+      color: var(--info-color);
+
+      &:hover {
+        background: var(--info-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+
+    .chip-icon {
+      font-size: 0.875rem;
+    }
+
+    .chip-close {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+  }
+
+  &-lg {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+
+    .chip-icon {
+      font-size: 1.25rem;
+    }
+
+    .chip-close {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  // Com avatar
+  &-avatar {
+    .chip-avatar {
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: $border-radius-full;
+      object-fit: cover;
+    }
+  }
+
+  // Com contador
+  &-counter {
+    .chip-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.25rem;
+      height: 1.25rem;
+      padding: 0 0.375rem;
+      border-radius: $border-radius-full;
+      background: rgba(0, 0, 0, 0.1);
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Grupo de chips
+.chip-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  // Alinhamento
+  &-start {
+    justify-content: flex-start;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .chip {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+
+    .chip-icon {
+      font-size: 0.875rem;
+    }
+
+    .chip-close {
+      width: 0.875rem;
+      height: 0.875rem;
+    }
+
+    &-avatar {
+      .chip-avatar {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+} 

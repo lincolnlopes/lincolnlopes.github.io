@@ -1,0 +1,329 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  // Tag individual
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: $border-radius-full;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+
+    // Ícone
+    .tag-icon {
+      font-size: 1rem;
+    }
+
+    // Contador
+    .tag-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 1.25rem;
+      height: 1.25rem;
+      padding: 0 0.375rem;
+      border-radius: $border-radius-full;
+      background: rgba(0, 0, 0, 0.1);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    // Botão de remover
+    .tag-remove {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1rem;
+      height: 1rem;
+      padding: 0;
+      border: none;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: opacity 0.2s ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Variantes
+  &-primary {
+    .tag {
+      background: var(--primary-color-light);
+      color: var(--primary-color);
+
+      &:hover {
+        background: var(--primary-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  &-success {
+    .tag {
+      background: var(--success-color-light);
+      color: var(--success-color);
+
+      &:hover {
+        background: var(--success-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  &-error {
+    .tag {
+      background: var(--error-color-light);
+      color: var(--error-color);
+
+      &:hover {
+        background: var(--error-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  &-warning {
+    .tag {
+      background: var(--warning-color-light);
+      color: var(--warning-color);
+
+      &:hover {
+        background: var(--warning-color);
+        color: var(--text-dark);
+      }
+    }
+  }
+
+  &-info {
+    .tag {
+      background: var(--info-color-light);
+      color: var(--info-color);
+
+      &:hover {
+        background: var(--info-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    .tag {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+
+      .tag-icon {
+        font-size: 0.875rem;
+      }
+
+      .tag-count {
+        min-width: 1rem;
+        height: 1rem;
+        font-size: 0.625rem;
+      }
+
+      .tag-remove {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+    }
+  }
+
+  &-lg {
+    .tag {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+
+      .tag-icon {
+        font-size: 1.25rem;
+      }
+
+      .tag-count {
+        min-width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.875rem;
+      }
+
+      .tag-remove {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  // Com borda
+  &-outlined {
+    .tag {
+      background: transparent;
+      border: 1px solid var(--border-color);
+
+      &:hover {
+        border-color: var(--primary-color);
+        color: var(--primary-color);
+        background: transparent;
+      }
+    }
+
+    &.tags-primary .tag {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+
+      &:hover {
+        background: var(--primary-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.tags-success .tag {
+      border-color: var(--success-color);
+      color: var(--success-color);
+
+      &:hover {
+        background: var(--success-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.tags-error .tag {
+      border-color: var(--error-color);
+      color: var(--error-color);
+
+      &:hover {
+        background: var(--error-color);
+        color: var(--text-light);
+      }
+    }
+
+    &.tags-warning .tag {
+      border-color: var(--warning-color);
+      color: var(--warning-color);
+
+      &:hover {
+        background: var(--warning-color);
+        color: var(--text-dark);
+      }
+    }
+
+    &.tags-info .tag {
+      border-color: var(--info-color);
+      color: var(--info-color);
+
+      &:hover {
+        background: var(--info-color);
+        color: var(--text-light);
+      }
+    }
+  }
+
+  // Com sombra
+  &-shadow {
+    .tag {
+      box-shadow: $shadow-sm;
+
+      &:hover {
+        box-shadow: $shadow-md;
+      }
+    }
+  }
+
+  // Alinhamento
+  &-start {
+    justify-content: flex-start;
+  }
+
+  &-center {
+    justify-content: center;
+  }
+
+  &-end {
+    justify-content: flex-end;
+  }
+}
+
+// Campo de entrada de tags
+.tag-input {
+  position: relative;
+
+  .tag-input-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 0.875rem;
+    transition: all 0.2s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px var(--primary-color-light);
+    }
+  }
+
+  .tag-input-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: $border-radius;
+    background: var(--bg-primary);
+    box-shadow: $shadow-lg;
+    z-index: 1000;
+
+    .tag-suggestion {
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: var(--bg-secondary);
+      }
+
+      &.active {
+        background: var(--bg-secondary);
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .tags {
+    .tag {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+
+      .tag-icon {
+        font-size: 0.875rem;
+      }
+
+      .tag-count {
+        min-width: 1rem;
+        height: 1rem;
+        font-size: 0.625rem;
+      }
+    }
+  }
+} 

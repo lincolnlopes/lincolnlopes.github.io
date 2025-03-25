@@ -1,0 +1,129 @@
+.spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid var(--bg-secondary);
+  border-top-color: var(--primary-color);
+  border-radius: $border-radius-full;
+  animation: spinner-rotate 0.75s linear infinite;
+
+  // Variantes
+  &-success {
+    border-top-color: var(--success-color);
+  }
+
+  &-error {
+    border-top-color: var(--error-color);
+  }
+
+  &-warning {
+    border-top-color: var(--warning-color);
+  }
+
+  &-info {
+    border-top-color: var(--info-color);
+  }
+
+  // Tamanhos
+  &-sm {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-width: 1.5px;
+  }
+
+  &-lg {
+    width: 3rem;
+    height: 3rem;
+    border-width: 3px;
+  }
+
+  // Com texto
+  &-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    .spinner-text {
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+    }
+  }
+
+  // Com overlay
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+
+    .spinner {
+      width: 3rem;
+      height: 3rem;
+      border-width: 3px;
+    }
+  }
+
+  // Com animação diferente
+  &-pulse {
+    animation: spinner-pulse 1s ease-in-out infinite;
+  }
+
+  &-bounce {
+    animation: spinner-bounce 1s ease-in-out infinite;
+  }
+}
+
+// Animação de rotação
+@keyframes spinner-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Animação de pulso
+@keyframes spinner-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+// Animação de quique
+@keyframes spinner-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1rem);
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .spinner {
+    &-text {
+      .spinner-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
+} 

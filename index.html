@@ -1,0 +1,92 @@
+---
+layout: default
+title: Lincoln Lopes - Desenvolvedor Full Stack
+description: Blog pessoal sobre desenvolvimento web, tecnologia e programação
+---
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Lincoln Lopes</h1>
+    <p class="subtitle">Desenvolvedor Full Stack & Entusiasta de Tecnologia</p>
+    <p class="description">Compartilhando conhecimento sobre desenvolvimento web, boas práticas de programação e tecnologias modernas.</p>
+    <div class="hero-buttons">
+      <a href="/artigos" class="button primary">Ver Artigos</a>
+      <a href="/tutoriais" class="button secondary">Explorar Tutoriais</a>
+    </div>
+  </div>
+</div>
+
+<section class="featured-posts">
+  <h2>Artigos em Destaque</h2>
+  <div class="posts-grid">
+    {% for post in site.articles limit:3 %}
+    <article class="post-card">
+      <div class="post-card-content">
+        <span class="post-category">{{ post.categories | first }}</span>
+        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <p>{{ post.description | truncate: 120 }}</p>
+        <div class="post-meta">
+          <span class="date">{{ post.date | date: "%d/%m/%Y" }}</span>
+          <span class="reading-time">{{ post.content | number_of_words | divided_by: 180 }} min de leitura</span>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="latest-tutorials">
+  <h2>Últimos Tutoriais</h2>
+  <div class="tutorials-grid">
+    {% for tutorial in site.tutorials limit:2 %}
+    <article class="tutorial-card">
+      <div class="tutorial-card-content">
+        <div class="tutorial-meta">
+          <span class="difficulty {{ tutorial.difficulty }}">{{ tutorial.difficulty }}</span>
+          <span class="duration">{{ tutorial.duration }}</span>
+        </div>
+        <h3><a href="{{ tutorial.url }}">{{ tutorial.title }}</a></h3>
+        <p>{{ tutorial.description | truncate: 100 }}</p>
+        <div class="tutorial-tags">
+          {% for tag in tutorial.tags limit:3 %}
+          <span class="tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="topics">
+  <h2>Tópicos</h2>
+  <div class="topics-grid">
+    <a href="/categoria/frontend" class="topic-card">
+      <h3>Frontend</h3>
+      <p>React, Vue.js, CSS moderno e mais</p>
+    </a>
+    <a href="/categoria/backend" class="topic-card">
+      <h3>Backend</h3>
+      <p>Node.js, Python, APIs e arquitetura</p>
+    </a>
+    <a href="/categoria/devops" class="topic-card">
+      <h3>DevOps</h3>
+      <p>Docker, CI/CD e cloud computing</p>
+    </a>
+    <a href="/categoria/boas-praticas" class="topic-card">
+      <h3>Boas Práticas</h3>
+      <p>Clean Code, padrões e metodologias</p>
+    </a>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-content">
+    <h2>Fique por dentro!</h2>
+    <p>Receba as últimas atualizações sobre desenvolvimento web e tecnologia.</p>
+    <form class="newsletter-form" action="/subscribe" method="POST">
+      <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+      <button type="submit" class="button primary">Inscrever-se</button>
+    </form>
+  </div>
+</section> 

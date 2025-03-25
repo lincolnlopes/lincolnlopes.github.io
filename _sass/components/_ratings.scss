@@ -1,0 +1,281 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  // Estrelas
+  .rating-stars {
+    display: inline-flex;
+    gap: 0.25rem;
+  }
+
+  .rating-star {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &.active {
+      color: var(--warning-color);
+    }
+
+    &:hover {
+      color: var(--warning-color-light);
+    }
+  }
+
+  // Valor numérico
+  .rating-value {
+    margin-left: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  // Tamanhos
+  &-sm {
+    .rating-star {
+      font-size: 1rem;
+    }
+
+    .rating-value {
+      font-size: 0.75rem;
+    }
+  }
+
+  &-lg {
+    .rating-star {
+      font-size: 1.5rem;
+    }
+
+    .rating-value {
+      font-size: 1rem;
+    }
+  }
+
+  // Variantes de cor
+  &-primary {
+    .rating-star {
+      &.active {
+        color: var(--primary-color);
+      }
+
+      &:hover {
+        color: var(--primary-color-light);
+      }
+    }
+  }
+
+  &-success {
+    .rating-star {
+      &.active {
+        color: var(--success-color);
+      }
+
+      &:hover {
+        color: var(--success-color-light);
+      }
+    }
+  }
+
+  &-error {
+    .rating-star {
+      &.active {
+        color: var(--error-color);
+      }
+
+      &:hover {
+        color: var(--error-color-light);
+      }
+    }
+  }
+
+  &-info {
+    .rating-star {
+      &.active {
+        color: var(--info-color);
+      }
+
+      &:hover {
+        color: var(--info-color-light);
+      }
+    }
+  }
+
+  // Somente leitura
+  &-readonly {
+    .rating-star {
+      cursor: default;
+
+      &:hover {
+        color: inherit;
+      }
+
+      &.active {
+        color: var(--warning-color);
+      }
+    }
+  }
+
+  // Com rótulos
+  &-labeled {
+    .rating-label {
+      margin-right: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+  }
+
+  // Com texto
+  &-text {
+    .rating-description {
+      margin-left: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+  }
+
+  // Com meio ponto
+  &-half {
+    .rating-star {
+      position: relative;
+
+      &.half {
+        &::before {
+          content: "★";
+          position: absolute;
+          left: 0;
+          width: 50%;
+          overflow: hidden;
+          color: var(--warning-color);
+        }
+      }
+    }
+  }
+
+  // Com animação
+  &-animated {
+    .rating-star {
+      &.active {
+        animation: rating-pulse 0.2s ease-in-out;
+      }
+    }
+  }
+}
+
+// Grupo de avaliações
+.rating-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .rating-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .rating-label {
+      min-width: 100px;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .rating {
+      flex: 1;
+    }
+
+    .rating-count {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+  }
+}
+
+// Barra de avaliação
+.rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  .rating-label {
+    min-width: 50px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .rating-progress {
+    flex: 1;
+    height: 0.5rem;
+    background: var(--bg-secondary);
+    border-radius: $border-radius;
+    overflow: hidden;
+
+    .rating-fill {
+      height: 100%;
+      background: var(--warning-color);
+      border-radius: inherit;
+      transition: width 0.3s ease-in-out;
+    }
+  }
+
+  .rating-count {
+    min-width: 50px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: right;
+  }
+}
+
+// Animação de pulso
+@keyframes rating-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Responsividade
+@media (max-width: $breakpoint-sm) {
+  .rating {
+    .rating-star {
+      font-size: 1rem;
+    }
+
+    .rating-value {
+      font-size: 0.75rem;
+    }
+
+    &-lg {
+      .rating-star {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  .rating-group {
+    .rating-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+
+      .rating-label {
+        min-width: auto;
+      }
+    }
+  }
+
+  .rating-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+
+    .rating-label,
+    .rating-count {
+      min-width: auto;
+    }
+  }
+} 

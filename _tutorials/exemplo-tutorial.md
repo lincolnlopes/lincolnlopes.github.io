@@ -1,98 +1,91 @@
 ---
 layout: tutorial
-title: Como Criar um Blog com Jekyll
-description: Um guia passo a passo para criar um blog profissional usando Jekyll, incluindo configuração, personalização e implantação.
+title: Criando um Blog Profissional com Jekyll
+description: Um guia passo a passo para criar um blog profissional usando Jekyll, incluindo configuração, personalização e deploy.
 date: 2024-03-20
 author: Lincoln Lopes
-tags: [jekyll, blog, desenvolvimento, web]
-categories: [desenvolvimento, web]
-difficulty: Intermediário
-prerequisites: Conhecimentos básicos de HTML, CSS e Git
+tags: [jekyll, ruby, github-pages, web]
+categories: [Desenvolvimento Web]
+difficulty: intermediario
+duration: 30 minutos
+prerequisites:
+  - Conhecimento básico de HTML e CSS
+  - Git instalado
+  - Conta no GitHub
 ---
 
-# Introdução
+# Criando um Blog Profissional com Jekyll
 
-Jekyll é um gerador de sites estáticos escrito em Ruby que permite criar blogs e sites pessoais de forma simples e eficiente. Neste tutorial, vamos aprender como criar um blog profissional usando Jekyll.
+Neste tutorial, você aprenderá a criar um blog profissional usando Jekyll, um gerador de sites estáticos escrito em Ruby. Vamos cobrir desde a configuração inicial até o deploy no GitHub Pages.
 
 ## O que você vai aprender
 
-- Configurar um ambiente de desenvolvimento Jekyll
-- Criar a estrutura básica do blog
-- Personalizar o tema e layout
+- Configurar o ambiente de desenvolvimento
+- Criar a estrutura do blog
+- Personalizar o tema
 - Adicionar funcionalidades como comentários e busca
-- Implantar o blog no GitHub Pages
+- Fazer deploy no GitHub Pages
 
-# Configuração Inicial
+## Pré-requisitos
 
-## Instalando o Ruby e o Jekyll
+Antes de começar, certifique-se de ter:
+- Ruby instalado (versão 2.5 ou superior)
+- Git instalado
+- Uma conta no GitHub
+- Um editor de código (VS Code recomendado)
 
-Primeiro, você precisa ter o Ruby instalado no seu sistema. No macOS, você pode usar o Homebrew:
+## Passo 1: Instalando o Ruby e Jekyll
+
+Primeiro, vamos instalar o Ruby e o Jekyll. No macOS, você pode usar o Homebrew:
 
 ```bash
 brew install ruby
+gem install bundler jekyll
 ```
 
-Depois, instale o Jekyll e o Bundler:
+## Passo 2: Criando um novo site Jekyll
 
-```bash
-gem install jekyll bundler
-```
-
-## Criando um novo site Jekyll
-
-Para criar um novo site Jekyll, execute:
+Agora vamos criar um novo site Jekyll:
 
 ```bash
 jekyll new meu-blog
 cd meu-blog
 ```
 
-Isso criará uma estrutura básica de diretórios:
+## Passo 3: Configurando o _config.yml
 
-```
-meu-blog/
-├── _config.yml
-├── _posts/
-├── _layouts/
-├── _includes/
-├── _sass/
-├── assets/
-└── index.html
-```
-
-# Personalizando o Site
-
-## Configurando o _config.yml
-
-O arquivo `_config.yml` é o principal arquivo de configuração do seu site. Aqui está um exemplo básico:
+Edite o arquivo `_config.yml` com suas configurações:
 
 ```yaml
 title: Meu Blog
 description: Um blog sobre tecnologia e desenvolvimento
 baseurl: ""
-url: "https://meu-blog.com"
+url: "https://seu-usuario.github.io"
 
-# Configurações de build
+# Autor
+author:
+  name: Seu Nome
+  bio: Desenvolvedor Full Stack
+  location: Brasil
+  avatar: /assets/images/avatar.jpg
+
+# Configurações do Jekyll
 markdown: kramdown
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: /blog/page:num/
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-
-# Informações do autor
-author:
-  name: Seu Nome
-  email: seu@email.com
-  bio: Desenvolvedor Full Stack
-  location: São Paulo, Brasil
-  links:
-    - label: GitHub
-      icon: fab fa-github
-      url: https://github.com/seu-usuario
+  - jekyll-sitemap
+  - jekyll-paginate
 ```
 
-## Criando Layouts Personalizados
+## Passo 4: Criando layouts personalizados
 
-Os layouts são templates que definem a estrutura das suas páginas. Vamos criar um layout básico para posts:
+Crie um layout personalizado para posts em `_layouts/post.html`:
 
 ```html
 ---
@@ -102,9 +95,7 @@ layout: default
   <header class="post-header">
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%d/%m/%Y" }}
-      </time>
+      <span class="date">{{ page.date | date: "%d/%m/%Y" }}</span>
       <span class="author">{{ page.author }}</span>
     </div>
   </header>
@@ -112,14 +103,20 @@ layout: default
   <div class="post-content">
     {{ content }}
   </div>
+
+  <footer class="post-footer">
+    <div class="post-tags">
+      {% for tag in page.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </footer>
 </article>
 ```
 
-# Adicionando Funcionalidades
+## Passo 5: Adicionando um sistema de comentários
 
-## Sistema de Comentários
-
-Para adicionar comentários, você pode usar o Utterances, que utiliza GitHub Issues:
+Vamos usar o Utterances para adicionar comentários. Adicione este código ao seu layout de post:
 
 ```html
 <script src="https://utteranc.es/client.js"
@@ -131,28 +128,19 @@ Para adicionar comentários, você pode usar o Utterances, que utiliza GitHub Is
 </script>
 ```
 
-## Busca
+## Passo 6: Adicionando busca
 
-Para adicionar busca, você pode usar o Jekyll Search:
+Instale o Jekyll Search e adicione ao seu `_config.yml`:
 
-```javascript
-const searchIndex = [
-  {% for post in site.posts %}
-    {
-      "title": {{ post.title | jsonify }},
-      "url": {{ post.url | jsonify }},
-      "content": {{ post.content | strip_html | jsonify }}
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
-];
+```yaml
+plugins:
+  - jekyll-search
 ```
 
-# Implantação
-
-## Usando GitHub Pages
+## Passo 7: Deploy no GitHub Pages
 
 1. Crie um novo repositório no GitHub
-2. Adicione o arquivo `.github/workflows/jekyll.yml`:
+2. Configure o GitHub Actions para deploy automático:
 
 ```yaml
 name: Deploy Jekyll site to Pages
@@ -189,7 +177,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: ./_site
+          path: '_site'
 
   deploy:
     environment:
@@ -203,19 +191,24 @@ jobs:
         uses: actions/deploy-pages@v2
 ```
 
-# Conclusão
+## Conclusão
 
-Neste tutorial, aprendemos como criar um blog profissional usando Jekyll. Agora você tem uma base sólida para começar a criar seu próprio blog.
+Agora você tem um blog profissional com:
+- Design moderno e responsivo
+- Sistema de comentários
+- Busca integrada
+- Deploy automático
+- SEO otimizado
 
-## Próximos Passos
+## Próximos passos
 
-1. Personalize o tema e adicione mais funcionalidades
-2. Crie conteúdo regularmente
-3. Otimize o SEO do seu blog
-4. Monitore o desempenho e faça ajustes conforme necessário
+- Personalize o tema com suas cores e estilos
+- Adicione mais funcionalidades como newsletter
+- Crie conteúdo regularmente
+- Monitore as métricas do seu blog
 
-## Recursos Adicionais
+## Recursos adicionais
 
-- [Documentação oficial do Jekyll](https://jekyllrb.com/docs/)
-- [Jekyll Themes](https://jekyllthemes.io/)
-- [GitHub Pages](https://pages.github.com/) 
+- [Documentação do Jekyll](https://jekyllrb.com/docs/)
+- [GitHub Pages](https://pages.github.com/)
+- [Utterances](https://utteranc.es/) 
