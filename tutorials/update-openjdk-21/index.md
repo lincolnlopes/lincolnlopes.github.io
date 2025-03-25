@@ -12,6 +12,9 @@ tags:
 difficulty: intermediário
 time_to_read: 10
 toc: true
+categories:
+  - desenvolvimento
+  - linux
 ---
 
 # Instalação do OpenJDK 21 no Debian
@@ -56,7 +59,7 @@ Mova o diretório extraído para /usr/local/ com permissões de superusuário:
 sudo mv /usr/lib/jdk/jdk-21.0.2/ /usr/lib/jdk/jdk-21/
 ```
 
-### 5. Aplicando as Alterações
+### 4. Aplicando as Alterações
 Adicione o Java ao sistema de alternativas:
 
 ```bash
@@ -70,7 +73,7 @@ sudo update-alternatives --list java
 sudo update-alternatives --list javac
 ```
 
-### Gerenciando Versões com update-alternatives
+### 5. Gerenciando Versões com update-alternatives
 
 Para gerenciar diferentes versões do Java:
 
@@ -92,7 +95,6 @@ Escolha a alternativa java:
 
 Digite o número da escolha [1-3]:
 ```
-
 
 ### 6. Verificando a Instalação
 

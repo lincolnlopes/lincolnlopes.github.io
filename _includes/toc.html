@@ -1,0 +1,32 @@
+{% assign html = include.html %}
+{% assign lines = html | split: '
+' %}
+{% assign toc = '' %}
+{% assign current_level = 0 %}
+{% assign current_section = '' %}
+
+{% for line in lines %}
+  {% if line contains '#' %}
+    {% assign level = line | split: '#' | size | minus: 1 %}
+    {% assign title = line | replace: '#' | strip %}
+    {% assign anchor = title | downcase | replace: ' ', '-' | replace: ':', '' | replace: '.', '' | replace: ',', '' | replace: '?', '' | replace: '!', '' | replace: '(', '' | replace: ')', '' %}
+    
+    {% if level > current_level %}
+      {% assign current_level = level %}
+      {% assign toc = toc | append: '<ul>' %}
+    {% elsif level < current_level %}
+      {% assign current_level = level %}
+      {% assign toc = toc | append: '</ul>' %}
+    {% endif %}
+    
+    {% assign toc = toc | append: '<li><a href="#' | append: anchor | append: '">' | append: title | append: '</a></li>' %}
+  {% endif %}
+{% endfor %}
+
+{% if current_level > 0 %}
+  {% for i in (1..current_level) %}
+    {% assign toc = toc | append: '</ul>' %}
+  {% endfor %}
+{% endif %}
+
+{{ toc }} 
