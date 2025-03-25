@@ -33,9 +33,6 @@ collections:
   tutorials:
     output: true
     permalink: /tutorials/:path/
-  devops:
-    output: true
-    permalink: /devops/:path/
   articles:
     output: true
     permalink: /articles/:path/
@@ -50,12 +47,6 @@ defaults:
       type: "tutorials"
     values:
       layout: "tutorial"
-      author: "Lincoln Lopes"
-  - scope:
-      path: ""
-      type: "devops"
-    values:
-      layout: "article"
       author: "Lincoln Lopes"
   - scope:
       path: ""
