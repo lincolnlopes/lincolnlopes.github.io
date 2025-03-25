@@ -1,0 +1,750 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--white);
+  background: var(--primary-color);
+  border: none;
+  border-radius: $border-radius;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+
+  // Ícone
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--white);
+  }
+
+  // Badge
+  .badge {
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+  }
+
+  // Estados
+  &:hover {
+    background: var(--primary-color-dark);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-color-light);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  // Loading
+  &.loading {
+    color: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 0.6s linear infinite;
+    }
+
+    .icon,
+    .badge {
+      display: none;
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .badge {
+      padding: 0.125rem 0.25rem;
+      font-size: 0.625rem;
+    }
+  }
+
+  &-lg {
+    padding: 0.625rem 1.25rem;
+    font-size: 1rem;
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  // Estilos
+  &-outline {
+    color: var(--primary-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+
+    .icon {
+      color: var(--primary-color);
+    }
+
+    .badge {
+      color: var(--primary-color);
+      background: var(--primary-color-light);
+    }
+
+    &:hover {
+      color: var(--white);
+      background: var(--primary-color);
+      border-color: var(--primary-color);
+
+      .icon {
+        color: var(--white);
+      }
+
+      .badge {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--primary-color-light);
+    }
+
+    &.loading::after {
+      border-color: var(--primary-color);
+      border-top-color: transparent;
+    }
+  }
+
+  &-ghost {
+    color: var(--primary-color);
+    background: transparent;
+
+    .icon {
+      color: var(--primary-color);
+    }
+
+    .badge {
+      color: var(--primary-color);
+      background: var(--primary-color-light);
+    }
+
+    &:hover {
+      color: var(--white);
+      background: var(--primary-color);
+
+      .icon {
+        color: var(--white);
+      }
+
+      .badge {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--primary-color-light);
+    }
+
+    &.loading::after {
+      border-color: var(--primary-color);
+      border-top-color: transparent;
+    }
+  }
+
+  &-link {
+    color: var(--primary-color);
+    background: transparent;
+    padding: 0;
+    text-decoration: underline;
+
+    .icon {
+      color: var(--primary-color);
+    }
+
+    .badge {
+      color: var(--primary-color);
+      background: var(--primary-color-light);
+    }
+
+    &:hover {
+      color: var(--primary-color-dark);
+      background: transparent;
+      transform: none;
+
+      .icon {
+        color: var(--primary-color-dark);
+      }
+
+      .badge {
+        color: var(--primary-color-dark);
+        background: var(--primary-color-light);
+      }
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+
+    &.loading::after {
+      border-color: var(--primary-color);
+      border-top-color: transparent;
+    }
+  }
+
+  // Variantes
+  &-success {
+    background: var(--success-color);
+
+    &:hover {
+      background: var(--success-color-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--success-color-light);
+    }
+
+    &.outline {
+      color: var(--success-color);
+      border-color: var(--success-color);
+
+      .icon {
+        color: var(--success-color);
+      }
+
+      .badge {
+        color: var(--success-color);
+        background: var(--success-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--success-color);
+        border-color: var(--success-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--success-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--success-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.ghost {
+      color: var(--success-color);
+
+      .icon {
+        color: var(--success-color);
+      }
+
+      .badge {
+        color: var(--success-color);
+        background: var(--success-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--success-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--success-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--success-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.link {
+      color: var(--success-color);
+
+      .icon {
+        color: var(--success-color);
+      }
+
+      .badge {
+        color: var(--success-color);
+        background: var(--success-color-light);
+      }
+
+      &:hover {
+        color: var(--success-color-dark);
+        background: transparent;
+        transform: none;
+
+        .icon {
+          color: var(--success-color-dark);
+        }
+
+        .badge {
+          color: var(--success-color-dark);
+          background: var(--success-color-light);
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &.loading::after {
+        border-color: var(--success-color);
+        border-top-color: transparent;
+      }
+    }
+  }
+
+  &-error {
+    background: var(--error-color);
+
+    &:hover {
+      background: var(--error-color-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--error-color-light);
+    }
+
+    &.outline {
+      color: var(--error-color);
+      border-color: var(--error-color);
+
+      .icon {
+        color: var(--error-color);
+      }
+
+      .badge {
+        color: var(--error-color);
+        background: var(--error-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--error-color);
+        border-color: var(--error-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--error-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--error-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.ghost {
+      color: var(--error-color);
+
+      .icon {
+        color: var(--error-color);
+      }
+
+      .badge {
+        color: var(--error-color);
+        background: var(--error-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--error-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--error-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--error-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.link {
+      color: var(--error-color);
+
+      .icon {
+        color: var(--error-color);
+      }
+
+      .badge {
+        color: var(--error-color);
+        background: var(--error-color-light);
+      }
+
+      &:hover {
+        color: var(--error-color-dark);
+        background: transparent;
+        transform: none;
+
+        .icon {
+          color: var(--error-color-dark);
+        }
+
+        .badge {
+          color: var(--error-color-dark);
+          background: var(--error-color-light);
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &.loading::after {
+        border-color: var(--error-color);
+        border-top-color: transparent;
+      }
+    }
+  }
+
+  &-warning {
+    background: var(--warning-color);
+
+    &:hover {
+      background: var(--warning-color-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--warning-color-light);
+    }
+
+    &.outline {
+      color: var(--warning-color);
+      border-color: var(--warning-color);
+
+      .icon {
+        color: var(--warning-color);
+      }
+
+      .badge {
+        color: var(--warning-color);
+        background: var(--warning-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--warning-color);
+        border-color: var(--warning-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--warning-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--warning-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.ghost {
+      color: var(--warning-color);
+
+      .icon {
+        color: var(--warning-color);
+      }
+
+      .badge {
+        color: var(--warning-color);
+        background: var(--warning-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--warning-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--warning-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--warning-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.link {
+      color: var(--warning-color);
+
+      .icon {
+        color: var(--warning-color);
+      }
+
+      .badge {
+        color: var(--warning-color);
+        background: var(--warning-color-light);
+      }
+
+      &:hover {
+        color: var(--warning-color-dark);
+        background: transparent;
+        transform: none;
+
+        .icon {
+          color: var(--warning-color-dark);
+        }
+
+        .badge {
+          color: var(--warning-color-dark);
+          background: var(--warning-color-light);
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &.loading::after {
+        border-color: var(--warning-color);
+        border-top-color: transparent;
+      }
+    }
+  }
+
+  &-info {
+    background: var(--info-color);
+
+    &:hover {
+      background: var(--info-color-dark);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--info-color-light);
+    }
+
+    &.outline {
+      color: var(--info-color);
+      border-color: var(--info-color);
+
+      .icon {
+        color: var(--info-color);
+      }
+
+      .badge {
+        color: var(--info-color);
+        background: var(--info-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--info-color);
+        border-color: var(--info-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--info-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--info-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.ghost {
+      color: var(--info-color);
+
+      .icon {
+        color: var(--info-color);
+      }
+
+      .badge {
+        color: var(--info-color);
+        background: var(--info-color-light);
+      }
+
+      &:hover {
+        color: var(--white);
+        background: var(--info-color);
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 2px var(--info-color-light);
+      }
+
+      &.loading::after {
+        border-color: var(--info-color);
+        border-top-color: transparent;
+      }
+    }
+
+    &.link {
+      color: var(--info-color);
+
+      .icon {
+        color: var(--info-color);
+      }
+
+      .badge {
+        color: var(--info-color);
+        background: var(--info-color-light);
+      }
+
+      &:hover {
+        color: var(--info-color-dark);
+        background: transparent;
+        transform: none;
+
+        .icon {
+          color: var(--info-color-dark);
+        }
+
+        .badge {
+          color: var(--info-color-dark);
+          background: var(--info-color-light);
+        }
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &.loading::after {
+        border-color: var(--info-color);
+        border-top-color: transparent;
+      }
+    }
+  }
+
+  // Container
+  &-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  // Responsividade
+  @media (max-width: $breakpoint-sm) {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+
+    .icon {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    .badge {
+      padding: 0.125rem 0.25rem;
+      font-size: 0.625rem;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+} 

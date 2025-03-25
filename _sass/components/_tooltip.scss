@@ -1,0 +1,222 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+
+  // Texto
+  .text {
+    position: absolute;
+    padding: 0.5rem 0.75rem;
+    border-radius: $border-radius;
+    background: var(--bg-dark);
+    color: var(--white);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: all 0.2s ease-in-out;
+    z-index: 100;
+
+    // Seta
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border: 4px solid transparent;
+    }
+  }
+
+  // Posições
+  &-top {
+    .text {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: 0.5rem;
+      transform: translateX(-50%) translateY(5px);
+
+      &::before {
+        top: 100%;
+        left: 50%;
+        margin-left: -4px;
+        border-top-color: var(--bg-dark);
+      }
+    }
+  }
+
+  &-right {
+    .text {
+      top: 50%;
+      left: 100%;
+      margin-left: 0.5rem;
+      transform: translateY(-50%) translateX(5px);
+
+      &::before {
+        top: 50%;
+        right: 100%;
+        margin-top: -4px;
+        border-right-color: var(--bg-dark);
+      }
+    }
+  }
+
+  &-bottom {
+    .text {
+      top: 100%;
+      left: 50%;
+      margin-top: 0.5rem;
+      transform: translateX(-50%) translateY(5px);
+
+      &::before {
+        bottom: 100%;
+        left: 50%;
+        margin-left: -4px;
+        border-bottom-color: var(--bg-dark);
+      }
+    }
+  }
+
+  &-left {
+    .text {
+      top: 50%;
+      right: 100%;
+      margin-right: 0.5rem;
+      transform: translateY(-50%) translateX(5px);
+
+      &::before {
+        top: 50%;
+        left: 100%;
+        margin-top: -4px;
+        border-left-color: var(--bg-dark);
+      }
+    }
+  }
+
+  // Estado ativo
+  &:hover {
+    .text {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) translateX(0);
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    .text {
+      padding: 0.375rem 0.625rem;
+      font-size: 0.75rem;
+    }
+  }
+
+  &-lg {
+    .text {
+      padding: 0.625rem 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  // Estilos
+  &-bordered {
+    .text {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      box-shadow: $shadow-sm;
+
+      &::before {
+        border-color: var(--border-color);
+      }
+    }
+  }
+
+  &-shadow {
+    .text {
+      box-shadow: $shadow-lg;
+    }
+  }
+
+  &-rounded {
+    .text {
+      border-radius: $border-radius-full;
+    }
+  }
+
+  // Variantes
+  &-primary {
+    .text {
+      background: var(--primary-color);
+
+      &::before {
+        border-color: var(--primary-color);
+      }
+    }
+  }
+
+  &-success {
+    .text {
+      background: var(--success-color);
+
+      &::before {
+        border-color: var(--success-color);
+      }
+    }
+  }
+
+  &-error {
+    .text {
+      background: var(--error-color);
+
+      &::before {
+        border-color: var(--error-color);
+      }
+    }
+  }
+
+  &-warning {
+    .text {
+      background: var(--warning-color);
+
+      &::before {
+        border-color: var(--warning-color);
+      }
+    }
+  }
+
+  &-info {
+    .text {
+      background: var(--info-color);
+
+      &::before {
+        border-color: var(--info-color);
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: $breakpoint-sm) {
+    .text {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: auto;
+      margin: 0;
+      border-radius: $border-radius $border-radius 0 0;
+      transform: translateY(100%);
+      white-space: normal;
+      text-align: center;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:hover {
+      .text {
+        transform: translateY(0);
+      }
+    }
+  }
+} 
