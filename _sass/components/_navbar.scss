@@ -1,0 +1,458 @@
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4rem;
+  padding: 0 1.5rem;
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+
+  // Logo
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    .icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  // Menu
+  .menu {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    // Item
+    .item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: $border-radius;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: var(--bg-secondary);
+      }
+
+      &.active {
+        background: var(--primary-color-light);
+        color: var(--primary-color);
+
+        .icon {
+          color: var(--primary-color);
+        }
+
+        .badge {
+          background: var(--primary-color);
+          color: var(--white);
+        }
+      }
+
+      // Ícone
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        color: var(--text-secondary);
+      }
+
+      // Badge
+      .badge {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        background: var(--bg-secondary);
+        border-radius: $border-radius;
+      }
+
+      // Dropdown
+      .dropdown {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 200px;
+        margin-top: 0.5rem;
+        padding: 0.5rem 0;
+        background: var(--bg-primary);
+        border: 1px solid var(--border-color);
+        border-radius: $border-radius;
+        box-shadow: $shadow-lg;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.2s ease-in-out;
+        z-index: 100;
+
+        .item {
+          padding: 0.5rem 1rem;
+          border-radius: 0;
+
+          &:hover {
+            background: var(--bg-secondary);
+          }
+        }
+      }
+
+      &:hover > .dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  // Ações
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    // Botão
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      padding: 0;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      border-radius: $border-radius;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  // Toggle
+  .toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    color: var(--text-secondary);
+    background: transparent;
+    border: none;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+
+    .icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+
+  // Tamanhos
+  &-sm {
+    height: 3rem;
+    padding: 0 1rem;
+
+    .logo {
+      font-size: 1rem;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .menu {
+      .item {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+
+        .badge {
+          padding: 0.125rem 0.375rem;
+          font-size: 0.625rem;
+        }
+      }
+    }
+
+    .actions {
+      .button {
+        width: 2rem;
+        height: 2rem;
+
+        .icon {
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+
+    .toggle {
+      width: 2rem;
+      height: 2rem;
+
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  &-lg {
+    height: 5rem;
+    padding: 0 2rem;
+
+    .logo {
+      font-size: 1.5rem;
+
+      .icon {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    .menu {
+      .item {
+        padding: 0.625rem 1.25rem;
+        font-size: 1rem;
+
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        .badge {
+          padding: 0.375rem 0.75rem;
+          font-size: 0.875rem;
+        }
+      }
+    }
+
+    .actions {
+      .button {
+        width: 3rem;
+        height: 3rem;
+
+        .icon {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+      }
+    }
+
+    .toggle {
+      width: 3rem;
+      height: 3rem;
+
+      .icon {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+    }
+  }
+
+  // Estilos
+  &-bordered {
+    border: 1px solid var(--border-color);
+  }
+
+  &-shadow {
+    box-shadow: $shadow-sm;
+  }
+
+  &-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  // Variantes
+  &-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+
+    .logo {
+      color: var(--white);
+    }
+
+    .menu {
+      .item {
+        color: var(--white);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.2);
+          color: var(--white);
+
+          .icon {
+            color: var(--white);
+          }
+
+          .badge {
+            background: var(--white);
+            color: var(--primary-color);
+          }
+        }
+
+        .icon {
+          color: var(--white);
+        }
+
+        .badge {
+          color: var(--white);
+          background: rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+
+    .actions {
+      .button {
+        color: var(--white);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+      }
+    }
+
+    .toggle {
+      color: var(--white);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  // Responsividade
+  @media (max-width: $breakpoint-md) {
+    .menu {
+      display: none;
+      position: fixed;
+      top: 4rem;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-color);
+      box-shadow: $shadow-lg;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item {
+        width: 100%;
+
+        .dropdown {
+          position: static;
+          width: 100%;
+          margin: 0.5rem 0;
+          padding: 0;
+          border: none;
+          box-shadow: none;
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+        }
+      }
+    }
+
+    .toggle {
+      display: flex;
+    }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    height: 3.5rem;
+    padding: 0 1rem;
+
+    .logo {
+      font-size: 1rem;
+
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    .menu {
+      top: 3.5rem;
+      padding: 0.75rem;
+
+      .item {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+
+        .icon {
+          width: 1.25rem;
+          height: 1.25rem;
+        }
+
+        .badge {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .actions {
+      .button {
+        width: 2.25rem;
+        height: 2.25rem;
+
+        .icon {
+          width: 1.125rem;
+          height: 1.125rem;
+        }
+      }
+    }
+
+    .toggle {
+      width: 2.25rem;
+      height: 2.25rem;
+
+      .icon {
+        width: 1.375rem;
+        height: 1.375rem;
+      }
+    }
+  }
+} 

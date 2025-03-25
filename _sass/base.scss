@@ -37,10 +37,10 @@ p {
 a {
   color: var(--primary-color);
   text-decoration: none;
-  transition: $transition-base;
+  transition: color 0.2s ease-in-out;
 
   &:hover {
-    color: darken(var(--primary-color), 10%);
+    color: var(--primary-color-dark);
   }
 }
 
@@ -126,7 +126,7 @@ th {
     color: white;
 
     &:hover {
-      background-color: darken(var(--primary-color), 10%);
+      background-color: var(--primary-color-dark);
     }
   }
 
