@@ -59,57 +59,58 @@
       list-style: none;
       margin: 0;
       padding: 0;
-    }
-    
-    .nav-item {
-      position: relative;
       
-      .nav-link {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        color: var(--text-color);
-        text-decoration: none;
-        border-radius: 4px;
-        transition: all 0.2s ease;
+      .nav-item {
+        position: relative;
         
-        i {
-          font-size: 1.1rem;
-        }
-        
-        &:hover {
-          background: var(--bg-secondary);
-          color: var(--primary-color);
-        }
-        
-        &.active {
-          color: var(--primary-color);
-          background: var(--bg-secondary);
-        }
-      }
-      
-      &.dropdown {
         .nav-link {
-          padding-right: 2rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.5rem 1rem;
+          color: var(--text-color);
+          text-decoration: none;
+          border-radius: 4px;
+          transition: all 0.2s ease;
           
-          .fa-chevron-down {
-            position: absolute;
-            right: 0.5rem;
-            font-size: 0.8rem;
-            transition: transform 0.2s ease;
+          i {
+            font-size: 1rem;
+            margin-right: 0.5rem;
+          }
+          
+          &:hover {
+            background: var(--bg-secondary);
+            color: var(--primary-color);
+          }
+          
+          &.active {
+            color: var(--primary-color);
+            background: var(--bg-secondary);
           }
         }
         
-        &:hover {
-          .nav-link .fa-chevron-down {
-            transform: rotate(180deg);
+        &.dropdown {
+          .nav-link {
+            padding-right: 2rem;
+            
+            .fa-chevron-down {
+              position: absolute;
+              right: 0.5rem;
+              font-size: 0.8rem;
+              transition: transform 0.2s ease;
+            }
           }
           
-          .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+          &:hover {
+            .nav-link .fa-chevron-down {
+              transform: rotate(180deg);
+            }
+            
+            .dropdown-menu {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0);
+            }
           }
         }
       }
@@ -170,7 +171,7 @@
         }
         
         i {
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
@@ -191,7 +192,7 @@
         }
         
         i {
-          font-size: 1.2rem;
+          font-size: 1rem;
         }
       }
     }
