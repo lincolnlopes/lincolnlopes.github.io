@@ -69,3 +69,13 @@ defaults:
     values:
       layout: "project"
       author: "Lincoln Lopes"
+
+# Search Configuration
+search_enabled: true
+search_placeholder: "Buscar em tutoriais e artigos..."
+search_min_chars: 2
+
+# JavaScript Dependencies
+javascript:
+  - /assets/js/lunr.min.js
+  - /assets/js/search.js
