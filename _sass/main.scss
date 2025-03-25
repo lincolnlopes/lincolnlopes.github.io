@@ -1,0 +1,24 @@
+// Variáveis
+@import "variables";
+
+// Reset e estilos base
+@import "base";
+
+// Componentes
+@import "header";
+@import "footer";
+@import "categories";
+
+// Layouts
+@import "layouts/article";
+@import "layouts/tutorial";
+@import "layouts/project";
+
+// Utilitários
+@import "utilities";
+
+// Animações
+@import "animations";
+
+// Responsividade
+@import "responsive"; 

@@ -1,8 +1,89 @@
-<div id="main-header" class="main-header">
-    {% if site.search_enabled != false %}
-      {% include components/search_header.html %}
-    {% else %}
-      <div></div>
-    {% endif %}
-    {% include header_custom.html %}
+{% if site.show_header %}
+<header class="site-header">
+  <div class="header-container">
+    <div class="header-left">
+      <a href="{{ site.url }}" class="site-title">
+        {% if site.logo %}
+          <img src="{{ site.logo }}" alt="{{ site.title }}" class="site-logo">
+        {% endif %}
+        <span class="site-name">{{ site.title }}</span>
+      </a>
+    </div>
+
+    <nav class="main-nav">
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li class="nav-item">
+          <a href="{{ site.url }}" class="nav-link {% if page.url == '/' %}active{% endif %}">
+            <i class="fas fa-home"></i>
+            <span>Início</span>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link">
+            <i class="fas fa-book"></i>
+            <span>Conteúdo</span>
+            <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="/tutorials/">Tutoriais</a></li>
+            <li><a href="/articles/">Artigos</a></li>
+            <li><a href="/categories/">Categorias</a></li>
+            <li><a href="/projects/">Projetos</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="/about/" class="nav-link {% if page.url contains '/about/' %}active{% endif %}">
+            <i class="fas fa-user"></i>
+            <span>Sobre</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/contact/" class="nav-link {% if page.url contains '/contact/' %}active{% endif %}">
+            <i class="fas fa-envelope"></i>
+            <span>Contato</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header-right">
+      {% if site.search_enabled != false %}
+        {% include components/search_header.html %}
+      {% endif %}
+
+      <div class="theme-toggle">
+        <button id="theme-toggle" aria-label="Alternar tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+
+      <div class="social-links">
+        {% if site.github.owner_url %}
+          <a href="{{ site.github.owner_url }}" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        {% endif %}
+        {% if site.twitter %}
+          <a href="{{ site.twitter }}" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        {% endif %}
+        {% if site.linkedin %}
+          <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
   </div>
+</header>
+{% endif %}

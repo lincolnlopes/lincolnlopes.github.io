@@ -1,0 +1,97 @@
+---
+layout: default
+---
+
+<article class="article">
+  <header class="article-header">
+    <h1 class="article-title">{{ page.title }}</h1>
+    
+    <div class="article-meta">
+      <div class="article-author">
+        <i class="fas fa-user"></i>
+        <span>{{ page.author }}</span>
+      </div>
+      
+      <div class="article-date">
+        <i class="fas fa-calendar"></i>
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {{ page.date | date: "%d/%m/%Y" }}
+        </time>
+      </div>
+      
+      <div class="article-reading-time">
+        <i class="fas fa-clock"></i>
+        <span>{{ content | number_of_words | divided_by: 200 | plus: 1 }} min de leitura</span>
+      </div>
+    </div>
+    
+    {% if page.description %}
+    <div class="article-description">
+      {{ page.description }}
+    </div>
+    {% endif %}
+    
+    {% if page.tags %}
+    <div class="article-tags">
+      {% for tag in page.tags %}
+      <a href="{{ '/tags/' | relative_url }}{{ tag | slugify }}" class="tag">
+        <i class="fas fa-tag"></i>
+        {{ tag }}
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
+  
+  <div class="article-content">
+    {{ content }}
+  </div>
+  
+  <footer class="article-footer">
+    {% if page.categories %}
+    <div class="article-categories">
+      <h3>Categorias</h3>
+      <ul>
+        {% for category in page.categories %}
+        <li>
+          <a href="{{ '/categories/' | relative_url }}{{ category | slugify }}">
+            {{ category }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    
+    {% if page.related_posts %}
+    <div class="article-related">
+      <h3>Artigos Relacionados</h3>
+      <ul>
+        {% for post in page.related_posts %}
+        <li>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    
+    <div class="article-share">
+      <h3>Compartilhar</h3>
+      <div class="share-buttons">
+        <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}" target="_blank" rel="noopener noreferrer" class="share-button twitter">
+          <i class="fab fa-twitter"></i>
+          Twitter
+        </a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" target="_blank" rel="noopener noreferrer" class="share-button facebook">
+          <i class="fab fa-facebook"></i>
+          Facebook
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}&title={{ page.title | url_encode }}" target="_blank" rel="noopener noreferrer" class="share-button linkedin">
+          <i class="fab fa-linkedin"></i>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </footer>
+</article> 

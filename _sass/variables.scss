@@ -18,3 +18,60 @@ $yellow:    #f1fa8c;
 $body-fonts: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $heading-fonts: "Noto Serif", "Inconsolata", "Times New Roman", Times, serif;
 $mono-fonts: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+
+:root {
+  // Cores principais
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --accent-color: #60a5fa;
+  
+  // Tema claro (padrão)
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  
+  // Transições
+  --transition-speed: 0.2s;
+  --transition-timing: ease;
+}
+
+// Tema escuro
+body.dark-theme {
+  --bg-primary: #1f2937;
+  --bg-secondary: #374151;
+  --text-color: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-color: #4b5563;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+// Breakpoints
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+// Tipografia
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Espaçamento
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit;
+$spacing-sm: $spacing-unit * 2;
+$spacing-md: $spacing-unit * 3;
+$spacing-lg: $spacing-unit * 4;
+$spacing-xl: $spacing-unit * 5;
+
+// Bordas
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+
+// Sombras
+$shadow-sm: 0 1px 2px var(--shadow-color);
+$shadow-md: 0 4px 6px var(--shadow-color);
+$shadow-lg: 0 10px 15px var(--shadow-color);

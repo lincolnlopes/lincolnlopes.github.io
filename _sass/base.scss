@@ -1,0 +1,203 @@
+// Reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Estilos base
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  color: var(--text-color);
+  background: var(--bg-primary);
+  transition: background-color var(--transition-speed) var(--transition-timing),
+              color var(--transition-speed) var(--transition-timing);
+}
+
+// Tipografia
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-base;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: $spacing-md;
+  color: var(--text-color);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+// Links
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-timing);
+  
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+// Parágrafos
+p {
+  margin-bottom: $spacing-md;
+  line-height: 1.6;
+}
+
+// Listas
+ul, ol {
+  margin-bottom: $spacing-md;
+  padding-left: $spacing-lg;
+  
+  li {
+    margin-bottom: $spacing-xs;
+  }
+}
+
+// Imagens
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: $spacing-md;
+}
+
+// Código
+code {
+  font-family: $mono-fonts;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background: var(--bg-secondary);
+  border-radius: $border-radius-sm;
+}
+
+pre {
+  background: var(--bg-secondary);
+  padding: $spacing-md;
+  border-radius: $border-radius-md;
+  overflow-x: auto;
+  margin-bottom: $spacing-md;
+  
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Citações
+blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: $spacing-md;
+  margin-bottom: $spacing-md;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+// Tabelas
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: $spacing-md;
+  
+  th, td {
+    padding: $spacing-sm;
+    border: 1px solid var(--border-color);
+    text-align: left;
+  }
+  
+  th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+  }
+  
+  tr:nth-child(even) {
+    background: var(--bg-secondary);
+  }
+}
+
+// Formulários
+input, textarea, select {
+  font-family: $font-family-base;
+  font-size: 1rem;
+  padding: $spacing-sm;
+  border: 1px solid var(--border-color);
+  border-radius: $border-radius-sm;
+  background: var(--bg-primary);
+  color: var(--text-color);
+  width: 100%;
+  margin-bottom: $spacing-md;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+}
+
+button {
+  font-family: $font-family-base;
+  font-size: 1rem;
+  padding: $spacing-sm $spacing-md;
+  border: none;
+  border-radius: $border-radius-sm;
+  background: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: background-color var(--transition-speed) var(--transition-timing);
+  
+  &:hover {
+    background: var(--secondary-color);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+}
+
+// Container principal
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-md;
+}
+
+// Utilitários de texto
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-primary { color: var(--primary-color); }
+.text-secondary { color: var(--secondary-color); }
+.text-muted { color: var(--text-muted); }
+
+// Utilitários de margem
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+// Utilitários de padding
+.p-1 { padding: $spacing-xs; }
+.p-2 { padding: $spacing-sm; }
+.p-3 { padding: $spacing-md; }
+.p-4 { padding: $spacing-lg; }
+.p-5 { padding: $spacing-xl; } 

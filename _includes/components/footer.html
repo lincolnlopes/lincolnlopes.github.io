@@ -1,0 +1,39 @@
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre</h3>
+        <p>{{ site.description }}</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Início</a></li>
+          <li><a href="{{ '/tutorials/' | relative_url }}">Tutoriais</a></li>
+          <li><a href="{{ '/articles/' | relative_url }}">Artigos</a></li>
+          <li><a href="{{ '/projects/' | relative_url }}">Projetos</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <div class="social-links">
+          <a href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://twitter.com/lincolngyn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com/in/lincolnlopes" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer> 

@@ -1,83 +1,91 @@
-# SEO Values
-title: Lincoln Lopes - GitHub Pages
-tagline: The renowned dark theme for ...
-description: Base de conhecimento sobre tecnologia, programação e desenvolvimento de software.
-url: https://lincolnlopes.github.io
-twitter: https://twitter.com/lincolngyn
-logo: https://draculatheme.com/static/icons/pack-1/045-dracula.svg
+# Configurações básicas
+title: Lincoln Lopes
+description: Blog pessoal sobre desenvolvimento, tecnologia e mais
+baseurl: ""
+url: "https://lincolnlopes.github.io"
 
-# Google Analytics ID
-google_analytics:
+# SEO
+seo:
+  title: Lincoln Lopes - Desenvolvimento e Tecnologia
+  description: Blog pessoal sobre desenvolvimento, tecnologia e mais
+  keywords: desenvolvimento, tecnologia, programação, devops, cloud
+  author: Lincoln Lopes
+  og_image: /assets/images/og-image.jpg
+  twitter_card: summary_large_image
 
-# GitHub Values
+# Google Analytics
+google_analytics: UA-XXXXXXXX-X
+
+# GitHub
 github:
-  public: true
-  owner_name: Lincoln Lopes
-  owner_url: https://github.com/lincolnlopes
-  repository_url: https://github.com/lincolnlopes/lincolnlopes.github.io
-
-mermaid: true
-show_downloads: true
-show_header: true
-remote_theme: "dracula/gh-pages"
-
-sass:
-    style: compressed
-
-plugins:
-  - jekyll-seo-tag
-  - faraday-retry
+  username: lincolnlopes
+  repository: lincolnlopes.github.io
 
 # Collections
 collections:
   tutorials:
     output: true
-    permalink: /tutorials/:path/
+    permalink: /tutorials/:slug/
   articles:
     output: true
-    permalink: /articles/:path/
+    permalink: /articles/:slug/
   projects:
     output: true
-    permalink: /projects/:path/
+    permalink: /projects/:slug/
 
-# Collection Defaults
+# Collection defaults
 defaults:
   - scope:
       path: ""
-      type: "tutorials"
+      type: tutorials
     values:
-      layout: "tutorial"
-      author: "Lincoln Lopes"
+      layout: tutorial
+      author: Lincoln Lopes
       comments: true
   - scope:
       path: ""
-      type: "articles"
+      type: articles
     values:
-      layout: "article"
-      author: "Lincoln Lopes"
+      layout: article
+      author: Lincoln Lopes
       comments: true
   - scope:
       path: ""
-      type: "projects"
+      type: projects
     values:
-      layout: "project"
-      author: "Lincoln Lopes"
+      layout: project
+      author: Lincoln Lopes
       comments: true
 
-# Search Configuration
-search_enabled: true
-search_placeholder: "Buscar em tutoriais e artigos..."
-search_min_chars: 2
+# Busca
+search:
+  enabled: true
+  placeholder: "Buscar no site..."
 
-# JavaScript Dependencies
+# JavaScript
 javascript:
-  - /assets/js/lunr.min.js
-  - /assets/js/search.js
+  dependencies:
+    - name: Font Awesome
+      url: https://kit.fontawesome.com/your-kit-code.js
+      async: true
+    - name: Inter Font
+      url: https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap
+      async: true
 
-# Comments Configuration
+# Comentários
 comments:
   utterances:
-    repo: lincolnlopes/lincolnlopes.github.io
-    issue-term: pathname
+    enabled: true
+    repository: lincolnlopes/lincolnlopes.github.io
+    issue_term: pathname
     label: 💬 Comentários
     theme: dracula
+
+# Build
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-include-cache
