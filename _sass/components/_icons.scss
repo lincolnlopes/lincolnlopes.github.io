@@ -1,0 +1,263 @@
+// Ícones
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  font-size: inherit;
+  color: inherit;
+  vertical-align: middle;
+  
+  // Tamanhos
+  &-sm {
+    font-size: 0.875em;
+  }
+  
+  &-lg {
+    font-size: 1.25em;
+  }
+  
+  &-xl {
+    font-size: 1.5em;
+  }
+  
+  &-xxl {
+    font-size: 2em;
+  }
+  
+  // Cores
+  &-primary {
+    color: var(--primary);
+  }
+  
+  &-success {
+    color: var(--success);
+  }
+  
+  &-error {
+    color: var(--error);
+  }
+  
+  &-warning {
+    color: var(--warning);
+  }
+  
+  &-info {
+    color: var(--info);
+  }
+  
+  // Com background
+  &-bg {
+    padding: $spacing-xs;
+    border-radius: $border-radius-full;
+    background-color: var(--bg-secondary);
+    
+    &-primary {
+      background-color: var(--primary-light);
+      color: var(--primary);
+    }
+    
+    &-success {
+      background-color: var(--success-light);
+      color: var(--success);
+    }
+    
+    &-error {
+      background-color: var(--error-light);
+      color: var(--error);
+    }
+    
+    &-warning {
+      background-color: var(--warning-light);
+      color: var(--warning);
+    }
+    
+    &-info {
+      background-color: var(--info-light);
+      color: var(--info);
+    }
+  }
+  
+  // Com borda
+  &-border {
+    padding: $spacing-xs;
+    border: $border-width-sm solid currentColor;
+    border-radius: $border-radius-full;
+  }
+  
+  // Com hover
+  &-hover {
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  // Com rotação
+  &-rotate {
+    &-45 {
+      transform: rotate(45deg);
+    }
+    
+    &-90 {
+      transform: rotate(90deg);
+    }
+    
+    &-180 {
+      transform: rotate(180deg);
+    }
+    
+    &-270 {
+      transform: rotate(270deg);
+    }
+  }
+  
+  // Com animação
+  &-spin {
+    animation: spin 1s linear infinite;
+  }
+  
+  &-pulse {
+    animation: pulse 1s ease-in-out infinite;
+  }
+  
+  &-bounce {
+    animation: bounce 1s ease-in-out infinite;
+  }
+  
+  &-shake {
+    animation: shake 0.5s ease-in-out infinite;
+  }
+  
+  // Com link
+  &-link {
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    
+    &:hover {
+      color: var(--primary);
+    }
+  }
+  
+  // Com tooltip
+  &-tooltip {
+    position: relative;
+    
+    &::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: $spacing-xs $spacing-sm;
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: $font-size-sm;
+      border-radius: $border-radius-sm;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease-in-out;
+    }
+    
+    &:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-$spacing-xs);
+    }
+  }
+  
+  // Com badge
+  &-badge {
+    position: relative;
+    
+    &::after {
+      content: attr(data-badge);
+      position: absolute;
+      top: -0.5em;
+      right: -0.5em;
+      min-width: 1.5em;
+      height: 1.5em;
+      padding: 0 $spacing-xs;
+      background-color: var(--error);
+      color: var(--white);
+      font-size: $font-size-xs;
+      line-height: 1.5em;
+      text-align: center;
+      border-radius: $border-radius-full;
+      border: $border-width-sm solid var(--bg-primary);
+    }
+  }
+  
+  // Com loading
+  &-loading {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid currentColor;
+      border-radius: 50%;
+      border-right-color: transparent;
+      animation: rotate 0.75s linear infinite;
+    }
+  }
+}
+
+// Animações
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} 

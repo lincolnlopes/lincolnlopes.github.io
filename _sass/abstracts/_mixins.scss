@@ -1,0 +1,110 @@
+// Mixins de layout
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $wrap: nowrap) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+@mixin grid($columns: 1, $gap: 0) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}
+
+// Mixins de responsividade
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint `#{$breakpoint}` não encontrado.";
+  }
+}
+
+// Mixins de tipografia
+@mixin font($size: base, $weight: normal, $line-height: normal) {
+  font-size: font-size($size);
+  font-weight: font-weight($weight);
+  line-height: line-height($line-height);
+}
+
+// Mixins de espaçamento
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin: spacing($top) spacing($right) spacing($bottom) spacing($left);
+}
+
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding: spacing($top) spacing($right) spacing($bottom) spacing($left);
+}
+
+// Mixins de borda
+@mixin border($width: 1, $style: solid, $color: var(--border)) {
+  border: border-width($width) $style $color;
+}
+
+// Mixins de sombra
+@mixin shadow($size: md) {
+  box-shadow: shadow($size);
+}
+
+// Mixins de transição
+@mixin transition($property: all, $duration: base) {
+  transition: $property $duration ease-in-out;
+}
+
+// Mixins de tema
+@mixin theme($theme: 'dark') {
+  @each $property, $value in map-get($themes, $theme) {
+    --#{$property}: #{$value};
+  }
+}
+
+// Mixins de acessibilidade
+@mixin focus-ring($color: var(--primary)) {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba($color, 0.2);
+}
+
+// Mixins de animação
+@mixin fade-in($duration: 0.3s) {
+  animation: fadeIn $duration ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Mixins de container
+@mixin container($max-width: null) {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $container-padding;
+  padding-left: $container-padding;
+
+  @if $max-width {
+    max-width: $max-width;
+  }
+}
+
+// Mixins de truncamento
+@mixin truncate($lines: 1) {
+  @if $lines == 1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+} 

@@ -1,0 +1,133 @@
+// Rodapé
+.footer {
+  background-color: var(--bg-secondary);
+  border-top: $border-width-sm solid var(--border);
+  padding: $spacing-xl 0;
+  
+  // Container
+  &__container {
+    @include container;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-xl;
+    padding: 0 $spacing-md;
+  }
+  
+  // Seção
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+  
+  // Título
+  &__title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: var(--text-primary);
+    margin-bottom: $spacing-sm;
+  }
+  
+  // Links
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+  
+  // Link
+  &__link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    
+    &:hover {
+      color: var(--primary);
+    }
+  }
+  
+  // Redes sociais
+  &__social {
+    display: flex;
+    gap: $spacing-md;
+    
+    &-link {
+      color: var(--text-secondary);
+      transition: color 0.2s ease-in-out;
+      
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+  
+  // Newsletter
+  &__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    
+    &-form {
+      display: flex;
+      gap: $spacing-sm;
+      
+      input {
+        flex: 1;
+        padding: $spacing-sm;
+        border: $border-width-sm solid var(--border);
+        border-radius: $border-radius-sm;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        
+        &:focus {
+          outline: none;
+          border-color: var(--primary);
+        }
+      }
+    }
+  }
+  
+  // Copyright
+  &__copyright {
+    margin-top: $spacing-xl;
+    padding-top: $spacing-md;
+    border-top: $border-width-sm solid var(--border);
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: $font-size-sm;
+  }
+  
+  // Tema escuro
+  &--dark {
+    background-color: var(--bg-tertiary);
+    border-top-color: var(--border-hover);
+  }
+  
+  // Tema claro
+  &--light {
+    background-color: var(--bg-secondary);
+    border-top-color: var(--border);
+  }
+  
+  // Responsivo
+  @include respond-to('md') {
+    padding: $spacing-lg 0;
+    
+    &__container {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+    
+    &__section {
+      text-align: center;
+    }
+    
+    &__social {
+      justify-content: center;
+    }
+    
+    &__newsletter-form {
+      flex-direction: column;
+    }
+  }
+} 

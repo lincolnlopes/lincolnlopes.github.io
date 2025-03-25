@@ -1,0 +1,58 @@
+// Funções de cores
+@function color($color-name, $theme: 'dark') {
+  @return map-get(map-get($themes, $theme), $color-name);
+}
+
+// Funções de espaçamento
+@function spacing($size) {
+  @return map-get($spacing, $size);
+}
+
+// Funções de fonte
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+@function font-weight($weight) {
+  @return map-get($font-weights, $weight);
+}
+
+// Funções de breakpoint
+@function breakpoint($size) {
+  @return map-get($breakpoints, $size);
+}
+
+// Funções de sombra
+@function shadow($size) {
+  @return map-get($shadows, $size);
+}
+
+// Funções de z-index
+@function z($layer) {
+  @return map-get($z-index, $layer);
+}
+
+// Funções de borda
+@function border-width($size) {
+  @return map-get($border-widths, $size);
+}
+
+// Funções de linha
+@function line-height($size) {
+  @return map-get($line-heights, $size);
+}
+
+// Funções de espaçamento entre letras
+@function letter-spacing($size) {
+  @return map-get($letter-spacings, $size);
+}
+
+// Funções de fonte
+@function font-family($type) {
+  @return map-get($font-families, $type);
+}
+
+// Funções de container
+@function container-width($size) {
+  @return map-get($container-max-widths, $size);
+} 

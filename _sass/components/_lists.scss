@@ -1,0 +1,253 @@
+// Listas
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+  // Item da lista
+  &-item {
+    display: flex;
+    align-items: center;
+    padding: $spacing-sm;
+    border-bottom: $border-width-sm solid var(--border);
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    // Com ícone
+    &-icon {
+      margin-right: $spacing-sm;
+      color: var(--text-tertiary);
+    }
+    
+    // Com avatar
+    &-avatar {
+      width: 2.5em;
+      height: 2.5em;
+      margin-right: $spacing-sm;
+      border-radius: $border-radius-full;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    // Com ação
+    &-action {
+      margin-left: auto;
+    }
+  }
+  
+  // Variantes
+  &-bordered {
+    border: $border-width-sm solid var(--border);
+    border-radius: $border-radius-md;
+    
+    .list-item {
+      &:first-child {
+        border-top-left-radius: $border-radius-md;
+        border-top-right-radius: $border-radius-md;
+      }
+      
+      &:last-child {
+        border-bottom-left-radius: $border-radius-md;
+        border-bottom-right-radius: $border-radius-md;
+      }
+    }
+  }
+  
+  &-hover {
+    .list-item {
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      
+      &:hover {
+        background-color: var(--bg-secondary);
+      }
+    }
+  }
+  
+  &-striped {
+    .list-item:nth-child(odd) {
+      background-color: var(--bg-secondary);
+    }
+  }
+  
+  // Tamanhos
+  &-sm {
+    .list-item {
+      padding: $spacing-xs;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  &-lg {
+    .list-item {
+      padding: $spacing-md;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  // Com dividers
+  &-divider {
+    .list-item {
+      border-bottom: none;
+      
+      &:not(:last-child)::after {
+        content: '';
+        display: block;
+        height: $border-width-sm;
+        background-color: var(--border);
+        margin: $spacing-sm 0;
+      }
+    }
+  }
+  
+  // Com badges
+  &-badge {
+    .list-item {
+      justify-content: space-between;
+    }
+    
+    .badge {
+      margin-left: $spacing-sm;
+    }
+  }
+  
+  // Com checkboxes
+  &-checkbox {
+    .list-item {
+      cursor: pointer;
+      
+      input[type="checkbox"] {
+        margin-right: $spacing-sm;
+      }
+      
+      &.selected {
+        background-color: var(--primary-light);
+      }
+    }
+  }
+  
+  // Com radio buttons
+  &-radio {
+    .list-item {
+      cursor: pointer;
+      
+      input[type="radio"] {
+        margin-right: $spacing-sm;
+      }
+      
+      &.selected {
+        background-color: var(--primary-light);
+      }
+    }
+  }
+  
+  // Com loading
+  &-loading {
+    .list-item {
+      position: relative;
+      overflow: hidden;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--bg-tertiary),
+          transparent
+        );
+        animation: shimmer 1.5s infinite;
+      }
+    }
+  }
+  
+  // Com empty state
+  &-empty {
+    text-align: center;
+    padding: $spacing-xl;
+    color: var(--text-tertiary);
+    
+    &-icon {
+      font-size: $font-size-xl;
+      margin-bottom: $spacing-sm;
+    }
+    
+    &-text {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-md;
+    }
+  }
+  
+  // Com grupos
+  &-group {
+    &-header {
+      padding: $spacing-sm;
+      font-weight: $font-weight-bold;
+      color: var(--text-secondary);
+      background-color: var(--bg-secondary);
+    }
+  }
+  
+  // Com scroll
+  &-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+
+// Lista ordenada
+.ol {
+  margin: 0;
+  padding-left: $spacing-lg;
+  
+  &-item {
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Lista não ordenada
+.ul {
+  margin: 0;
+  padding-left: $spacing-lg;
+  
+  &-item {
+    margin-bottom: $spacing-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Lista de definição
+.dl {
+  margin: 0;
+  
+  &-term {
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &-description {
+    margin-bottom: $spacing-md;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+} 

@@ -2,79 +2,157 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: $spacing-sm $spacing-md;
   border-radius: $border-radius-md;
-  font-weight: 500;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-sm;
+  line-height: $line-height-tight;
+  text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: $transition-base;
-  border: none;
-  outline: none;
-
+  transition: all 0.2s ease-in-out;
+  border: $border-width-sm solid transparent;
+  gap: $spacing-xs;
+  
   // Variantes
   &-primary {
-    background: var(--primary-color);
-    color: white;
-
+    background-color: var(--primary);
+    color: var(--white);
+    
     &:hover {
-      background: var(--primary-color-dark);
+      background-color: var(--primary-dark);
     }
   }
-
+  
   &-secondary {
-    background: var(--bg-secondary);
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
-    border: 1px solid var(--border-color);
-
+    
     &:hover {
-      background: var(--bg-tertiary);
+      background-color: var(--bg-tertiary);
     }
   }
-
+  
   &-outline {
-    background: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-
+    background-color: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+    
     &:hover {
-      background: var(--primary-color);
-      color: white;
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
     }
   }
-
+  
   &-ghost {
-    background: transparent;
-    color: var(--text-secondary);
-    padding: 0.5rem 1rem;
-
+    background-color: transparent;
+    color: var(--text-primary);
+    
     &:hover {
-      color: var(--text-primary);
-      background: var(--bg-secondary);
+      background-color: var(--bg-secondary);
     }
   }
-
-  // Tamanhos
-  &-sm {
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+  
+  &-link {
+    background-color: transparent;
+    color: var(--link);
+    padding: 0;
+    
+    &:hover {
+      color: var(--link-hover);
+      text-decoration: underline;
+    }
   }
-
-  &-lg {
-    padding: 1rem 2rem;
-    font-size: 1.125rem;
-  }
-
+  
   // Estados
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    pointer-events: none;
   }
-
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-light);
+  }
+  
+  // Tamanhos
+  &-sm {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-xs;
+  }
+  
+  &-lg {
+    padding: $spacing-md $spacing-lg;
+    font-size: $font-size-base;
+  }
+  
   // Ícones
-  .icon {
-    width: 1.25rem;
-    height: 1.25rem;
+  &-icon {
+    padding: $spacing-sm;
+    border-radius: $border-radius-full;
+    
+    &-sm {
+      padding: $spacing-xs;
+    }
+    
+    &-lg {
+      padding: $spacing-md;
+    }
+  }
+  
+  // Loading
+  &-loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 1em;
+      height: 1em;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      border-right-color: transparent;
+      animation: rotate 0.75s linear infinite;
+    }
+  }
+}
+
+// Botões de grupo
+.btn-group {
+  display: inline-flex;
+  gap: $spacing-xs;
+  
+  .btn {
+    border-radius: 0;
+    
+    &:first-child {
+      border-top-left-radius: $border-radius-md;
+      border-bottom-left-radius: $border-radius-md;
+    }
+    
+    &:last-child {
+      border-top-right-radius: $border-radius-md;
+      border-bottom-right-radius: $border-radius-md;
+    }
+  }
+}
+
+// Botões de toggle
+.btn-toggle {
+  display: inline-flex;
+  background-color: var(--bg-secondary);
+  border-radius: $border-radius-md;
+  padding: $spacing-xs;
+  
+  .btn {
+    border-radius: $border-radius-sm;
+    
+    &.active {
+      background-color: var(--primary);
+      color: var(--white);
+    }
   }
 }
 

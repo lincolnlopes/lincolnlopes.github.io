@@ -1,0 +1,193 @@
+// Reset moderno
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Remover margens e paddings padrão
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+// Melhorar a renderização de fontes
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+// Remover estilos de lista
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Remover decoração de links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Remover estilos de botão
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Remover estilos de tabela
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// Remover espaçamento entre células
+td,
+th {
+  padding: 0;
+}
+
+// Remover estilos de imagem
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Remover estilos de formulário
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+// Remover estilos de foco padrão
+*:focus {
+  outline: none;
+}
+
+// Remover estilos de placeholder
+::placeholder {
+  color: inherit;
+  opacity: 0.5;
+}
+
+// Remover estilos de seleção
+::selection {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+// Remover estilos de scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+// Remover estilos de autofill
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--text-primary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--bg-primary) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// Remover estilos de detalhes
+details {
+  summary {
+    list-style: none;
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+}
+
+// Remover estilos de mark
+mark {
+  background: var(--warning-light);
+  color: var(--warning);
+  padding: 0.2em 0.4em;
+  border-radius: $border-radius-sm;
+}
+
+// Remover estilos de pre
+pre {
+  margin: 0;
+  padding: 0;
+  font-family: $font-family-mono;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+// Remover estilos de code
+code {
+  font-family: $font-family-mono;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background: var(--bg-secondary);
+  border-radius: $border-radius-sm;
+}
+
+// Remover estilos de blockquote
+blockquote {
+  margin: 0;
+  padding: 0;
+  border-left: 4px solid var(--primary);
+  padding-left: $spacing-md;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+// Remover estilos de hr
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: $spacing-lg 0;
+}
+
+// Remover estilos de figure
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+// Remover estilos de figcaption
+figcaption {
+  font-size: $font-size-sm;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: $spacing-sm;
+} 

@@ -1,0 +1,177 @@
+// Tema Escuro
+.theme-dark {
+  // Cores base
+  --white: #ffffff;
+  --black: #000000;
+  
+  // Cores primárias
+  --primary: #0d6efd;
+  --primary-light: rgba(13, 110, 253, 0.1);
+  --primary-dark: #0a58ca;
+  
+  // Cores de estado
+  --success: #198754;
+  --error: #dc3545;
+  --warning: #ffc107;
+  --info: #0dcaf0;
+  
+  // Cores de fundo
+  --bg-primary: #212529;
+  --bg-secondary: #343a40;
+  --bg-tertiary: #495057;
+  
+  // Cores de texto
+  --text-primary: #f8f9fa;
+  --text-secondary: #adb5bd;
+  --text-tertiary: #6c757d;
+  
+  // Cores de borda
+  --border-color: #495057;
+  --border-color-light: #6c757d;
+  --border-color-dark: #343a40;
+  
+  // Cores de botão
+  --btn-primary-bg: var(--primary);
+  --btn-primary-color: var(--white);
+  --btn-primary-hover-bg: var(--primary-dark);
+  --btn-primary-hover-color: var(--white);
+  --btn-primary-active-bg: var(--primary-dark);
+  --btn-primary-active-color: var(--white);
+  
+  --btn-secondary-bg: var(--bg-secondary);
+  --btn-secondary-color: var(--text-primary);
+  --btn-secondary-hover-bg: var(--bg-tertiary);
+  --btn-secondary-hover-color: var(--text-primary);
+  --btn-secondary-active-bg: var(--bg-tertiary);
+  --btn-secondary-active-color: var(--text-primary);
+  
+  // Cores de formulário
+  --input-bg: var(--bg-secondary);
+  --input-color: var(--text-primary);
+  --input-border: var(--border-color);
+  --input-focus-border: var(--primary);
+  --input-focus-shadow: rgba(13, 110, 253, 0.25);
+  --input-disabled-bg: var(--bg-tertiary);
+  --input-disabled-color: var(--text-secondary);
+  --input-placeholder-color: var(--text-tertiary);
+  
+  // Cores de tabela
+  --table-bg: var(--bg-primary);
+  --table-color: var(--text-primary);
+  --table-border: var(--border-color);
+  --table-hover-bg: var(--bg-secondary);
+  --table-striped-bg: var(--bg-secondary);
+  --table-striped-color: var(--text-primary);
+  
+  // Cores de modal
+  --modal-bg: var(--bg-primary);
+  --modal-color: var(--text-primary);
+  --modal-border: var(--border-color);
+  --modal-header-bg: var(--bg-secondary);
+  --modal-header-color: var(--text-primary);
+  --modal-footer-bg: var(--bg-secondary);
+  --modal-footer-color: var(--text-primary);
+  
+  // Cores de alerta
+  --alert-success-bg: rgba(25, 135, 84, 0.1);
+  --alert-success-color: var(--success);
+  --alert-success-border: var(--success);
+  
+  --alert-error-bg: rgba(220, 53, 69, 0.1);
+  --alert-error-color: var(--error);
+  --alert-error-border: var(--error);
+  
+  --alert-warning-bg: rgba(255, 193, 7, 0.1);
+  --alert-warning-color: var(--warning);
+  --alert-warning-border: var(--warning);
+  
+  --alert-info-bg: rgba(13, 202, 240, 0.1);
+  --alert-info-color: var(--info);
+  --alert-info-border: var(--info);
+  
+  // Cores de badge
+  --badge-primary-bg: var(--primary);
+  --badge-primary-color: var(--white);
+  
+  --badge-secondary-bg: var(--bg-secondary);
+  --badge-secondary-color: var(--text-primary);
+  
+  --badge-success-bg: var(--success);
+  --badge-success-color: var(--white);
+  
+  --badge-error-bg: var(--error);
+  --badge-error-color: var(--white);
+  
+  --badge-warning-bg: var(--warning);
+  --badge-warning-color: var(--text-primary);
+  
+  --badge-info-bg: var(--info);
+  --badge-info-color: var(--white);
+  
+  // Cores de card
+  --card-bg: var(--bg-primary);
+  --card-color: var(--text-primary);
+  --card-border: var(--border-color);
+  --card-header-bg: var(--bg-secondary);
+  --card-header-color: var(--text-primary);
+  --card-footer-bg: var(--bg-secondary);
+  --card-footer-color: var(--text-primary);
+  
+  // Cores de navegação
+  --nav-bg: var(--bg-primary);
+  --nav-color: var(--text-primary);
+  --nav-border: var(--border-color);
+  --nav-link-color: var(--text-primary);
+  --nav-link-hover-color: var(--primary);
+  --nav-link-active-color: var(--primary);
+  --nav-link-disabled-color: var(--text-tertiary);
+  
+  // Cores de sidebar
+  --sidebar-bg: var(--bg-primary);
+  --sidebar-color: var(--text-primary);
+  --sidebar-border: var(--border-color);
+  --sidebar-link-color: var(--text-primary);
+  --sidebar-link-hover-bg: var(--bg-secondary);
+  --sidebar-link-hover-color: var(--text-primary);
+  --sidebar-link-active-bg: var(--primary-light);
+  --sidebar-link-active-color: var(--primary);
+  
+  // Cores de header
+  --header-bg: var(--bg-primary);
+  --header-color: var(--text-primary);
+  --header-border: var(--border-color);
+  --header-link-color: var(--text-primary);
+  --header-link-hover-color: var(--primary);
+  --header-link-active-color: var(--primary);
+  
+  // Cores de footer
+  --footer-bg: var(--bg-secondary);
+  --footer-color: var(--text-primary);
+  --footer-border: var(--border-color);
+  --footer-link-color: var(--text-primary);
+  --footer-link-hover-color: var(--primary);
+  
+  // Cores de imagem
+  --img-border: var(--border-color);
+  --img-placeholder-bg: var(--bg-secondary);
+  --img-placeholder-color: var(--text-tertiary);
+  
+  // Cores de ícone
+  --icon-color: var(--text-primary);
+  --icon-hover-color: var(--primary);
+  --icon-active-color: var(--primary-dark);
+  --icon-disabled-color: var(--text-tertiary);
+  
+  // Cores de tooltip
+  --tooltip-bg: var(--black);
+  --tooltip-color: var(--white);
+  
+  // Cores de loading
+  --loading-bg: var(--bg-secondary);
+  --loading-color: var(--primary);
+  
+  // Cores de scrollbar
+  --scrollbar-track: var(--bg-secondary);
+  --scrollbar-thumb: var(--bg-tertiary);
+  --scrollbar-thumb-hover: var(--text-secondary);
+} 

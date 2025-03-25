@@ -1,0 +1,116 @@
+// Temas
+$themes: (
+  dark: (
+    // Cores base
+    white: #f8fafc,
+    black: #000000,
+
+    // Cores primárias
+    primary: #60a5fa,
+    primary-light: rgba(96, 165, 250, 0.1),
+    primary-dark: #3b82f6,
+
+    // Cores de estado
+    success: #4ade80,
+    success-light: rgba(74, 222, 128, 0.1),
+    success-dark: #22c55e,
+
+    error: #f87171,
+    error-light: rgba(248, 113, 113, 0.1),
+    error-dark: #ef4444,
+
+    warning: #fbbf24,
+    warning-light: rgba(251, 191, 36, 0.1),
+    warning-dark: #f59e0b,
+
+    info: #93c5fd,
+    info-light: rgba(147, 197, 253, 0.1),
+    info-dark: #60a5fa,
+
+    // Cores de fundo
+    bg-primary: #0f172a,
+    bg-secondary: #1e293b,
+    bg-tertiary: #334155,
+
+    // Cores de texto
+    text-primary: #f8fafc,
+    text-secondary: #cbd5e1,
+    text-tertiary: #94a3b8,
+
+    // Cores de borda
+    border: #334155,
+    border-hover: #475569,
+
+    // Cores de sombra
+    shadow: rgba(0, 0, 0, 0.3),
+    shadow-hover: rgba(0, 0, 0, 0.4)
+  ),
+  light: (
+    // Cores base
+    white: #ffffff,
+    black: #000000,
+
+    // Cores primárias
+    primary: #2563eb,
+    primary-light: rgba(37, 99, 235, 0.1),
+    primary-dark: #1d4ed8,
+
+    // Cores de estado
+    success: #22c55e,
+    success-light: rgba(34, 197, 94, 0.1),
+    success-dark: #16a34a,
+
+    error: #ef4444,
+    error-light: rgba(239, 68, 68, 0.1),
+    error-dark: #dc2626,
+
+    warning: #f59e0b,
+    warning-light: rgba(245, 158, 11, 0.1),
+    warning-dark: #d97706,
+
+    info: #3b82f6,
+    info-light: rgba(59, 130, 246, 0.1),
+    info-dark: #2563eb,
+
+    // Cores de fundo
+    bg-primary: #ffffff,
+    bg-secondary: #f8fafc,
+    bg-tertiary: #f1f5f9,
+
+    // Cores de texto
+    text-primary: #1e293b,
+    text-secondary: #64748b,
+    text-tertiary: #94a3b8,
+
+    // Cores de borda
+    border: #e2e8f0,
+    border-hover: #cbd5e1,
+
+    // Cores de sombra
+    shadow: rgba(0, 0, 0, 0.1),
+    shadow-hover: rgba(0, 0, 0, 0.2)
+  )
+);
+
+// Aplicar tema escuro por padrão
+:root {
+  @each $property, $value in map-get($themes, dark) {
+    --#{$property}: #{$value};
+  }
+}
+
+// Aplicar tema claro quando selecionado
+[data-theme="light"] {
+  @each $property, $value in map-get($themes, light) {
+    --#{$property}: #{$value};
+  }
+}
+
+// Gradientes
+:root {
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+  --gradient-error: linear-gradient(135deg, var(--error) 0%, var(--error-dark) 100%);
+  --gradient-warning: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
+  --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-dark) 100%);
+} 

@@ -1,0 +1,239 @@
+// Navegação
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  // Links
+  &-link {
+    display: inline-flex;
+    align-items: center;
+    padding: $spacing-sm $spacing-md;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: $border-radius-md;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      color: var(--primary);
+      background-color: var(--bg-secondary);
+    }
+    
+    &.active {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+    
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+  
+  // Tabs
+  &-tabs {
+    border-bottom: $border-width-sm solid var(--border);
+    
+    .nav-link {
+      margin-bottom: -$border-width-sm;
+      border: $border-width-sm solid transparent;
+      border-radius: $border-radius-md $border-radius-md 0 0;
+      
+      &:hover {
+        border-color: var(--border-hover);
+        background-color: transparent;
+      }
+      
+      &.active {
+        color: var(--primary);
+        background-color: var(--bg-primary);
+        border-color: var(--border) var(--border) var(--bg-primary);
+      }
+    }
+  }
+  
+  // Pills
+  &-pills {
+    .nav-link {
+      border-radius: $border-radius-full;
+      
+      &.active {
+        background-color: var(--primary);
+        color: var(--white);
+      }
+    }
+  }
+  
+  // Underline
+  &-underline {
+    border-bottom: $border-width-sm solid var(--border);
+    
+    .nav-link {
+      margin-bottom: -$border-width-sm;
+      border-bottom: $border-width-sm solid transparent;
+      border-radius: 0;
+      
+      &:hover {
+        border-color: var(--border-hover);
+        background-color: transparent;
+      }
+      
+      &.active {
+        color: var(--primary);
+        border-color: var(--primary);
+        background-color: transparent;
+      }
+    }
+  }
+  
+  // Vertical
+  &-vertical {
+    flex-direction: column;
+    gap: $spacing-xs;
+    
+    .nav-link {
+      width: 100%;
+      justify-content: flex-start;
+    }
+  }
+  
+  // Justified
+  &-justified {
+    width: 100%;
+    
+    .nav-link {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+  
+  // Centered
+  &-centered {
+    justify-content: center;
+  }
+  
+  // Right aligned
+  &-right {
+    justify-content: flex-end;
+  }
+  
+  // With icons
+  &-icon {
+    .nav-link {
+      padding: $spacing-sm;
+      border-radius: $border-radius-full;
+    }
+  }
+  
+  // Responsive
+  @include respond-to(sm) {
+    &-responsive {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  &-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+    
+    &:not(:last-child)::after {
+      content: '/';
+      margin-left: $spacing-xs;
+      color: var(--text-tertiary);
+    }
+    
+    a {
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+      
+      &:hover {
+        color: var(--primary);
+      }
+    }
+    
+    &.active {
+      color: var(--text-tertiary);
+    }
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  &-item {
+    .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5em;
+      height: 2.5em;
+      padding: 0 $spacing-sm;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: $border-radius-md;
+      transition: all 0.2s ease-in-out;
+      
+      &:hover {
+        color: var(--primary);
+        background-color: var(--bg-secondary);
+      }
+    }
+    
+    &.active .page-link {
+      color: var(--white);
+      background-color: var(--primary);
+    }
+    
+    &.disabled .page-link {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+  
+  // Sizes
+  &-sm {
+    .page-link {
+      min-width: 2em;
+      height: 2em;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  &-lg {
+    .page-link {
+      min-width: 3em;
+      height: 3em;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  // Rounded
+  &-rounded {
+    .page-link {
+      border-radius: $border-radius-full;
+    }
+  }
+} 

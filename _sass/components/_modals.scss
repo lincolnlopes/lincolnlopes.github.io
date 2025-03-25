@@ -4,121 +4,207 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1000;
   display: none;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px);
+  z-index: z(modal);
+  background-color: var(--shadow);
   opacity: 0;
-  transition: opacity 0.3s ease;
-
-  &.active {
+  transition: opacity 0.3s ease-in-out;
+  
+  &.show {
     display: flex;
     opacity: 1;
   }
-
+  
   // Conteúdo do modal
-  .modal-content {
-    background: var(--bg-primary);
-    border-radius: $border-radius-lg;
-    box-shadow: $shadow-xl;
+  &-content {
+    position: relative;
     width: 100%;
     max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
-
-    .modal.active & {
+    margin: $spacing-md;
+    background-color: var(--bg-primary);
+    border: $border-width-sm solid var(--border);
+    border-radius: $border-radius-lg;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+    
+    .modal.show & {
       transform: translateY(0);
     }
   }
-
-  // Cabeçalho do modal
-  .modal-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border-color);
+  
+  // Header do modal
+  &-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
+    padding: $spacing-md;
+    border-bottom: $border-width-sm solid var(--border);
+    
+    &-title {
       margin: 0;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      color: var(--text-secondary);
-      cursor: pointer;
-      padding: 0.5rem;
-      border-radius: $border-radius-full;
-      transition: $transition-base;
-
-      &:hover {
-        color: var(--text-primary);
-        background: var(--bg-secondary);
-      }
+      font-size: $font-size-lg;
+      font-weight: $font-weight-bold;
+      color: var(--text-primary);
     }
   }
-
-  // Corpo do modal
-  .modal-body {
-    padding: 1.5rem;
+  
+  // Body do modal
+  &-body {
+    padding: $spacing-md;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
   }
-
-  // Rodapé do modal
-  .modal-footer {
-    padding: 1.5rem;
-    border-top: 1px solid var(--border-color);
+  
+  // Footer do modal
+  &-footer {
     display: flex;
+    align-items: center;
     justify-content: flex-end;
-    gap: 1rem;
+    gap: $spacing-sm;
+    padding: $spacing-md;
+    border-top: $border-width-sm solid var(--border);
   }
-
+  
+  // Botão de fechar
+  &-close {
+    padding: $spacing-xs;
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+    
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+  
   // Tamanhos
   &-sm {
     .modal-content {
-      max-width: 400px;
+      max-width: 300px;
     }
   }
-
+  
   &-lg {
     .modal-content {
       max-width: 800px;
     }
   }
-
+  
   &-xl {
     .modal-content {
       max-width: 1140px;
     }
   }
-
-  // Com animação de slide
-  &-slide {
+  
+  &-full {
     .modal-content {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
+      max-width: 100%;
+      margin: 0;
+      height: 100%;
+      border-radius: 0;
     }
-
-    &.active .modal-content {
+  }
+  
+  // Posições
+  &-top {
+    align-items: flex-start;
+    padding-top: $spacing-xl;
+  }
+  
+  &-bottom {
+    align-items: flex-end;
+    padding-bottom: $spacing-xl;
+  }
+  
+  // Scrollable
+  &-scrollable {
+    .modal-body {
+      max-height: calc(100vh - 200px);
+      overflow-y: auto;
+    }
+  }
+  
+  // Centered
+  &-centered {
+    .modal-content {
+      margin: 1.75rem auto;
+    }
+  }
+  
+  // Backdrop
+  &-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--shadow);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    
+    &.show {
+      opacity: 1;
+    }
+  }
+  
+  // Animations
+  &-fade {
+    .modal-content {
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+  
+  &-slide-up {
+    .modal-content {
+      transform: translateY(100%);
+    }
+    
+    &.show .modal-content {
+      transform: translateY(0);
+    }
+  }
+  
+  &-slide-down {
+    .modal-content {
+      transform: translateY(-100%);
+    }
+    
+    &.show .modal-content {
+      transform: translateY(0);
+    }
+  }
+  
+  &-slide-left {
+    .modal-content {
+      transform: translateX(-100%);
+    }
+    
+    &.show .modal-content {
       transform: translateX(0);
     }
   }
-
-  // Com animação de fade
-  &-fade {
+  
+  &-slide-right {
     .modal-content {
-      transform: scale(0.95);
-      transition: transform 0.3s ease;
+      transform: translateX(100%);
     }
-
-    &.active .modal-content {
+    
+    &.show .modal-content {
+      transform: translateX(0);
+    }
+  }
+  
+  &-zoom {
+    .modal-content {
+      transform: scale(0.8);
+    }
+    
+    &.show .modal-content {
       transform: scale(1);
     }
   }

@@ -1,0 +1,102 @@
+// Barra lateral
+.sidebar {
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  bottom: 0;
+  width: $sidebar-width;
+  background-color: var(--bg-secondary);
+  border-right: $border-width-sm solid var(--border);
+  overflow-y: auto;
+  z-index: z('sidebar');
+  
+  // Container
+  &__container {
+    padding: $spacing-md;
+  }
+  
+  // Seção
+  &__section {
+    margin-bottom: $spacing-xl;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Título
+  &__title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: letter-spacing('wide');
+    margin-bottom: $spacing-md;
+  }
+  
+  // Links
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+  
+  // Link
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: $border-radius-sm;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background-color: var(--bg-tertiary);
+      color: var(--primary);
+    }
+    
+    &--active {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-weight: $font-weight-medium;
+    }
+    
+    i {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  // Badge
+  &__badge {
+    margin-left: auto;
+    padding: 0.25em 0.5em;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    font-size: $font-size-xs;
+    border-radius: $border-radius-full;
+  }
+  
+  // Tema escuro
+  &--dark {
+    background-color: var(--bg-tertiary);
+    border-right-color: var(--border-hover);
+  }
+  
+  // Tema claro
+  &--light {
+    background-color: var(--bg-secondary);
+    border-right-color: var(--border);
+  }
+  
+  // Responsivo
+  @include respond-to('md') {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    
+    &--open {
+      transform: translateX(0);
+    }
+  }
+} 

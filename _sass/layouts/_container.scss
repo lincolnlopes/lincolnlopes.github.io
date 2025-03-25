@@ -1,0 +1,49 @@
+// Container
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $spacing-md;
+  padding-left: $spacing-md;
+  
+  // Tamanhos
+  &-sm {
+    max-width: container-width('sm');
+  }
+  
+  &-md {
+    max-width: container-width('md');
+  }
+  
+  &-lg {
+    max-width: container-width('lg');
+  }
+  
+  &-xl {
+    max-width: container-width('xl');
+  }
+  
+  &-xxl {
+    max-width: container-width('xxl');
+  }
+  
+  &-fluid {
+    max-width: none;
+  }
+  
+  // Responsivo
+  @include respond-to('lg') {
+    padding-right: $spacing-lg;
+    padding-left: $spacing-lg;
+  }
+  
+  @include respond-to('md') {
+    padding-right: $spacing-md;
+    padding-left: $spacing-md;
+  }
+  
+  @include respond-to('sm') {
+    padding-right: $spacing-sm;
+    padding-left: $spacing-sm;
+  }
+} 
