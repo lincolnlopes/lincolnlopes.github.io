@@ -21,7 +21,7 @@ GEM
     faraday-net_http (3.0.2)
     faraday-retry (2.2.1)
       faraday (~> 2.0)
-    ffi (1.17.1)
+    ffi (1.15.5)
     forwardable-extended (2.6.0)
     html-proofer (3.19.4)
       addressable (~> 2.3)
@@ -116,6 +116,7 @@ PLATFORMS
 
 DEPENDENCIES
   faraday-retry (~> 2.2)
+  ffi (~> 1.15.5)
   html-proofer (~> 3.19.4)
   jekyll (~> 4.3.2)
   jekyll-feed (~> 0.17.0)
@@ -126,7 +127,11 @@ DEPENDENCIES
   jekyll-seo-tag (~> 2.8.0)
   jekyll-sitemap (~> 1.4.0)
   jekyll-watch (~> 2.2.1)
+  sassc (~> 2.4.0)
   webrick
+
+RUBY VERSION
+   ruby 2.6.10p210
 
 BUNDLED WITH
    1.17.2

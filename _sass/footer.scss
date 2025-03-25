@@ -79,7 +79,7 @@
 }
 
 // Responsividade
-@media (max-width: $mobile) {
+@media (max-width: $breakpoint-sm) {
   .site-footer {
     padding: $spacing-lg 0;
     

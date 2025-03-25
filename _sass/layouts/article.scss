@@ -231,7 +231,7 @@
   }
 }
 // Responsividade
-@media (max-width: $mobile) {
+@media (max-width: $breakpoint-sm) {
   .article {
     padding: $spacing-lg 0;
     

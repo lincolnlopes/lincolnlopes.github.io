@@ -1,5 +1,5 @@
 // Mobile (< 768px)
-@media (max-width: $mobile) {
+@media (max-width: $breakpoint-sm) {
   // Header
   .site-header {
     .header-container {
@@ -76,7 +76,7 @@
 }
 
 // Tablet (768px - 1024px)
-@media (min-width: $mobile) and (max-width: $tablet) {
+@media (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg) {
   // Header
   .site-header {
     .header-container {
@@ -112,7 +112,7 @@
 }
 
 // Desktop (> 1024px)
-@media (min-width: $tablet) {
+@media (min-width: $breakpoint-lg) {
   // Header
   .site-header {
     .header-container {
@@ -148,7 +148,7 @@
 }
 
 // Large Desktop (> 1200px)
-@media (min-width: $desktop) {
+@media (min-width: $breakpoint-xl) {
   // Container
   .header-container,
   .main-content,

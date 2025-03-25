@@ -145,6 +145,14 @@ th {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 $container-padding;
+
+  @media (max-width: $breakpoint-md) {
+    padding: 0 $container-padding-sm;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    padding: 0 $container-padding-lg;
+  }
 }
 
 // Seções

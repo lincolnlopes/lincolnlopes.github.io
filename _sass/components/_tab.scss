@@ -1,0 +1,189 @@
+.tab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  
+  // Container das abas
+  &-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    
+    // Item da aba
+    .item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      border-radius: $border-radius $border-radius 0 0;
+      cursor: pointer;
+      transition: $transition-base;
+      
+      // Ícone
+      .icon {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      
+      // Badge
+      .badge {
+        margin-left: 0.25rem;
+      }
+      
+      // Hover
+      &:hover {
+        color: var(--text-primary);
+        background-color: var(--bg-secondary);
+      }
+      
+      // Ativo
+      &.active {
+        color: var(--primary-color);
+        background-color: var(--bg-primary);
+        border-bottom: 2px solid var(--primary-color);
+        margin-bottom: -1px;
+      }
+      
+      // Desabilitado
+      &.disabled {
+        color: var(--text-tertiary);
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+    }
+  }
+  
+  // Conteúdo
+  &-content {
+    flex: 1;
+    min-height: 0;
+    
+    // Painel
+    .panel {
+      display: none;
+      padding: 1rem 0;
+      
+      &.active {
+        display: block;
+      }
+    }
+  }
+  
+  // Variações de tamanho
+  &-sm {
+    .tab-nav .item {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      
+      .icon {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+  
+  &-lg {
+    .tab-nav .item {
+      padding: 1rem 1.5rem;
+      font-size: 1.125rem;
+      
+      .icon {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+  
+  // Estilos adicionais
+  &-bordered {
+    .tab-nav {
+      border: 1px solid var(--border-color);
+      border-radius: $border-radius;
+      padding: 0.25rem;
+      
+      .item {
+        border: 1px solid transparent;
+        
+        &.active {
+          border-color: var(--primary-color);
+        }
+      }
+    }
+  }
+  
+  &-shadow {
+    .tab-nav {
+      box-shadow: $shadow-sm;
+    }
+  }
+  
+  // Variantes de cor
+  &-primary {
+    .tab-nav .item.active {
+      color: var(--primary-color);
+      border-color: var(--primary-color);
+    }
+  }
+  
+  &-success {
+    .tab-nav .item.active {
+      color: var(--success-color);
+      border-color: var(--success-color);
+    }
+  }
+  
+  &-error {
+    .tab-nav .item.active {
+      color: var(--error-color);
+      border-color: var(--error-color);
+    }
+  }
+  
+  &-warning {
+    .tab-nav .item.active {
+      color: var(--warning-color);
+      border-color: var(--warning-color);
+    }
+  }
+  
+  &-info {
+    .tab-nav .item.active {
+      color: var(--info-color);
+      border-color: var(--info-color);
+    }
+  }
+  
+  // Container
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  // Responsivo
+  @media (max-width: $breakpoint-sm) {
+    &-nav {
+      flex-direction: column;
+      gap: 0.25rem;
+      
+      .item {
+        width: 100%;
+        justify-content: center;
+        border-radius: $border-radius;
+      }
+    }
+    
+    &-sm .tab-nav .item,
+    &-lg .tab-nav .item {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+  }
+} 

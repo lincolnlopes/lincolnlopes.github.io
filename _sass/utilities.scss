@@ -120,21 +120,21 @@
 .rotate-180 { transform: rotate(180deg); }
 
 // Responsividade
-@media (max-width: $mobile) {
+@media (max-width: $breakpoint-sm) {
   .mobile\:hidden { display: none; }
   .mobile\:block { display: block; }
   .mobile\:flex { display: flex; }
   .mobile\:grid { display: grid; }
 }
 
-@media (min-width: $tablet) {
+@media (min-width: $breakpoint-md) {
   .tablet\:hidden { display: none; }
   .tablet\:block { display: block; }
   .tablet\:flex { display: flex; }
   .tablet\:grid { display: grid; }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $breakpoint-lg) {
   .desktop\:hidden { display: none; }
   .desktop\:block { display: block; }
   .desktop\:flex { display: flex; }

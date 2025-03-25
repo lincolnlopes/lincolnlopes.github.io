@@ -1,0 +1,175 @@
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 300px;
+  background-color: var(--bg-primary);
+  box-shadow: $shadow-lg;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  
+  // Posições
+  &-left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  
+  &-right {
+    right: 0;
+    transform: translateX(100%);
+  }
+  
+  // Estado ativo
+  &.active {
+    transform: translateX(0);
+  }
+  
+  // Header
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    
+    .title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+    
+    .close {
+      cursor: pointer;
+      padding: 0.5rem;
+      margin: -0.5rem;
+      color: var(--text-secondary);
+      transition: $transition-base;
+      
+      &:hover {
+        color: var(--text-primary);
+      }
+    }
+  }
+  
+  // Conteúdo
+  &-content {
+    padding: 1rem;
+  }
+  
+  // Footer
+  &-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  // Variações de tamanho
+  &-sm {
+    width: 250px;
+  }
+  
+  &-lg {
+    width: 400px;
+  }
+  
+  // Estilos adicionais
+  &-bordered {
+    border: 1px solid var(--border-color);
+  }
+  
+  &-rounded {
+    border-radius: 0 $border-radius $border-radius 0;
+    
+    &.drawer-right {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+  }
+  
+  // Variantes de cor
+  &-primary {
+    background-color: var(--primary-color);
+    color: white;
+    
+    .drawer-header {
+      border-color: rgba(255, 255, 255, 0.1);
+      
+      .title {
+        color: white;
+      }
+      
+      .close {
+        color: rgba(255, 255, 255, 0.7);
+        
+        &:hover {
+          color: white;
+        }
+      }
+    }
+    
+    .drawer-footer {
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  
+  &-success {
+    background-color: var(--success-color);
+    @extend .drawer-primary;
+  }
+  
+  &-error {
+    background-color: var(--error-color);
+    @extend .drawer-primary;
+  }
+  
+  &-warning {
+    background-color: var(--warning-color);
+    @extend .drawer-primary;
+  }
+  
+  &-info {
+    background-color: var(--info-color);
+    @extend .drawer-primary;
+  }
+  
+  // Overlay
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: $transition-base;
+    
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  
+  // Container
+  &-container {
+    position: relative;
+  }
+  
+  // Responsivo
+  @media (max-width: $breakpoint-sm) {
+    width: 100% !important;
+    
+    &-sm,
+    &-lg {
+      width: 100% !important;
+    }
+    
+    &-rounded {
+      border-radius: 0;
+    }
+  }
+} 
