@@ -48,18 +48,21 @@ defaults:
     values:
       layout: "tutorial"
       author: "Lincoln Lopes"
+      comments: true
   - scope:
       path: ""
       type: "articles"
     values:
       layout: "article"
       author: "Lincoln Lopes"
+      comments: true
   - scope:
       path: ""
       type: "projects"
     values:
       layout: "project"
       author: "Lincoln Lopes"
+      comments: true
 
 # Search Configuration
 search_enabled: true
@@ -70,3 +73,11 @@ search_min_chars: 2
 javascript:
   - /assets/js/lunr.min.js
   - /assets/js/search.js
+
+# Comments Configuration
+comments:
+  utterances:
+    repo: lincolnlopes/lincolnlopes.github.io
+    issue-term: pathname
+    label: 💬 Comentários
+    theme: dracula
