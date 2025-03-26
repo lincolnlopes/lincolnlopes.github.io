@@ -1,5 +1,5 @@
 // Tema Escuro
-.dark-theme {
+:root {
   // Cores base
   --white: #ffffff;
   --black: #000000;
@@ -48,143 +48,55 @@
   // Cores de formulário
   --input-bg: var(--bg-secondary);
   --input-color: var(--text-primary);
-  --input-border: var(--border-color);
-  --input-focus-border: var(--primary);
-  --input-focus-shadow: rgba(13, 110, 253, 0.25);
-  --input-disabled-bg: var(--bg-tertiary);
-  --input-disabled-color: var(--text-secondary);
-  --input-placeholder-color: var(--text-tertiary);
-  
-  // Cores de tabela
-  --table-bg: var(--bg-secondary);
-  --table-color: var(--text-primary);
-  --table-border: var(--border-color);
-  --table-hover-bg: var(--bg-tertiary);
-  --table-hover-color: var(--text-primary);
-  
-  // Cores de modal
-  --modal-bg: var(--bg-primary);
-  --modal-content-bg: var(--bg-secondary);
-  --modal-content-color: var(--text-primary);
-  --modal-border: var(--border-color);
-  --modal-header-bg: var(--bg-secondary);
-  --modal-header-color: var(--text-primary);
-  --modal-footer-bg: var(--bg-secondary);
-  --modal-footer-color: var(--text-primary);
-  
-  // Cores de alerta
-  --alert-success-bg: var(--success);
-  --alert-success-color: var(--white);
-  --alert-error-bg: var(--error);
-  --alert-error-color: var(--white);
-  --alert-warning-bg: var(--warning);
-  --alert-warning-color: var(--black);
-  --alert-info-bg: var(--info);
-  --alert-info-color: var(--white);
-  
-  // Cores de badge
-  --badge-primary-bg: var(--primary);
-  --badge-primary-color: var(--white);
-  --badge-secondary-bg: var(--bg-secondary);
-  --badge-secondary-color: var(--text-primary);
-  
-  --badge-success-bg: var(--success);
-  --badge-success-color: var(--white);
-  
-  --badge-error-bg: var(--error);
-  --badge-error-color: var(--white);
-  
-  --badge-warning-bg: var(--warning);
-  --badge-warning-color: var(--text-primary);
-  
-  --badge-info-bg: var(--info);
-  --badge-info-color: var(--white);
-  
-  // Cores de card
-  --card-bg: var(--bg-secondary);
-  --card-color: var(--text-primary);
-  --card-border: var(--border-color);
-  --card-hover-bg: var(--bg-tertiary);
-  --card-hover-color: var(--text-primary);
-  --card-header-bg: var(--bg-secondary);
-  --card-header-color: var(--text-primary);
-  --card-footer-bg: var(--bg-secondary);
-  --card-footer-color: var(--text-primary);
-  
-  // Cores de navegação
-  --nav-bg: var(--bg-secondary);
-  --nav-color: var(--text-primary);
-  --nav-hover-bg: var(--bg-tertiary);
-  --nav-hover-color: var(--text-primary);
-  --nav-active-bg: var(--bg-tertiary);
-  --nav-active-color: var(--text-primary);
-  --nav-link-color: var(--text-primary);
-  --nav-link-hover-color: var(--primary);
-  --nav-link-active-color: var(--primary);
-  --nav-link-disabled-color: var(--text-tertiary);
-  
-  // Cores de sidebar
-  --sidebar-bg: var(--bg-secondary);
-  --sidebar-color: var(--text-primary);
-  --sidebar-border: var(--border-color);
-  --sidebar-hover-bg: var(--bg-tertiary);
-  --sidebar-hover-color: var(--text-primary);
-  --sidebar-active-bg: var(--bg-tertiary);
-  --sidebar-active-color: var(--text-primary);
-  --sidebar-link-color: var(--text-primary);
-  --sidebar-link-hover-bg: var(--bg-tertiary);
-  --sidebar-link-hover-color: var(--text-primary);
-  
-  // Cores de header
-  --header-bg: var(--bg-secondary);
-  --header-color: var(--text-primary);
-  --header-border: var(--border-color);
-  --header-link-color: var(--text-primary);
-  --header-link-hover-color: var(--primary);
-  --header-link-active-color: var(--primary);
-  
-  // Cores de footer
-  --footer-bg: var(--bg-secondary);
-  --footer-color: var(--text-primary);
-  --footer-border: var(--border-color);
-  --footer-link-color: var(--text-primary);
-  --footer-link-hover-color: var(--primary);
-  
-  // Cores de imagem
-  --img-bg: var(--bg-tertiary);
-  --img-border: var(--border-color);
-  --img-placeholder-bg: var(--bg-secondary);
-  --img-placeholder-color: var(--text-tertiary);
-  
-  // Cores de ícone
-  --icon-color: var(--text-primary);
-  --icon-hover-color: var(--text-secondary);
-  --icon-active-color: var(--primary-dark);
-  --icon-disabled-color: var(--text-tertiary);
-  
-  // Cores de tooltip
-  --tooltip-bg: var(--bg-secondary);
-  --tooltip-color: var(--text-primary);
-  
-  // Cores de loading
-  --loading-bg: var(--bg-secondary);
-  --loading-color: var(--text-primary);
-  
-  // Cores de scrollbar
-  --scrollbar-track: var(--bg-secondary);
-  --scrollbar-thumb: var(--bg-tertiary);
-  --scrollbar-thumb-hover: var(--text-secondary);
+  --input-border-color: var(--border-color);
+  --input-focus-border-color: var(--primary);
+  --input-focus-box-shadow: 0 0 0 0.25rem var(--primary-light);
   
   // Cores de link
   --link-color: var(--primary);
   --link-hover-color: var(--primary-dark);
   
   // Cores de código
-  --code-bg: var(--bg-tertiary);
+  --code-bg: var(--bg-secondary);
   --code-color: var(--text-primary);
   
+  // Cores de pré-código
+  --pre-bg: var(--bg-secondary);
+  --pre-color: var(--text-primary);
+  --pre-border-color: var(--border-color);
+  
+  // Cores de tabela
+  --table-bg: var(--bg-secondary);
+  --table-color: var(--text-primary);
+  --table-border-color: var(--border-color);
+  --table-hover-bg: var(--bg-tertiary);
+  
+  // Cores de lista
+  --list-bg: var(--bg-secondary);
+  --list-color: var(--text-primary);
+  --list-border-color: var(--border-color);
+  
   // Cores de citação
-  --quote-bg: var(--bg-secondary);
-  --quote-border: var(--border-color);
-  --quote-color: var(--text-secondary);
+  --blockquote-bg: var(--bg-secondary);
+  --blockquote-color: var(--text-primary);
+  --blockquote-border-color: var(--primary);
+  
+  // Cores de seleção
+  --selection-bg: var(--primary);
+  --selection-color: var(--white);
+  
+  // Cores de scrollbar
+  --scrollbar-thumb: var(--bg-tertiary);
+  --scrollbar-track: var(--bg-secondary);
+  
+  // Cores de sombra
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-hover: rgba(0, 0, 0, 0.4);
+  
+  // Cores de gradiente
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
+  --gradient-error: linear-gradient(135deg, var(--error) 0%, var(--error-dark) 100%);
+  --gradient-warning: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
+  --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-dark) 100%);
 } 

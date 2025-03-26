@@ -238,29 +238,6 @@ $dracula: (
   yellow: #f1fa8c
 );
 
-// Aplicar tema escuro por padrão
-:root {
-  @each $property, $value in map-get($themes, dark) {
-    --#{$property}: #{$value};
-  }
-}
-
-// Aplicar tema claro quando selecionado
-[data-theme="light"] {
-  @each $property, $value in map-get($themes, light) {
-    --#{$property}: #{$value};
-  }
-}
-
-// Gradientes
-:root {
-  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  --gradient-success: linear-gradient(135deg, var(--success) 0%, var(--success-dark) 100%);
-  --gradient-error: linear-gradient(135deg, var(--error) 0%, var(--error-dark) 100%);
-  --gradient-warning: linear-gradient(135deg, var(--warning) 0%, var(--warning-dark) 100%);
-  --gradient-info: linear-gradient(135deg, var(--info) 0%, var(--info-dark) 100%);
-}
-
 // Transitions
 $transition-base: all 0.2s ease-in-out;
 $transition-slow: all 0.3s ease-in-out;

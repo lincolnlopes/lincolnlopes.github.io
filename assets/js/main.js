@@ -26,42 +26,54 @@ document.addEventListener('DOMContentLoaded', function() {
 // Tema escuro/claro
 document.addEventListener('DOMContentLoaded', function() {
   const themeToggle = document.querySelector('#theme-toggle');
-  if (themeToggle) {
-    // Função para atualizar o ícone do tema
-    function updateThemeIcon(isDark) {
-      const icon = themeToggle.querySelector('i');
+  
+  // Função para atualizar o ícone do tema
+  function updateThemeIcon(isDark) {
+    const icon = themeToggle.querySelector('i');
+    if (icon) {
       icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
       icon.setAttribute('aria-label', isDark ? 'Mudar para tema claro' : 'Mudar para tema escuro');
     }
+  }
+  
+  // Função para atualizar o tema
+  function updateTheme(isDark) {
+    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    updateThemeIcon(isDark);
     
-    // Função para atualizar o tema
-    function updateTheme(isDark) {
-      document.body.classList.toggle('dark-theme', isDark);
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      updateThemeIcon(isDark);
-      
-      // Atualizar meta theme-color
-      let metaThemeColor = document.querySelector('meta[name="theme-color"]');
-      if (!metaThemeColor) {
-        metaThemeColor = document.createElement('meta');
-        metaThemeColor.name = 'theme-color';
-        document.head.appendChild(metaThemeColor);
-      }
-      metaThemeColor.content = isDark ? '#1a1b1e' : '#ffffff';
+    // Atualizar meta theme-color
+    let metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (!metaThemeColor) {
+      metaThemeColor = document.createElement('meta');
+      metaThemeColor.name = 'theme-color';
+      document.head.appendChild(metaThemeColor);
     }
-    
-    // Verificar preferência salva
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Aplicar tema dark por padrão
-    const isDark = savedTheme === 'light' ? false : true;
-    updateTheme(isDark);
-    
-    // Evento de clique no botão de tema
+    metaThemeColor.content = isDark ? '#1a1b1e' : '#ffffff';
+  }
+  
+  // Carregar tema salvo
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme) {
+    updateTheme(savedTheme === 'dark');
+  } else {
+    updateTheme(prefersDark);
+  }
+  
+  // Alternar tema ao clicar no botão
+  if (themeToggle) {
     themeToggle.addEventListener('click', function() {
-      const isDark = document.body.classList.contains('dark-theme');
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
       updateTheme(!isDark);
     });
   }
+  
+  // Observar mudanças na preferência do sistema
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+    if (!localStorage.getItem('theme')) {
+      updateTheme(e.matches);
+    }
+  });
 }); 
