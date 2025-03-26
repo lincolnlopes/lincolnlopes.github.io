@@ -1,22 +1,23 @@
-// Keyframes
+// Fade
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes fadeOut {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
+.fade-in {
+  animation: fadeIn var(--transition-speed) var(--transition-timing);
+}
+
+.fade-out {
+  animation: fadeOut var(--transition-speed) var(--transition-timing);
+}
+
+// Slide
 @keyframes slideInUp {
   from {
     transform: translateY(20px);
@@ -39,28 +40,15 @@
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.slide-in-up {
+  animation: slideInUp var(--transition-speed) var(--transition-timing);
 }
 
-@keyframes slideInRight {
-  from {
-    transform: translateX(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.slide-in-down {
+  animation: slideInDown var(--transition-speed) var(--transition-timing);
 }
 
+// Scale
 @keyframes scaleIn {
   from {
     transform: scale(0.95);
@@ -83,28 +71,46 @@
   }
 }
 
+.scale-in {
+  animation: scaleIn var(--transition-speed) var(--transition-timing);
+}
+
+.scale-out {
+  animation: scaleOut var(--transition-speed) var(--transition-timing);
+}
+
+// Rotate
 @keyframes rotateIn {
   from {
-    transform: rotate(-180deg) scale(0);
+    transform: rotate(-180deg);
     opacity: 0;
   }
   to {
-    transform: rotate(0) scale(1);
+    transform: rotate(0);
     opacity: 1;
   }
 }
 
 @keyframes rotateOut {
   from {
-    transform: rotate(0) scale(1);
+    transform: rotate(0);
     opacity: 1;
   }
   to {
-    transform: rotate(180deg) scale(0);
+    transform: rotate(180deg);
     opacity: 0;
   }
 }
 
+.rotate-in {
+  animation: rotateIn var(--transition-speed) var(--transition-timing);
+}
+
+.rotate-out {
+  animation: rotateOut var(--transition-speed) var(--transition-timing);
+}
+
+// Bounce
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -114,6 +120,11 @@
   }
 }
 
+.bounce {
+  animation: bounce 1s infinite;
+}
+
+// Pulse
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -126,6 +137,11 @@
   }
 }
 
+.pulse {
+  animation: pulse 1s infinite;
+}
+
+// Shake
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
@@ -138,193 +154,79 @@
   }
 }
 
-// Classes de animação
+.shake {
+  animation: shake 0.5s infinite;
+}
+
+// Classes de utilidade para animações
 .animate {
-  animation-duration: 0.3s;
+  animation-duration: var(--transition-speed);
+  animation-timing-function: var(--transition-timing);
   animation-fill-mode: both;
-  animation-timing-function: ease-in-out;
 }
 
-.animate-slow {
-  animation-duration: 0.5s;
-}
-
-.animate-fast {
-  animation-duration: 0.2s;
+.animate-once {
+  animation-iteration-count: 1;
 }
 
 .animate-infinite {
   animation-iteration-count: infinite;
 }
 
-// Fade
-.fade-in {
-  animation-name: fadeIn;
+.animate-delay-1 {
+  animation-delay: calc(var(--transition-speed) * 0.25);
 }
 
-.fade-out {
-  animation-name: fadeOut;
+.animate-delay-2 {
+  animation-delay: calc(var(--transition-speed) * 0.5);
 }
 
-// Slide
-.slide-in-up {
-  animation-name: slideInUp;
+.animate-delay-3 {
+  animation-delay: calc(var(--transition-speed) * 0.75);
 }
 
-.slide-in-down {
-  animation-name: slideInDown;
+.animate-delay-4 {
+  animation-delay: var(--transition-speed);
 }
 
-.slide-in-left {
-  animation-name: slideInLeft;
+// Animações de entrada para elementos
+.fade-in-up {
+  animation: fadeIn var(--transition-speed) var(--transition-timing),
+             slideInUp var(--transition-speed) var(--transition-timing);
 }
 
-.slide-in-right {
-  animation-name: slideInRight;
+.fade-in-down {
+  animation: fadeIn var(--transition-speed) var(--transition-timing),
+             slideInDown var(--transition-speed) var(--transition-timing);
 }
 
-// Scale
-.scale-in {
-  animation-name: scaleIn;
+.fade-in-scale {
+  animation: fadeIn var(--transition-speed) var(--transition-timing),
+             scaleIn var(--transition-speed) var(--transition-timing);
 }
 
-.scale-out {
-  animation-name: scaleOut;
+.fade-in-rotate {
+  animation: fadeIn var(--transition-speed) var(--transition-timing),
+             rotateIn var(--transition-speed) var(--transition-timing);
 }
 
-// Rotate
-.rotate-in {
-  animation-name: rotateIn;
+// Animações de saída para elementos
+.fade-out-up {
+  animation: fadeOut var(--transition-speed) var(--transition-timing),
+             slideInUp var(--transition-speed) var(--transition-timing) reverse;
 }
 
-.rotate-out {
-  animation-name: rotateOut;
+.fade-out-down {
+  animation: fadeOut var(--transition-speed) var(--transition-timing),
+             slideInDown var(--transition-speed) var(--transition-timing) reverse;
 }
 
-// Bounce
-.bounce {
-  animation-name: bounce;
+.fade-out-scale {
+  animation: fadeOut var(--transition-speed) var(--transition-timing),
+             scaleOut var(--transition-speed) var(--transition-timing);
 }
 
-// Pulse
-.pulse {
-  animation-name: pulse;
-}
-
-// Shake
-.shake {
-  animation-name: shake;
-}
-
-// Delays
-.delay-100 {
-  animation-delay: 100ms;
-}
-
-.delay-200 {
-  animation-delay: 200ms;
-}
-
-.delay-300 {
-  animation-delay: 300ms;
-}
-
-.delay-400 {
-  animation-delay: 400ms;
-}
-
-.delay-500 {
-  animation-delay: 500ms;
-}
-
-// Easing
-.ease-linear {
-  animation-timing-function: linear;
-}
-
-.ease-in {
-  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-
-.ease-out {
-  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.ease-in-out {
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-// Transições
-.transition {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-slow {
-  transition-duration: 300ms;
-}
-
-.transition-fast {
-  transition-duration: 100ms;
-}
-
-// Hover
-.hover-scale {
-  transition: transform 0.2s ease-in-out;
-  
-  &:hover {
-    transform: scale(1.05);
-  }
-}
-
-.hover-lift {
-  transition: transform 0.2s ease-in-out;
-  
-  &:hover {
-    transform: translateY(-2px);
-  }
-}
-
-.hover-shadow {
-  transition: box-shadow 0.2s ease-in-out;
-  
-  &:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  }
-}
-
-// Loading
-.loading {
-  position: relative;
-  
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: fadeIn 0.2s ease-in-out;
-  }
-}
-
-// Skeleton loading
-.skeleton {
-  background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
-  background-size: 200% 100%;
-  animation: loading 1.5s infinite;
-}
-
-@keyframes loading {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+.fade-out-rotate {
+  animation: fadeOut var(--transition-speed) var(--transition-timing),
+             rotateOut var(--transition-speed) var(--transition-timing);
 } 

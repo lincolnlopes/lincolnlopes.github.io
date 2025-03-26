@@ -1,27 +1,19 @@
----
----
+@charset "utf-8";
+
+// Abstracts
+@import "abstracts";
 
 // Base
-@import "normalize";
-@import "variables";
 @import "base";
-@import "utilities";
-@import "animations";
 
 // Layout
-@import "header";
-@import "footer";
-@import "search";
-@import "categories";
-@import "responsive";
+@import "layouts";
+
+// Components
+@import "components";
 
 // Temas
-@import "themes/dark";
-
-// Páginas
-@import "layouts/article";
-@import "layouts/tutorial";
-@import "layouts/home";
+@import "themes";
 
 // Componentes
 @import "components/modal";
