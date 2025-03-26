@@ -3,6 +3,7 @@ title: Lincoln Lopes
 description: Blog pessoal sobre desenvolvimento web, tecnologia e programação
 baseurl: ""
 url: "https://lincolnlopes.github.io"
+show_header: true
 
 # Autor
 author:
