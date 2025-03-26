@@ -1,0 +1,129 @@
+// Tema escuro
+body.dark-theme {
+  // Cores de fundo
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  
+  // Links
+  a {
+    color: var(--primary-color);
+    
+    &:hover {
+      color: var(--primary-color-dark);
+    }
+  }
+  
+  // Cabeçalho
+  .site-header {
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--border-color);
+    
+    .site-title {
+      color: var(--text-primary);
+    }
+    
+    .nav-links {
+      a {
+        color: var(--text-secondary);
+        
+        &:hover {
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+  
+  // Cards e containers
+  .card,
+  .container {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+  }
+  
+  // Código
+  pre, code {
+    background-color: var(--code-bg);
+    color: var(--text-primary);
+  }
+  
+  // Citações
+  blockquote {
+    background-color: var(--blockquote-bg);
+    border-left-color: var(--blockquote-border);
+    color: var(--text-secondary);
+  }
+  
+  // Tabelas
+  table {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    
+    th, td {
+      border-color: var(--border-color);
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--bg-tertiary);
+    }
+  }
+  
+  // Formulários
+  input, textarea, select {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+    
+    &:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+    }
+  }
+  
+  // Botões
+  .btn {
+    &.btn-primary {
+      background-color: var(--primary-color);
+      color: white;
+      
+      &:hover {
+        background-color: var(--primary-color-dark);
+      }
+    }
+    
+    &.btn-secondary {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      
+      &:hover {
+        background-color: var(--bg-secondary);
+      }
+    }
+  }
+  
+  // Rodapé
+  .site-footer {
+    background-color: var(--bg-secondary);
+    border-top-color: var(--border-color);
+    color: var(--text-secondary);
+  }
+  
+  // Menu mobile
+  .mobile-menu-toggle {
+    span {
+      background-color: var(--text-primary);
+    }
+  }
+  
+  // Tema toggle
+  .theme-toggle {
+    button {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      
+      &:hover {
+        background-color: var(--bg-secondary);
+      }
+    }
+  }
+} 

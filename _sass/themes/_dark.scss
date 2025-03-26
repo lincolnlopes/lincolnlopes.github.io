@@ -1,5 +1,5 @@
 // Tema Escuro
-.theme-dark {
+.dark-theme {
   // Cores base
   --white: #ffffff;
   --black: #000000;
@@ -56,16 +56,16 @@
   --input-placeholder-color: var(--text-tertiary);
   
   // Cores de tabela
-  --table-bg: var(--bg-primary);
+  --table-bg: var(--bg-secondary);
   --table-color: var(--text-primary);
   --table-border: var(--border-color);
-  --table-hover-bg: var(--bg-secondary);
-  --table-striped-bg: var(--bg-secondary);
-  --table-striped-color: var(--text-primary);
+  --table-hover-bg: var(--bg-tertiary);
+  --table-hover-color: var(--text-primary);
   
   // Cores de modal
   --modal-bg: var(--bg-primary);
-  --modal-color: var(--text-primary);
+  --modal-content-bg: var(--bg-secondary);
+  --modal-content-color: var(--text-primary);
   --modal-border: var(--border-color);
   --modal-header-bg: var(--bg-secondary);
   --modal-header-color: var(--text-primary);
@@ -73,26 +73,18 @@
   --modal-footer-color: var(--text-primary);
   
   // Cores de alerta
-  --alert-success-bg: rgba(25, 135, 84, 0.1);
-  --alert-success-color: var(--success);
-  --alert-success-border: var(--success);
-  
-  --alert-error-bg: rgba(220, 53, 69, 0.1);
-  --alert-error-color: var(--error);
-  --alert-error-border: var(--error);
-  
-  --alert-warning-bg: rgba(255, 193, 7, 0.1);
-  --alert-warning-color: var(--warning);
-  --alert-warning-border: var(--warning);
-  
-  --alert-info-bg: rgba(13, 202, 240, 0.1);
-  --alert-info-color: var(--info);
-  --alert-info-border: var(--info);
+  --alert-success-bg: var(--success);
+  --alert-success-color: var(--white);
+  --alert-error-bg: var(--error);
+  --alert-error-color: var(--white);
+  --alert-warning-bg: var(--warning);
+  --alert-warning-color: var(--black);
+  --alert-info-bg: var(--info);
+  --alert-info-color: var(--white);
   
   // Cores de badge
   --badge-primary-bg: var(--primary);
   --badge-primary-color: var(--white);
-  
   --badge-secondary-bg: var(--bg-secondary);
   --badge-secondary-color: var(--text-primary);
   
@@ -109,35 +101,42 @@
   --badge-info-color: var(--white);
   
   // Cores de card
-  --card-bg: var(--bg-primary);
+  --card-bg: var(--bg-secondary);
   --card-color: var(--text-primary);
   --card-border: var(--border-color);
+  --card-hover-bg: var(--bg-tertiary);
+  --card-hover-color: var(--text-primary);
   --card-header-bg: var(--bg-secondary);
   --card-header-color: var(--text-primary);
   --card-footer-bg: var(--bg-secondary);
   --card-footer-color: var(--text-primary);
   
   // Cores de navegação
-  --nav-bg: var(--bg-primary);
+  --nav-bg: var(--bg-secondary);
   --nav-color: var(--text-primary);
-  --nav-border: var(--border-color);
+  --nav-hover-bg: var(--bg-tertiary);
+  --nav-hover-color: var(--text-primary);
+  --nav-active-bg: var(--bg-tertiary);
+  --nav-active-color: var(--text-primary);
   --nav-link-color: var(--text-primary);
   --nav-link-hover-color: var(--primary);
   --nav-link-active-color: var(--primary);
   --nav-link-disabled-color: var(--text-tertiary);
   
   // Cores de sidebar
-  --sidebar-bg: var(--bg-primary);
+  --sidebar-bg: var(--bg-secondary);
   --sidebar-color: var(--text-primary);
   --sidebar-border: var(--border-color);
+  --sidebar-hover-bg: var(--bg-tertiary);
+  --sidebar-hover-color: var(--text-primary);
+  --sidebar-active-bg: var(--bg-tertiary);
+  --sidebar-active-color: var(--text-primary);
   --sidebar-link-color: var(--text-primary);
-  --sidebar-link-hover-bg: var(--bg-secondary);
+  --sidebar-link-hover-bg: var(--bg-tertiary);
   --sidebar-link-hover-color: var(--text-primary);
-  --sidebar-link-active-bg: var(--primary-light);
-  --sidebar-link-active-color: var(--primary);
   
   // Cores de header
-  --header-bg: var(--bg-primary);
+  --header-bg: var(--bg-secondary);
   --header-color: var(--text-primary);
   --header-border: var(--border-color);
   --header-link-color: var(--text-primary);
@@ -152,26 +151,40 @@
   --footer-link-hover-color: var(--primary);
   
   // Cores de imagem
+  --img-bg: var(--bg-tertiary);
   --img-border: var(--border-color);
   --img-placeholder-bg: var(--bg-secondary);
   --img-placeholder-color: var(--text-tertiary);
   
   // Cores de ícone
   --icon-color: var(--text-primary);
-  --icon-hover-color: var(--primary);
+  --icon-hover-color: var(--text-secondary);
   --icon-active-color: var(--primary-dark);
   --icon-disabled-color: var(--text-tertiary);
   
   // Cores de tooltip
-  --tooltip-bg: var(--black);
-  --tooltip-color: var(--white);
+  --tooltip-bg: var(--bg-secondary);
+  --tooltip-color: var(--text-primary);
   
   // Cores de loading
   --loading-bg: var(--bg-secondary);
-  --loading-color: var(--primary);
+  --loading-color: var(--text-primary);
   
   // Cores de scrollbar
   --scrollbar-track: var(--bg-secondary);
   --scrollbar-thumb: var(--bg-tertiary);
   --scrollbar-thumb-hover: var(--text-secondary);
+  
+  // Cores de link
+  --link-color: var(--primary);
+  --link-hover-color: var(--primary-dark);
+  
+  // Cores de código
+  --code-bg: var(--bg-tertiary);
+  --code-color: var(--text-primary);
+  
+  // Cores de citação
+  --quote-bg: var(--bg-secondary);
+  --quote-border: var(--border-color);
+  --quote-color: var(--text-secondary);
 } 

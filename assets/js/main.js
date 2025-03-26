@@ -50,27 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
       metaThemeColor.content = isDark ? '#1a1b1e' : '#ffffff';
     }
     
-    // Evento de clique no botão de tema
-    themeToggle.addEventListener('click', function() {
-      const isDark = !document.body.classList.contains('dark-theme');
-      updateTheme(isDark);
-    });
-    
-    // Verificar preferência do usuário
+    // Verificar preferência salva
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (savedTheme) {
-      updateTheme(savedTheme === 'dark');
-    } else if (prefersDark) {
-      updateTheme(true);
-    }
+    // Aplicar tema dark por padrão
+    const isDark = savedTheme === 'light' ? false : true;
+    updateTheme(isDark);
     
-    // Observar mudanças na preferência do sistema
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!localStorage.getItem('theme')) {
-        updateTheme(e.matches);
-      }
+    // Evento de clique no botão de tema
+    themeToggle.addEventListener('click', function() {
+      const isDark = document.body.classList.contains('dark-theme');
+      updateTheme(!isDark);
     });
   }
 }); 

@@ -188,48 +188,6 @@ $themes: (
   @each $property, $value in map-get($themes, dark) {
     --#{$property}: #{$value};
   }
-  // Cores base
-  --white: #ffffff;
-  --black: #000000;
-  
-  // Cores primárias
-  --primary-color: #0d6efd;
-  --primary-color-light: rgba(13, 110, 253, 0.1);
-  --primary-color-dark: #0a58ca;
-  
-  // Cores de estado
-  --success: #198754;
-  --error: #dc3545;
-  --warning: #ffc107;
-  --info: #0dcaf0;
-  
-  // Cores de fundo
-  --bg-primary: #212529;
-  --bg-secondary: #343a40;
-  --bg-tertiary: #495057;
-  
-  // Cores de texto
-  --text-primary: #f8f9fa;
-  --text-secondary: #adb5bd;
-  --text-tertiary: #6c757d;
-  
-  // Cores de borda
-  --border-color: #495057;
-  --border-color-light: #6c757d;
-  --border-color-dark: #343a40;
-  
-  // Cores de código
-  --code-bg: #1a1a1a;
-  --code-text: #e6e6e6;
-  
-  // Cores de link
-  --link-color: #0d6efd;
-  --link-hover-color: #0a58ca;
-  
-  // Cores de citação
-  --quote-bg: #343a40;
-  --quote-border: #495057;
-  --quote-text: #adb5bd;
 }
 
 // Aplicar tema claro quando selecionado

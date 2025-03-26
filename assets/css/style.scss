@@ -4,34 +4,13 @@
 @import "abstracts";
 
 // Base
-@import "variables";
-@import "normalize";
 @import "base";
-@import "utilities";
-@import "animations";
 
-// Layout
+// Layouts
 @import "layouts";
 
 // Components
 @import "components";
 
-// Temas
+// Themes
 @import "themes";
-
-// Componentes específicos
-@import "components/modal";
-@import "components/tooltip";
-@import "components/popover";
-@import "components/card";
-@import "components/list";
-@import "components/breadcrumb";
-@import "components/menu";
-@import "components/navbar";
-@import "components/sidebar";
-@import "components/tab";
-@import "components/accordion";
-@import "components/drawer";
-@import "components/progress";
-@import "components/skeleton";
-@import "components/chip";
