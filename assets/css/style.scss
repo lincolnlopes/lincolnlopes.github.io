@@ -4,7 +4,11 @@
 @import "abstracts";
 
 // Base
+@import "variables";
+@import "normalize";
 @import "base";
+@import "utilities";
+@import "animations";
 
 // Layout
 @import "layouts";
@@ -15,7 +19,7 @@
 // Temas
 @import "themes";
 
-// Componentes
+// Componentes específicos
 @import "components/modal";
 @import "components/tooltip";
 @import "components/popover";

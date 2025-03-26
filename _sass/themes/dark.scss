@@ -1,0 +1,259 @@
+// Tema escuro
+body.dark-theme {
+  // Cores de fundo
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  
+  // Links
+  a {
+    color: var(--link-color);
+    
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+  
+  // Cabeçalho
+  .site-header {
+    background-color: var(--bg-secondary);
+    border-bottom-color: var(--border-color);
+    
+    .site-title {
+      color: var(--text-primary);
+    }
+    
+    .nav-links {
+      a {
+        color: var(--text-secondary);
+        
+        &:hover {
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+  
+  // Cards e containers
+  .card,
+  .container {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+  }
+  
+  // Código
+  pre, code {
+    background-color: var(--code-bg);
+    color: var(--code-text);
+  }
+  
+  // Citações
+  blockquote {
+    background-color: var(--quote-bg);
+    border-left-color: var(--quote-border);
+    color: var(--quote-text);
+  }
+  
+  // Tabelas
+  table {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    
+    th, td {
+      border-color: var(--border-color);
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--bg-tertiary);
+    }
+  }
+  
+  // Formulários
+  input, textarea, select {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+    
+    &:focus {
+      border-color: var(--primary-color);
+    }
+  }
+  
+  // Botões
+  .btn {
+    &.btn-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+      
+      &:hover {
+        background-color: var(--primary-color-dark);
+      }
+    }
+    
+    &.btn-secondary {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      
+      &:hover {
+        background-color: var(--bg-tertiary);
+      }
+    }
+  }
+  
+  // Alertas
+  .alert {
+    &.alert-success {
+      background-color: var(--success);
+      color: var(--white);
+    }
+    
+    &.alert-error {
+      background-color: var(--error);
+      color: var(--white);
+    }
+    
+    &.alert-warning {
+      background-color: var(--warning);
+      color: var(--black);
+    }
+    
+    &.alert-info {
+      background-color: var(--info);
+      color: var(--white);
+    }
+  }
+  
+  // Badges
+  .badge {
+    &.badge-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+    
+    &.badge-secondary {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+  }
+  
+  // Modais
+  .modal {
+    background-color: var(--bg-primary);
+    
+    .modal-content {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border-color: var(--border-color);
+    }
+  }
+  
+  // Tooltips
+  .tooltip {
+    .tooltip-inner {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+    }
+  }
+  
+  // Popovers
+  .popover {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+  }
+  
+  // Tabs
+  .nav-tabs {
+    border-bottom-color: var(--border-color);
+    
+    .nav-link {
+      color: var(--text-secondary);
+      
+      &.active {
+        color: var(--text-primary);
+        border-bottom-color: var(--primary-color);
+      }
+      
+      &:hover {
+        color: var(--text-primary);
+      }
+    }
+  }
+  
+  // Accordion
+  .accordion {
+    .accordion-item {
+      background-color: var(--bg-secondary);
+      border-color: var(--border-color);
+      
+      .accordion-header {
+        .accordion-button {
+          color: var(--text-primary);
+          background-color: var(--bg-secondary);
+          
+          &:not(.collapsed) {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+          }
+        }
+      }
+      
+      .accordion-body {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+      }
+    }
+  }
+  
+  // Drawer
+  .drawer {
+    background-color: var(--bg-secondary);
+    border-color: var(--border-color);
+  }
+  
+  // Progress
+  .progress {
+    background-color: var(--bg-tertiary);
+    
+    .progress-bar {
+      background-color: var(--primary-color);
+    }
+  }
+  
+  // Skeleton
+  .skeleton {
+    background-color: var(--bg-tertiary);
+  }
+  
+  // Chip
+  .chip {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+  
+  // Rodapé
+  .site-footer {
+    background-color: var(--bg-secondary);
+    border-top-color: var(--border-color);
+    color: var(--text-secondary);
+  }
+  
+  // Menu mobile
+  .mobile-menu-toggle {
+    span {
+      background-color: var(--text-primary);
+    }
+  }
+  
+  // Tema toggle
+  .theme-toggle {
+    button {
+      background-color: var(--bg-tertiary);
+      color: var(--text-primary);
+      
+      &:hover {
+        background-color: var(--bg-secondary);
+      }
+    }
+  }
+} 
