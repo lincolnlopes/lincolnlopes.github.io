@@ -92,16 +92,16 @@ $themes: (
   )
 );
 
-// Aplicar tema escuro por padrão
+// Aplicar tema claro por padrão
 :root {
-  @each $property, $value in map-get($themes, dark) {
+  @each $property, $value in map-get($themes, light) {
     --#{$property}: #{$value};
   }
 }
 
-// Aplicar tema claro quando selecionado
-[data-theme="light"] {
-  @each $property, $value in map-get($themes, light) {
+// Aplicar tema escuro quando selecionado
+[data-theme="dark"] {
+  @each $property, $value in map-get($themes, dark) {
     --#{$property}: #{$value};
   }
 }

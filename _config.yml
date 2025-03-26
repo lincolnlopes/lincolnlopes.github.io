@@ -139,3 +139,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-include-cache
+
+sass:
+  style: compressed

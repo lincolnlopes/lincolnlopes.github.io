@@ -1,0 +1,40 @@
+// Componentes
+.button {
+  @include button-style($primary-color, white);
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px;
+}
+
+.button.secondary {
+  @include button-style($secondary-color, white);
+}
+
+.post-card, .tutorial-card, .topic-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.post-meta, .tutorial-meta {
+  font-size: 0.9em;
+  color: $secondary-color;
+  margin-top: 10px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.newsletter-form input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  flex: 1;
+} 

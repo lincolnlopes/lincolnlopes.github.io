@@ -1,5 +1,5 @@
 // Tema Escuro
-:root {
+[data-theme="dark"] {
   // Cores base
   --white: #ffffff;
   --black: #000000;
@@ -50,7 +50,7 @@
   --input-color: var(--text-primary);
   --input-border-color: var(--border-color);
   --input-focus-border-color: var(--primary);
-  --input-focus-box-shadow: 0 0 0 0.25rem var(--primary-light);
+  --input-placeholder-color: var(--text-tertiary);
   
   // Cores de link
   --link-color: var(--primary);
@@ -59,17 +59,25 @@
   // Cores de código
   --code-bg: var(--bg-secondary);
   --code-color: var(--text-primary);
-  
-  // Cores de pré-código
-  --pre-bg: var(--bg-secondary);
-  --pre-color: var(--text-primary);
-  --pre-border-color: var(--border-color);
+  --code-border-color: var(--border-color);
   
   // Cores de tabela
-  --table-bg: var(--bg-secondary);
-  --table-color: var(--text-primary);
   --table-border-color: var(--border-color);
+  --table-header-bg: var(--bg-secondary);
+  --table-header-color: var(--text-primary);
+  --table-cell-bg: var(--bg-primary);
+  --table-cell-color: var(--text-primary);
   --table-hover-bg: var(--bg-tertiary);
+  
+  // Cores de card
+  --card-bg: var(--bg-secondary);
+  --card-color: var(--text-primary);
+  --card-border-color: var(--border-color);
+  
+  // Cores de navegação
+  --nav-link-color: var(--text-secondary);
+  --nav-link-hover-color: var(--text-primary);
+  --nav-link-active-color: var(--primary);
   
   // Cores de lista
   --list-bg: var(--bg-secondary);

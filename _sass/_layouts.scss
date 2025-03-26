@@ -1,0 +1,33 @@
+// Layouts
+.main-content {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  @include flex-center;
+  background-color: $primary-color;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+}
+
+.featured-posts, .latest-tutorials, .topics, .newsletter {
+  margin-top: 40px;
+}
+
+.posts-grid, .tutorials-grid, .topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+} 
